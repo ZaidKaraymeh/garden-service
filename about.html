@@ -12,7 +12,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <meta name="author" content="">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/242f5b2610.js" crossorigin="anonymous"></script>
 
     <!-- Stylesheet
@@ -23,32 +24,51 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body>
     <!-- Navigation
     ==========================================-->
-    <nav id="menu" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span
-                        class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <p><a class="navbar-brand page-scroll" href="#page-top">BBC Store</a>&nbsp;</p>
-            </div>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">BBC STORE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
+                aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <!-- nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html" class="page-scroll">About US</a></li>
-                    <li><a href="#services" class="page-scroll">Services</a></li>
-                    <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
-                    <li><a href="contactus.html" class="page-scroll">Contact US</a></li>
+            <div class="collapse navbar-collapse" id="navbarsExample05">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Landscaping</a></li>
+                            <li><a class="dropdown-item" href="#">Trimming edging</a></li>
+                            <li><a class="dropdown-item" href="#">3 here</a></li>
+                            <li><a class="dropdown-item" href="#">3 here</a></li>
+
+                        </ul>
+                    </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
+
+
+
+
 
     <!-- About Section -->
     <div id="about">
@@ -144,19 +164,6 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <div class="section-title text-center center">
                 <h2> Gallery</h2>
                 <hr>
-            </div>
-            <div class="categories">
-                <ul class="cat">
-                    <li>
-                        <ol class="type">
-                            <li><a href="#" data-filter="*" class="active">All</a></li>
-                            <li><a href="#" data-filter=".newArrivals">New Arrival</a></li>
-                            <li><a href="#" data-filter=".bestSelling">Best Selling</a></li>
-                            <li><a href="#" data-filter=".Activities">Activities</a></li>
-                        </ol>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
             </div>
             <div class="row">
                 <div class="portfolio-items">
