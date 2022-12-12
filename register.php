@@ -19,7 +19,7 @@ if(isset($_POST['sb'])){
             } else {
                   $vfname = test_input($_POST['fname']);
                   }
-                  if (!preg_match("/([A-Z][-,a-z. ']+[ ]*)+/", $vfname)) {
+                  if (!preg_match("/([A-Z]*[-,a-z. ']+[ ]*)+/", $vfname)) {
                         $fnameERR = "Invalid name format, please enter a valid name";
                   } else {
                         $fname = $_POST['fname'];
@@ -31,7 +31,7 @@ if(isset($_POST['sb'])){
             } else {
                   $vlname = test_input($_POST['lname']);
                   }
-                  if (!preg_match("/([A-Z][-,a-z. ']+[ ]*)+/", $vlname)) {
+                  if (!preg_match("/([A-Z]*[-,a-z. ']+[ ]*)+/", $vlname)) {
                         $lnameERR = "Invalid name format, please enter a valid name";
                   } else {
                         $lname = $_POST['lname'];
@@ -87,9 +87,16 @@ if(isset($_POST['sb'])){
             else {
                   try{
                         require('connection.php');
-                        $sql= "insert into user value( UUID(),'$fname','$lname','$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp())";
-                        $db->exec($sql);
-                        header('location:Login.php');
+                        $query= "select * from user where email='$email'";
+                        $rs=$db->query($query);
+                        $result=$rs->rowCount();
+                              if (($result) > 0) {
+                                    $ERRmsg= "Email already exists!";
+                              } else {
+                                    $sql= "insert into user value( UUID(),'$fname','$lname','$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp())";
+                                    $db->exec($sql);
+                                    header('location:Login.php');
+                                  }
                         $db=null;
                   }
                   catch(PDOException $e){
@@ -118,7 +125,6 @@ if(isset($_POST['sb'])){
       <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
       <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-      <!-- <link rel="stylesheet" href="forms.css"> -->
 
 </head>
 <body>

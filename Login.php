@@ -48,7 +48,6 @@ if(isset($_POST['sb'])){
       <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
       <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-      <!-- <link rel="stylesheet" href="forms.css"> -->
 </head>
 <body>
       <!-- Navigation
