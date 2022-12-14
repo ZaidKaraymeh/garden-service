@@ -24,7 +24,7 @@ require('includes/config.php');
 
 
 //instatiating our database objects
-$db = new Pdocon;
+$db = new config;
 
 
 $db->query('SELECT * FROM users WHERE id=:id');
@@ -37,7 +37,7 @@ $row = $db->fetchSingle();
 
 
 
-//Looping through our fetched array in row vairable. This can go anywhere in the HTML tags
+//Looping through our fetched array in row vairable.
 if ($row) {
 
     $spending_amount = $row['spending'];
