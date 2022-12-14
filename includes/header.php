@@ -4,10 +4,19 @@
     session_start();
 
 ?>
+  
+<?php 
 
-
-
+if(isset($_SESSION['user_is_logged_in'])){
     
+    
+}else{
+    
+    header("Location: logout.php");
+}
+
+?>
+   
 
     
     <html>
@@ -59,7 +68,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand navbar-light" href="#" style="color: #f3f3f3">CUS <strong>MANAGER</strong></a>
+                <a class="navbar-brand navbar-light" href="customers.php" style="color: #f3f3f3">CUS <strong>MANAGER</strong></a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -68,24 +77,33 @@
                     <li><a href=""></a></li>
                 </ul>
                 
-            
-               <?php if(isset($_SESSION['user_is_logged_in'])){
+             <?php if(isset($_SESSION['user_is_logged_in'])){
     
-                        header("Location: admin/my_admin.php");
+                 $fullname  = $_SESSION['user_data']['fullname'];
+                 $image     = $_SESSION['user_data']['image']; 
+    
+                } 
     
     
-                }else ?> 
-                
-                <?php { ?>
-           
+    
+                ?>
+               
+               
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Welcome Guest!</a></li>
-<!--
-                   <li><a href="index.php">Login</a></li>
-                   <li><a href="">Register</a></li>
--->
+                 <li class="navbar-text">Welcome, <?php echo $fullname ?> </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"></b>
+                        <?php echo $image ; ?></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="my_admin.php"><i class="fa fa-cog"></i> Account</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign-out</a></li>
+                                </ul>
+                </li>
+                  
                 </ul>
-                <?php } ?>
+       
+     
 
             </div>
 
