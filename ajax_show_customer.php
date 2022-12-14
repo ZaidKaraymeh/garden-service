@@ -21,7 +21,7 @@ $id = $_GET['cid'];
 
 
 //require database class files
-require('includes/pdocon.php');
+require('includes/config.php');
 
 
 //instatiating our database objects
