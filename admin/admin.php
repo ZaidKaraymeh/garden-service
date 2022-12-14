@@ -125,29 +125,18 @@ if (isset($_POST['sb'])) {
       <div class="collapse navbar-collapse" id="navbarsExample05">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="../about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contactus.html">Contact Us</a>
+            <a class="nav-link" href="../contactus.html">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cart.html">Cart</a>
+            <a class="nav-link" href="../cart.html">Cart</a>
           </li>
 
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Landscaping</a></li>
-              <li><a class="dropdown-item" href="#">Trimming edging</a></li>
-              <li><a class="dropdown-item" href="#">3 here</a></li>
-              <li><a class="dropdown-item" href="#">3 here</a></li>
-
-            </ul>
-          </li>
 
           <!-- register and login should be in dropdown named profile -->
           <li class="nav-item">

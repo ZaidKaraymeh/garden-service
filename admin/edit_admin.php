@@ -140,17 +140,7 @@ include('includes/functions.php');
 
 
     }
-
-
-
-
-
-
-
     ?>
-
-
-
   </div>
 </div>
 

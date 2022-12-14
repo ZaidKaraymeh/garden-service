@@ -13,12 +13,8 @@ $db = new config;
 $db->query('SELECT * FROM users');
 
 $results = $db->fetchMultiple();
- 
-
 
 ?>
-
-
 
 <div class="container">
 

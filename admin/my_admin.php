@@ -150,4 +150,3 @@ $row = $db->fetchSingle();
   </div>
 
 </div>
-<?php include('includes/footer.php'); ?>

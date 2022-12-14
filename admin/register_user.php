@@ -1,6 +1,3 @@
-<?php include('includes/header.php'); ?>
-
-
 <?php
 
 //Include functions
@@ -144,5 +141,3 @@ if (isset($_POST['submit_user'])) {
 
 </div>
 </div>
-
-<?php include('includes/footer.php'); ?>
