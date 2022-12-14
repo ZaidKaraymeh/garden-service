@@ -1,5 +1,6 @@
 <?php
 /************** Fetching data from database using id ******************/
+require('includes/header.php');
 
 //require database class files
 require('includes/config.php');

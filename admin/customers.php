@@ -1,5 +1,6 @@
 <?php 
 /************** Fetching all data from database ******************/
+require('includes/header.php');
 
 
 //require database class files

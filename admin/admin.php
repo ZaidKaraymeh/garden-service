@@ -1,4 +1,6 @@
 <?php
+require('includes/header.php');
+
 require('includes/config.php');
 //instatiating our database objects
 $db = new config;
@@ -170,7 +172,6 @@ if (isset($_POST['sb'])) {
 
     </form>
   </div>
-
   <!-- Footer Section -->
   <div id="footer">
     <div class="container text-center">
@@ -180,9 +181,7 @@ if (isset($_POST['sb'])) {
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="js/nivo-lightbox.js"></script>
+
 </body>
 
 </html>

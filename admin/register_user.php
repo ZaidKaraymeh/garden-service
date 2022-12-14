@@ -1,6 +1,8 @@
 <?php
 
 //Include functions
+require('includes/header.php');
+
 include('includes/functions.php');
 
 
