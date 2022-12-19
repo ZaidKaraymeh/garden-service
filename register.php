@@ -84,7 +84,8 @@ if (isset($_POST['sb'])) {
             $cpsERR = "Passwords must match";
       } else {
             try {
-                  require('connection.php');
+                  $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
+                  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                   $query = "select * from user where email='$email'";
                   $rs = $db->query($query);
                   $result = $rs->rowCount();
@@ -92,7 +93,23 @@ if (isset($_POST['sb'])) {
                         $ERRmsg = "Email already exists!";
                   } else {
                         $sql = "insert into user value( UUID(),'$fname','$lname','$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp())";
-                        $db->exec($sql);
+                        $success = $db->exec($sql);
+                        if ($success) {
+
+                              redirect('customers.php');
+
+                              keepmsg('<div class="alert alert-success text-center">
+                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                      <strong>Success!</strong> Customer registered successfully.
+                                </div>');
+
+                        } else {
+
+                              keepmsg('<div class="alert alert-danger text-center">
+                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                      <strong>Sorry!</strong> Customer could not be registered.
+                                </div>');
+                        }
                         header('location:Login.php');
                   }
                   $db = null;

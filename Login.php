@@ -2,8 +2,11 @@
 $ERRmsg = "";
 if (isset($_POST['sb'])) {
       session_start();
+      //Include functions
+      include('includes/functions.php');
       try {
-            require('connection.php');
+            $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $email = $_POST['email'];
             $sql = "select * from user where email='$email'";
             $rs = $db->query($sql);
@@ -13,14 +16,51 @@ if (isset($_POST['sb'])) {
       }
       if ($row = $rs->fetch()) {
             if (password_verify($_POST['ps'], $row[4])) {
-                  $_SESSION['activeUser'] = $email;
-                  header('location:index.html');
-            } else {
-                  $ERRmsg = "Incorrect email or password";
-            }
+                  if ($row[6] == 'Adm') {
 
+
+                        $d_image = $row['image'];
+
+                        $d_name = $row['fullName'];
+
+                        $s_image = "<img src='uploaded_image/$d_image' class='profile_image' />";
+
+                        $_SESSION['user_data'] = array(
+
+
+                              'fullName' => $row['fullName'],
+                              'id' => $row['id'],
+                              'email' => $row['email'],
+                              'image' => $s_image
+
+                        );
+
+                        $_SESSION['user_is_logged_in'] = true;
+
+                        header('Location: my_admin.php');
+
+
+                        keepmsg('<div class="alert alert-success text-center">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Welcome </strong>' . $d_name . ' You are logged in as Admin 
+                                      </div>');
+                  } else {
+                        $_SESSION['activeUser'] = $email;
+                        header('location:index.html');
+
+                  }
+            } else {
+                  $ERRmsg = '<div class="alert alert-danger text-center">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Sorry!</strong> INCORRECT PASSWORD
+                </div>';
+
+            }
       } else {
-            $ERRmsg = "You have entered incorrect email";
+            $ERRmsg = '<div class="alert alert-danger text-center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Sorry!</strong> INCORRECT EMAIL
+          </div>';
       }
 }
 
@@ -75,18 +115,6 @@ if (isset($_POST['sb'])) {
                                     <a class="nav-link" href="cart.html">Cart</a>
                               </li>
 
-                              <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                          aria-expanded="false">Services</a>
-                                    <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#">Landscaping</a></li>
-                                          <li><a class="dropdown-item" href="#">Trimming edging</a></li>
-                                          <li><a class="dropdown-item" href="#">3 here</a></li>
-                                          <li><a class="dropdown-item" href="#">3 here</a></li>
-
-                                    </ul>
-                              </li>
-
                               <!-- register and login should be in dropdown named profile -->
                               <li class="nav-item">
                                     <a class="nav-link" href="register.php">Register</a>
@@ -96,9 +124,6 @@ if (isset($_POST['sb'])) {
                               </li>
 
                         </ul>
-                        <form role="search">
-                              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        </form>
                   </div>
             </div>
       </nav>

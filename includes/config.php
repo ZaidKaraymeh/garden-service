@@ -11,7 +11,7 @@ class config
     private $host = "localhost";
     private $user = "root";
     private $pass = "";
-    private $dbnm = "serviceSystem";
+    private $dbnm = "servicesystem";
     //   
 
     //Handle our connection
