@@ -350,11 +350,23 @@ label {
 
 .cards {
 	display: flex;
-	justify-content: space-between;
-	align-items: vertical;
-	margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
 }
-
+.margo {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap:30px;
+}
+@media (max-width:767px){
+	.margo {
+		justify-content: center;
+	}
+}
 
 
 #contact .contact-info {
@@ -624,5 +636,7 @@ label {
   width: 49%;
   
   }
-  
-  
+.imgs-contoh img {
+	max-width: 100%;
+	border-radius: 5px;
+}

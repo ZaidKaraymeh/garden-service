@@ -11,9 +11,10 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/242f5b2610.js" crossorigin="anonymous"></script>
 
   <!-- Stylesheet
@@ -25,55 +26,35 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 <body>
   <!-- Navigation
     ==========================================-->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">BBC STORE</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
-        aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExample05">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactus.html">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cart.html">Cart</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Landscaping</a></li>
-              <li><a class="dropdown-item" href="#">Trimming edging</a></li>
-              <li><a class="dropdown-item" href="#">3 here</a></li>
-              <li><a class="dropdown-item" href="#">3 here</a></li>
-
+    <div class="pos-f-t">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">BBC Store</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <!-- register and login should be in dropdown named profile -->
+                <li class="nav-item">
+                  <a class="nav-link" href="register.php">Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Login.php">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Ali
+                    </a>
+                </li>
             </ul>
-          </li>
-
-          <!-- register and login should be in dropdown named profile -->
-          <li class="nav-item">
-            <a class="nav-link" href="register.php">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Login.php">Log in</a>
-          </li>
-
-        </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        </form>
-      </div>
+          </div>
+        </div>
+      </nav>
     </div>
-  </nav>
   <!-- Header -->
   <header id="header">
     <div class="intro">
@@ -147,7 +128,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         <hr>
       </div>
     </div>
-    <div class="imgs-contoh" style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
+    <div class="imgs-contoh" style="border-radius:5px;background-color: lightgrey;display: grid;grid-template-columns: repeat(auto-fill,minmax(250px,1fr));grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
     <?php
     $numberOfCards = 19; // this is the number of images you want to show
     for ($i = 1; $i <= $numberOfCards; $i++) {
@@ -164,43 +145,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       <h2>Contact Us</h2>
       <hr>
       <p>Where can you find us?</p>
-
       <div class="container cards">
-        <div class="">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Address</h5>
-              <p>Al Nakheel Road Karanna,Road 5833</p>
-              <p> PO.18509</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Working Hours</h5>
-              <p class="card-text">
-              <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
-              <p>Friday: 07:00 AM - 8:00 PM</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Contact Info
-              </h5>
-              <p class="card-text">
-              <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
-              <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-12 col-md-offset-2" style="width: 100%;">
           <h3>Leave us a message</h3>
           <form action="POST" data-netlify="true" name="sentMessage" id="contactForm" novalidate>
             <div class="row">
@@ -228,19 +174,52 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           <br>
           <br>
         </div>
+        <div class="margo">
+          <div class="card" style="width: 18rem;">
+            <img src="img/services/service-1.jpg" class="card-img-top" alt="No Image">
+            <div class="card-body">
+              <h5 class="card-title">Address</h5>
+              <p>Al Nakheel Road Karanna,Road 5833</p>
+              <p> PO.18509</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/services/service-2.jpg" class="card-img-top" alt="No image">
+            <div class="card-body">
+              <h5 class="card-title">Working Hours</h5>
+              <p class="card-text">
+              <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
+              <p>Friday: 07:00 AM - 8:00 PM</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="img/services/service-3.jpg" class="card-img-top" alt="No Image">
+            <div class="card-body">
+              <h5 class="card-title">Contact Info</h5>
+              <p class="card-text">
+              <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
+              <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Footer Section -->
     <div id="footer">
       <div class="container text-center">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-2">
           <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
           </p>
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-</body>
+    <!-- jqury cdn -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script>
 
+        </script>
+</body>
 </html>
