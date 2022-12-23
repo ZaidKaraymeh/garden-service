@@ -26,45 +26,42 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <!-- Navigation
     ==========================================-->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
-    <div class="container-fluid">
+        <div class="container-fluid">
             <a class="navbar-brand" href="index.php">BBC STORE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
-            aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsExample05">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contactus.html">Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="cart.html">Cart</a>
-            </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.php">Book Now</a>
+                    </li>
 
 
-            <!-- register and login should be in dropdown named profile -->
-            <li class="nav-item">
-                <a class="nav-link" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Login.php">Log in</a>
-            </li>
-            
-            </ul>
-            <form role="search">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            </form>
+                    <!-- register and login should be in dropdown named profile -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.php">Log in</a>
+                    </li>
+
+                </ul>
+
             </div>
-    </div>
     </nav>
-  
+
 
 
 
@@ -161,34 +158,27 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <div id="portfolio">
         <div class="container">
             <div class="section-title text-center center">
-                <h2> Gallery</h2>
+                <h2 style="margin-top: 80px;"> Gallery</h2>
                 <hr>
             </div>
-            <div class="row">
-                <div class="portfolio-items">
-                    <div class="col-sm-6 col-md-4 newArrivals">
-                        <div class="portfolio-item">
-                            <div class="hover-bg"> <a href="img/final imgs/10.jpg" title="Red Roses"
-                                    data-lightbox-gallery="gallery1">
-                                    <div class="hover-text">
-                                        <h4>Red Roses</h4>
-                                    </div>
-                                    <img src="img/final imgs/10small.jpg" class="img-responsive" alt="Red Roses">
-                                </a> </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
-    </div>
+        <div class="imgs-contoh"
+            style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 5px;text-align: center;padding: 30px;margin: 20px;">
+            <?php
+            $numberOfCards = 19; // this is the number of images you want to show
+            for ($i = 1; $i <= $numberOfCards; $i++) {
+                echo "<div>";
+                echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
+                echo "</div>";
+            }
+            ?>
+        </div>
     </div>
     <!-- Footer Section -->
     <div id="footer">
         <div class="container text-center">
             <div class="col-md-8 col-md-offset-2">
-                <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i
+                <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i
                         class="fas fa-trademark"></i>
                 </p>
             </div>

@@ -158,28 +158,16 @@ if (isset($_POST['sb'])) {
                   <div class="collapse navbar-collapse" id="navbarsExample05">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                               <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                               </li>
                               <li class="nav-item">
-                                    <a class="nav-link" href="about.html">About</a>
+                                    <a class="nav-link" href="about.php">About</a>
                               </li>
                               <li class="nav-item">
                                     <a class="nav-link" href="contactus.html">Contact Us</a>
                               </li>
                               <li class="nav-item">
-                                    <a class="nav-link" href="cart.html">Cart</a>
-                              </li>
-
-                              <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                          aria-expanded="false">Services</a>
-                                    <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#">Landscaping</a></li>
-                                          <li><a class="dropdown-item" href="#">Trimming edging</a></li>
-                                          <li><a class="dropdown-item" href="#">3 here</a></li>
-                                          <li><a class="dropdown-item" href="#">3 here</a></li>
-
-                                    </ul>
+                                    <a class="nav-link" href="cart.php">Book Now</a>
                               </li>
 
                               <!-- register and login should be in dropdown named profile -->
@@ -189,11 +177,6 @@ if (isset($_POST['sb'])) {
                               <li class="nav-item">
                                     <a class="nav-link" href="Login.php">Log in</a>
                               </li>
-
-                        </ul>
-                        <form role="search">
-                              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        </form>
                   </div>
             </div>
       </nav>
@@ -238,7 +221,7 @@ if (isset($_POST['sb'])) {
       <div id="footer">
             <div class="container text-center">
                   <div class="col-md-8 col-md-offset-2">
-                        <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i
+                        <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i
                                     class="fas fa-trademark"></i>
                         </p>
                   </div>
