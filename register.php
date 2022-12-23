@@ -161,7 +161,7 @@ if (isset($_POST['sb'])) {
                                     <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                               </li>
                               <li class="nav-item">
-                                    <a class="nav-link" href="about.html">About</a>
+                                    <a class="nav-link" href="about.php">About</a>
                               </li>
                               <li class="nav-item">
                                     <a class="nav-link" href="contactus.html">Contact Us</a>
@@ -221,7 +221,7 @@ if (isset($_POST['sb'])) {
       <div id="footer">
             <div class="container text-center">
                   <div class="col-md-8 col-md-offset-2">
-                        <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i
+                        <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i
                                     class="fas fa-trademark"></i>
                         </p>
                   </div>

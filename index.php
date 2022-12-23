@@ -39,7 +39,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="about.php">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contactus.html">Contact Us</a>
@@ -138,7 +138,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       </div>
     </div>
     <div class="imgs-contoh"
-      style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
+      style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 5px;text-align: center;padding: 30px;margin: 20px;">
       <?php
       $numberOfCards = 19; // this is the number of images you want to show
       for ($i = 1; $i <= $numberOfCards; $i++) {
@@ -225,7 +225,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <div id="footer">
     <div class="container text-center">
       <div class="col-md-8 col-md-offset-2">
-        <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
+        <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
         </p>
       </div>
     </div>
