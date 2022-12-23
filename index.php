@@ -79,7 +79,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <div class="intro">
       <div class="overlay">
         <div class="container">
-          <div class="row">
+          <div class="row" style="justify-content: center;">
             <div class="col-md-8 col-md-offset-2 intro-text">
               <h1>spend summer outside</h1>
               <p>We design and construct the outdoor space you've always wanted <br> but never wanted to build.</p>
@@ -94,7 +94,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- Services Section -->
   <div id="services">
     <div class="container">
-      <div class="col-md-10 col-md-offset-1 section-title text-center">
+      <div class="col-md-12 col-md-offset-1 section-title text-center">
         <h2>What do we do?</h2>
         <hr>
         <p>We construct walkways, remove weeds, select the right types of plants, and ensure that your lawns are watered
@@ -143,25 +143,21 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <div id="portfolio">
     <div class="container">
       <div class="section-title text-center center">
-        <h2> Gallery</h2>
+        <h2 style="margin-top: 80px;"> Gallery</h2>
         <hr>
       </div>
     </div>
-
+    <div class="imgs-contoh" style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
     <?php
     $numberOfCards = 19; // this is the number of images you want to show
-    for ($i = 0; $i <= $numberOfCards; $i++) {
-      echo '
-  <div class="portfolio-items" class="hover-bg">
-    <div class="col-sm-6 col-md-4>
-      <div class="portfolio-item">';
-      echo "<div class='hover-bg'><img src='img/gallary/$i.jpg'> <br></div></div></div>";
+    for ($i = 1; $i <= $numberOfCards; $i++) {
+      echo "<div>";
+      echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
+      echo "</div>";
     }
-
-
     ?>
-
-
+    </div>
+  </div>
     <!-- Contact Section -->
 
     <div id="contact" class="text-center">
