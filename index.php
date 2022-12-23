@@ -19,8 +19,6 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- Stylesheet
     ================================================== -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
-  <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 </head>
 
@@ -29,7 +27,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     ==========================================-->
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">BBC STORE</a>
+      <a class="navbar-brand" href="index.php">BBC STORE</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
         aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -247,7 +245,6 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     </div>
     <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/nivo-lightbox.js"></script>
 </body>
 
 </html>

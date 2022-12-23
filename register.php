@@ -148,7 +148,7 @@ if (isset($_POST['sb'])) {
       ==========================================-->
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
             <div class="container-fluid">
-                  <a class="navbar-brand" href="index.html">BBC STORE</a>
+                  <a class="navbar-brand" href="index.php">BBC STORE</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false"
                         aria-label="Toggle navigation">
