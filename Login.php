@@ -110,7 +110,7 @@ if (isset($_POST['sb'])) {
                                     <a class="nav-link" href="contactus.html">Contact Us</a>
                               </li>
                               <li class="nav-item">
-                                    <a class="nav-link" href="cart.html">Cart</a>
+                                    <a class="nav-link" href="cart.php">Book Now</a>
                               </li>
 
                               <!-- register and login should be in dropdown named profile -->

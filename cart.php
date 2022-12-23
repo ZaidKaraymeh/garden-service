@@ -46,19 +46,10 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                 <a class="nav-link" href="contactus.html">Contact Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="cart.html">Cart</a>
+                <a class="nav-link" href="cart.php">Book Now</a>
             </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Landscaping</a></li>
-                <li><a class="dropdown-item" href="#">Trimming edging</a></li>
-                <li><a class="dropdown-item" href="#">3 here</a></li>
-                <li><a class="dropdown-item" href="#">3 here</a></li>
-
-                </ul>
-            </li>
+           
 
             <!-- register and login should be in dropdown named profile -->
             <li class="nav-item">

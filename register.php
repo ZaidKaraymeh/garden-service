@@ -167,19 +167,7 @@ if (isset($_POST['sb'])) {
                                     <a class="nav-link" href="contactus.html">Contact Us</a>
                               </li>
                               <li class="nav-item">
-                                    <a class="nav-link" href="cart.html">Cart</a>
-                              </li>
-
-                              <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                                          aria-expanded="false">Services</a>
-                                    <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#">Landscaping</a></li>
-                                          <li><a class="dropdown-item" href="#">Trimming edging</a></li>
-                                          <li><a class="dropdown-item" href="#">3 here</a></li>
-                                          <li><a class="dropdown-item" href="#">3 here</a></li>
-
-                                    </ul>
+                                    <a class="nav-link" href="cart.php">Book Now</a>
                               </li>
 
                               <!-- register and login should be in dropdown named profile -->
@@ -189,11 +177,6 @@ if (isset($_POST['sb'])) {
                               <li class="nav-item">
                                     <a class="nav-link" href="Login.php">Log in</a>
                               </li>
-
-                        </ul>
-                        <form role="search">
-                              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        </form>
                   </div>
             </div>
       </nav>

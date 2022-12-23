@@ -45,19 +45,9 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <a class="nav-link" href="contactus.html">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cart.html">Cart</a>
+            <a class="nav-link" href="cart.php">Book Now</a>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Landscaping</a></li>
-              <li><a class="dropdown-item" href="#">Trimming edging</a></li>
-              <li><a class="dropdown-item" href="#">3 here</a></li>
-              <li><a class="dropdown-item" href="#">3 here</a></li>
-
-            </ul>
-          </li>
 
           <!-- register and login should be in dropdown named profile -->
           <li class="nav-item">
@@ -147,100 +137,101 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         <hr>
       </div>
     </div>
-    <div class="imgs-contoh" style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
-    <?php
-    $numberOfCards = 19; // this is the number of images you want to show
-    for ($i = 1; $i <= $numberOfCards; $i++) {
-      echo "<div>";
-      echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
-      echo "</div>";
-    }
-    ?>
+    <div class="imgs-contoh"
+      style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
+      <?php
+      $numberOfCards = 19; // this is the number of images you want to show
+      for ($i = 1; $i <= $numberOfCards; $i++) {
+        echo "<div>";
+        echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
+        echo "</div>";
+      }
+      ?>
     </div>
   </div>
-    <!-- Contact Section -->
+  <!-- Contact Section -->
 
-    <div id="contact" class="text-center">
-      <h2>Contact Us</h2>
-      <hr>
-      <p>Where can you find us?</p>
+  <div id="contact" class="text-center">
+    <h2>Contact Us</h2>
+    <hr>
+    <p>Where can you find us?</p>
 
-      <div class="container cards">
-        <div class="">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Address</h5>
-              <p>Al Nakheel Road Karanna,Road 5833</p>
-              <p> PO.18509</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Working Hours</h5>
-              <p class="card-text">
-              <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
-              <p>Friday: 07:00 AM - 8:00 PM</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Contact Info
-              </h5>
-              <p class="card-text">
-              <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
-              <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+    <div class="container cards">
+      <div class="">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Address</h5>
+            <p>Al Nakheel Road Karanna,Road 5833</p>
+            <p> PO.18509</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-
-
-        <div class="col-md-8 col-md-offset-2">
-          <h3>Leave us a message</h3>
-          <form action="POST" data-netlify="true" name="sentMessage" id="contactForm" novalidate>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="text" id="name" class="form-control" placeholder="Name" required="required">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message"
-                required="required"></textarea>
-              <p class="help-block text-danger"></p>
-            </div>
-            <div id="success"></div>
-            <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
-          </form>
-          <br>
-          <br>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Working Hours</h5>
+            <p class="card-text">
+            <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
+            <p>Friday: 07:00 AM - 8:00 PM</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Contact Info
+            </h5>
+            <p class="card-text">
+            <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
+            <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Footer Section -->
-    <div id="footer">
-      <div class="container text-center">
-        <div class="col-md-8 col-md-offset-2">
-          <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
-          </p>
-        </div>
+
+
+      <div class="col-md-8 col-md-offset-2">
+        <h3>Leave us a message</h3>
+        <form action="POST" data-netlify="true" name="sentMessage" id="contactForm" novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message"
+              required="required"></textarea>
+            <p class="help-block text-danger"></p>
+          </div>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+        </form>
+        <br>
+        <br>
       </div>
     </div>
-    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </div>
+  <!-- Footer Section -->
+  <div id="footer">
+    <div class="container text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 
 </html>
