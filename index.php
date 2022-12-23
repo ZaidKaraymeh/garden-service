@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,14 +45,32 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                 <li class="nav-item">
                   <a class="nav-link" href="register.php">Register</a>
                 </li>
+                <?php
+                    if(isset($_SESSION['activeUser'])){
+                ?>
                 <li class="nav-item">
+                  <a class="nav-link" href="logout.php">Logout</a>
+                </li>
+                <?php
+                    } else {
+                ?>
+                                <li class="nav-item">
                   <a class="nav-link" href="Login.php">Log in</a>
                 </li>
+                <?php }?>
+                <?php
+                  if(isset($_SESSION['activeUser'])){
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        Ali
+                    <?php
+                            echo $_SESSION['activeUser'];
+                        ?>
                     </a>
                 </li>
+                <?php
+                  }
+                ?>
             </ul>
           </div>
         </div>
