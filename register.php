@@ -77,6 +77,29 @@ if (isset($_POST['sb'])) {
                   $pn = $_POST['pn'];
             }
       }
+      //image validation
+
+      if (empty($_POST['image'])) {
+            $pnERR = "This field is required";
+      } else {
+            $type = $_FILES['image']['type'];
+            $extensions = array('image/jpeg', 'image/png');
+            if (in_array($type, $extensions)) {
+                  //Collect Image
+                  $c_img = $_FILES['image']['name'];
+                  $c_img_tmp = $_FILES['image']['tmp_name'];
+
+                  //move image to permanent location
+                  move_uploaded_file($c_img_tmp, "uploaded_image/$c_img");
+            } else {
+                  $imgErr = "Invalid image type format, please upload JPG or PNG file formats.";
+            }
+      }
+
+
+
+
+
 
       if (trim($fname) == "" || trim($lname) == "" || trim($pass) == "" || trim($email) == "" || trim($pn) == "") {
             $ERRmsg = "Incorrect input(s)!";
@@ -96,7 +119,7 @@ if (isset($_POST['sb'])) {
                         $success = $db->exec($sql);
                         if ($success) {
 
-                              redirect('customers.php');
+                              header('Location: customers.php');
 
                               keepmsg('<div class="alert alert-success text-center">
                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -137,9 +160,6 @@ if (isset($_POST['sb'])) {
       <!-- Stylesheet
       ================================================== -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
-      <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
 </head>
 
@@ -212,6 +232,11 @@ if (isset($_POST['sb'])) {
                   <span style="color:red">
                         <?php echo $pnERR; ?>
                   </span> <br />
+                  <input type="file" name="image" id="image" placeholder="Choose Image">
+                  <span style="color:red">
+                        <?php echo $imgErr; ?>
+                  </span> <br />
+
                   <button type="submit" name="sb" class="form-btn">Register</button>
                   <p>Already have account? <a href="Login.php">Log in</a></p>
             </form>
@@ -229,7 +254,6 @@ if (isset($_POST['sb'])) {
       </div>
       <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
-      <script type="text/javascript" src="js/nivo-lightbox.js"></script>
 </body>
 
 </html>

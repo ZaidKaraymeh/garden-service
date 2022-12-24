@@ -11,7 +11,7 @@ require('includes/config.php');
 $db = new config;
 
 
-$db->query('SELECT * FROM users');
+$db->query('SELECT * FROM user where user_type = "CTM"');
 
 $results = $db->fetchMultiple();
 

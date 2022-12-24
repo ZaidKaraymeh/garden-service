@@ -63,41 +63,35 @@ include('includes/functions.php');
             required>
         </div>
       </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="country" style="color:#f3f3f3;">Amount:</label>
-        <div class="col-sm-10">
-          <input type="country" name="amount" class="form-control" id="country" value="<?php echo $row['spending'] ?>"
-            required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
-        <div class="col-sm-10">
-          <input type="email" name="email" class="form-control" id="email" value="<?php echo $row['email'] ?>" required>
-        </div>
-      </div>
-      <div class="form-group ">
-        <label class="control-label col-sm-2" for="pwd" style="color:#f3f3f3;">Password:</label>
-        <div class="col-sm-10">
-          <fieldset disabled>
-            <input type="password" name="password" class="form-control disabled" id="pwd"
-              placeholder="Cannot Change Password" value="<?php echo $row['password'] ?>" required>
-          </fieldset>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <input type="submit" class="btn btn-primary" name="update_customer" value="Update">
-          <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
-        </div>
-      </div>
-
-      <?php endif ;  ?>
-
-    </form>
-
   </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
+    <div class="col-sm-10">
+      <input type="email" name="email" class="form-control" id="email" value="<?php echo $row['email'] ?>" required>
+    </div>
+  </div>
+  <div class="form-group ">
+    <label class="control-label col-sm-2" for="pwd" style="color:#f3f3f3;">Password:</label>
+    <div class="col-sm-10">
+      <fieldset disabled>
+        <input type="password" name="password" class="form-control disabled" id="pwd"
+          placeholder="Cannot Change Password" value="<?php echo $row['password'] ?>" required>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" class="btn btn-primary" name="update_customer" value="Update">
+      <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
+    </div>
+  </div>
+
+  <?php endif ;  ?>
+
+  </form>
+
+</div>
 </div>
 
 <?php 
@@ -114,13 +108,11 @@ if(isset($_POST['update_customer'])){
     $c_email            =   valemail($raw_email);
     
     
-    $db->query('UPDATE users SET full_name=:fullname, email=:email, spending=:amount WHERE id=:id');
+    $db->query('UPDATE user SET fullName=:fullName, email=:email, WHERE id=:id');
     
     $db->bindValue(':id',$user_id , PDO::PARAM_INT);
-    $db->bindValue(':fullname',$c_name , PDO::PARAM_STR);
-    $db->bindValue(':email',$c_email , PDO::PARAM_STR);
-    $db->bindValue(':amount',$c_amount , PDO::PARAM_INT);
-    
+    $db->bindValue(':fullName',$c_name , PDO::PARAM_STR);
+    $db->bindValue(':email',$c_email , PDO::PARAM_STR);    
     
     $run_update = $db->execute();
     

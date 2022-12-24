@@ -4,14 +4,14 @@ require('includes/header.php');
 
 //require database class files
 require('includes/config.php');
-
+require('includes/functions.php');
 
 //instatiating our database objects
 $db = new config;
 
 //Create a query to select all users to display in the table
 
-$db->query("SELECT * FROM admin WHERE email=:email");
+$db->query("SELECT * FROM user WHERE email=:email AND User_type = 'Adm' ");
 
 $email = $_SESSION['user_data']['email'];
 
@@ -25,7 +25,7 @@ $row = $db->fetchSingle();
 
   <small class="pull-right"><a href="customers.php"> View Customers</a> </small>
 
-  <?php $fullname = $_SESSION['user_data']['fullname'];
+  <?php $fullname = $_SESSION['user_data']['fullName'];
 
   echo '<small class="pull-left" style="color:#337ab7;">' . $fullname . '  | Veiwing / Editing</small>';
   ?>
@@ -89,26 +89,26 @@ $row = $db->fetchSingle();
           </a>
           <h4 class="text-center">
             <?php //echo fullname of admin  ?></4>
-            </div>
-           </div>
-       </div>
-       
-       <?php } ?>
-
         </div>
-
       </div>
+    </div>
 
-      <?php
+    <?php } ?>
 
-      /************** Deleting data from database when delete button is clicked ******************/
+  </div>
+
+</div>
+
+<?php
+
+/************** Deleting data from database when delete button is clicked ******************/
 
 
-      if (isset($_POST['delete_form'])) {
+if (isset($_POST['delete_form'])) {
 
-        $admin_id = $_SESSION['user_data']['id'];
+  $admin_id = $_SESSION['user_data']['id'];
 
-        keepmsg('<div class="alert alert-danger text-center">
+  keepmsg('<div class="alert alert-danger text-center">
               
               <strong>Confirm!</strong> Do you want to delete your account <br>
               <a href="#" class="btn btn-default" data-dismiss="alert" aria-label="close">No, Thanks</a><br>
@@ -118,36 +118,36 @@ $row = $db->fetchSingle();
               </form>
             </div>');
 
-      }
-      //If the Yes Delete (confim delete) button is click from the closable div proceed to delete
-      
+}
+//If the Yes Delete (confim delete) button is click from the closable div proceed to delete
 
-      if (isset($_POST['delete_admin'])) {
 
-        $id = $_POST['id'];
+if (isset($_POST['delete_admin'])) {
 
-        $db->query('DELETE FROM admin WHERE id=:id');
+  $id = $_POST['id'];
 
-        $db->bindValue(':id', $id, PDO::PARAM_INT);
+  $db->query('DELETE FROM user WHERE id=:id');
 
-        $run = $db->execute();
+  $db->bindValue(':id', $id, PDO::PARAM_INT);
 
-        if ($run) {
+  $run = $db->execute();
 
-          redirect('logout.php');
+  if ($run) {
 
-        } else {
+    redirect('logout.php');
 
-          keepmsg('<div class="alert alert-danger text-center">
+  } else {
+
+    keepmsg('<div class="alert alert-danger text-center">
                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                       <strong>Sorry </strong>User with ID ' . $id . ' Could not be deleted 
                 </div>');
-        }
-      }
-      ?>
+  }
+}
+?>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </div>

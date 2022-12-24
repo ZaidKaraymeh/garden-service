@@ -110,7 +110,7 @@ include('includes/functions.php');
 
 
 
-      $db->query("UPDATE admin SET fullname=:fullname, email=:email, password=:password, image=:image");
+      $db->query("UPDATE user SET fullname=:fullname, email=:email, password=:password, image=:image");
 
       $db->bindvalue(':fullname', $c_name, PDO::PARAM_STR);
       $db->bindvalue(':email', $c_email, PDO::PARAM_STR);

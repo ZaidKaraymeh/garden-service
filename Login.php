@@ -31,7 +31,10 @@ if (isset($_POST['sb'])) {
                               'fullName' => $row['fullName'],
                               'id' => $row['id'],
                               'email' => $row['email'],
-                              'image' => $s_image
+                              'image' => $s_image,
+                              'phone_number' => $row['phone_number'],
+                              'user_type' => $row['user_type']
+
 
                         );
 
@@ -46,7 +49,7 @@ if (isset($_POST['sb'])) {
                                       </div>');
                   } else {
                         $_SESSION['activeUser'] = $email;
-                        header('location:index.php');
+                        header('location:cart.php');
 
                   }
             } else {
