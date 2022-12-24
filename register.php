@@ -81,21 +81,22 @@ if (isset($_POST['sb'])) {
 
       if (empty($_POST['image'])) {
             $imgErr = "This field is required";
-      } else {
-            $type = $_FILES['image']['type'];
-            $extensions = array('image/jpeg', 'image/png');
-            if (in_array($type, $extensions)) {
-                  //Collect Image
-                  $image = $_FILES['image']['name'];
-                  $c_img_tmp = $_FILES['image']['tmp_name'];
-
-                  //move image to permanent location
-                  move_uploaded_file($c_img_tmp, "uploaded_image/$image");
-            } else {
-                  $imgErr = "Invalid image type format, please upload JPG or PNG file formats.";
-            }
       }
+      $type = $_FILES['image']['type'];
+      $mime = array(
+            'image/jpeg' => 'jpeg',
+            'image/png' => 'png',
+      );
+      if (in_array($type, $mime)) {
+            //Collect Image
+            $image = $_FILES['image']['name'];
+            $c_img_tmp = $_FILES['image']['tmp_name'];
 
+            //move image to permanent location
+            move_uploaded_file($c_img_tmp, "uploaded_image/$c_img_tmp");
+      } else {
+            $imgErr = "Invalid image type format, please upload JPG or PNG file formats.";
+      }
 
 
 
