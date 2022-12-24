@@ -101,7 +101,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                         species and it's location on your proerty.</p>
 
                         <!-- view available date -->
-                        <button name="book">Book now</book>
+                        <button class="btn btn-custom" name="book">Book now</button>
                   </div>
             </div>
       </div>

@@ -102,7 +102,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                         </p>
 
                         <!-- view comments -->
-                        <button name="book">Book now</book>
+                        <button class="btn btn-custom" name="book">Book now</button>
                   </div>
             </div>
       </div>
