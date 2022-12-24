@@ -9,7 +9,7 @@ require('includes/functions.php');
 //instatiating our database objects
 $db = new config;
 
-//Create a query to select all users to display in the table
+//Create a query to select all user to display in the table
 
 $db->query("SELECT * FROM user WHERE email=:email AND User_type = 'Adm' ");
 

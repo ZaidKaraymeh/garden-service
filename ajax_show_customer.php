@@ -28,7 +28,7 @@ require('includes/config.php');
 $db = new config;
 
 
-$db->query('SELECT * FROM users WHERE id=:id');
+$db->query('SELECT * FROM user WHERE id=:id');
 
 
 $db->bindValue(':id', $id, PDO::PARAM_INT);

@@ -80,17 +80,17 @@ if (isset($_POST['sb'])) {
       //image validation
 
       if (empty($_POST['image'])) {
-            $pnERR = "This field is required";
+            $imgErr = "This field is required";
       } else {
             $type = $_FILES['image']['type'];
             $extensions = array('image/jpeg', 'image/png');
             if (in_array($type, $extensions)) {
                   //Collect Image
-                  $c_img = $_FILES['image']['name'];
+                  $image = $_FILES['image']['name'];
                   $c_img_tmp = $_FILES['image']['tmp_name'];
 
                   //move image to permanent location
-                  move_uploaded_file($c_img_tmp, "uploaded_image/$c_img");
+                  move_uploaded_file($c_img_tmp, "uploaded_image/$image");
             } else {
                   $imgErr = "Invalid image type format, please upload JPG or PNG file formats.";
             }
@@ -115,7 +115,7 @@ if (isset($_POST['sb'])) {
                   if (($result) > 0) {
                         $ERRmsg = "Email already exists!";
                   } else {
-                        $sql = "insert into user value( UUID(),'$fname','$lname','$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp())";
+                        $sql = "insert into user value( UUID(),'$fname $lname', '$image','$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp())";
                         $success = $db->exec($sql);
                         if ($success) {
 
