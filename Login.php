@@ -110,9 +110,6 @@ if (isset($_POST['sb'])) {
                                     <a class="nav-link" href="about.php">About</a>
                               </li>
                               <li class="nav-item">
-                                    <a class="nav-link" href="contactus.html">Contact Us</a>
-                              </li>
-                              <li class="nav-item">
                                     <a class="nav-link" href="cart.php">Book Now</a>
                               </li>
 

@@ -43,9 +43,6 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                         <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="cart.php">Book Now</a>
                     </li>
 
