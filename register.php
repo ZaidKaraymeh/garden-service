@@ -2,6 +2,7 @@
 $fnameERR = $lnameERR = $emailERR = $passERR = $cpsERR = $pnERR = $ERRmsg = "";
 $fname = $lname = $email = $pass = $pn = "";
 $vfname = $vlname = $vemail = $vpass = $vpn = "";
+
 function test_input($data)
 {
       $data = trim($data);
@@ -77,29 +78,6 @@ if (isset($_POST['sb'])) {
                   $pn = $_POST['pn'];
             }
       }
-      //image validation
-
-      if (empty($_POST['image'])) {
-            $imgErr = "This field is required";
-      }
-      $type = $_FILES['image']['type'];
-      $mime = array(
-            'image/jpeg' => 'jpeg',
-            'image/png' => 'png',
-      );
-      if (in_array($type, $mime)) {
-            //Collect Image
-            $image = $_FILES['image']['name'];
-            $c_img_tmp = $_FILES['image']['tmp_name'];
-
-            //move image to permanent location
-            move_uploaded_file($c_img_tmp, "uploaded_image/$c_img_tmp");
-      } else {
-            $imgErr = "Invalid image type format, please upload JPG or PNG file formats.";
-      }
-
-
-
 
 
       if (trim($fname) == "" || trim($lname) == "" || trim($pass) == "" || trim($email) == "" || trim($pn) == "") {
@@ -116,11 +94,11 @@ if (isset($_POST['sb'])) {
                   if (($result) > 0) {
                         $ERRmsg = "Email already exists!";
                   } else {
-                        $sql = "insert into user value( UUID(),'$fname $lname', '$image','$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp())";
+                        $sql = "insert into user value( null ,'$fname $lname', null ,'$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp(),0 )";
                         $success = $db->exec($sql);
                         if ($success) {
 
-                              header('Location: customers.php');
+                              header('Location: Login.php');
 
                               keepmsg('<div class="alert alert-success text-center">
                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -134,7 +112,6 @@ if (isset($_POST['sb'])) {
                                       <strong>Sorry!</strong> Customer could not be registered.
                                 </div>');
                         }
-                        header('location:Login.php');
                   }
                   $db = null;
             } catch (PDOException $e) {
@@ -230,10 +207,7 @@ if (isset($_POST['sb'])) {
                   <span style="color:red">
                         <?php echo $pnERR; ?>
                   </span> <br />
-                  <input type="file" name="image" id="image" placeholder="Choose Image">
-                  <span style="color:red">
-                        <?php echo $imgErr; ?>
-                  </span> <br />
+
 
                   <button type="submit" name="sb" class="form-btn">Register</button>
                   <p>Already have account? <a href="Login.php">Log in</a></p>

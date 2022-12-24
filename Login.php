@@ -49,7 +49,7 @@ if (isset($_POST['sb'])) {
                                       </div>');
                   } else {
                         $_SESSION['activeUser'] = $email;
-                        header('location:cart.php');
+                        header('location:index.php');
 
                   }
             } else {
