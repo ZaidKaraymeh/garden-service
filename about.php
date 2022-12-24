@@ -160,15 +160,15 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             </div>
         </div>
         <div class="imgs-contoh"
-            style="display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 5px;text-align: center;padding: 30px;margin: 20px;">
+            style="border-radius:5px;background-color: lightgrey;display: grid;grid-template-columns: repeat(auto-fill,minmax(250px,1fr));grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
             <?php
-            $numberOfCards = 19; // this is the number of images you want to show
-            for ($i = 1; $i <= $numberOfCards; $i++) {
-                echo "<div>";
-                echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
-                echo "</div>";
-            }
-            ?>
+      $numberOfCards = 19; // this is the number of images you want to show
+      for ($i = 1; $i <= $numberOfCards; $i++) {
+          echo "<div>";
+          echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
+          echo "</div>";
+      }
+      ?>
         </div>
     </div>
     <!-- Footer Section -->
