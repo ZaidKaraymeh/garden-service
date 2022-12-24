@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2022 at 02:23 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Dec 24, 2022 at 09:40 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `service-system`
+-- Database: `servicesystem`
 --
 
 -- --------------------------------------------------------
@@ -106,25 +106,24 @@ CREATE TABLE `service` (
 --
 
 CREATE TABLE `user` (
-  `id` varchar(36) NOT NULL,
-  `first_name` varchar(80) NOT NULL,
-  `last_name` varchar(80) NOT NULL,
+  `id` int(11) NOT NULL,
+  `fullName` varchar(80) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` char(128) NOT NULL,
   `phone_number` varchar(15) DEFAULT NULL,
   `user_type` char(3) NOT NULL DEFAULT 'CTM',
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `spending` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `phone_number`, `user_type`, `created_at`, `updated_at`) VALUES
-('4f22dd7b-82cb-11ed-92dc-38f3ab15b0ec', 'ben', 'diesel', 'diesel@gmail.com', '$2y$10$zQ7R.rRwd2Ph2uwVQkHtx.fVGh98xht6i6HtYrXjhdCZRKwUmtnqe', '33334444', 'CTM', '2022-12-23 17:08:43', '2022-12-23 17:08:43'),
-('64f42cae-6f0d-11ed-b40f-38f3ab15b0ec', 'Zaid', 'Karaymeh', 'karaymehzaid@gmail.com', '7908fa4414d4fe9605827953f5660fee396ff4eea9a8a27434a23296b7f687f056df7f126c22bdd158e9e5c811bf0e40ebbdd32aa2a481c5a48bb7096add32d9', '97336519666', 'ADM', '2022-11-28 14:11:32', '2022-12-05 20:01:28'),
-('e600d3fc-82c5-11ed-92dc-38f3ab15b0ec', 'Zaid', 'Karaymeh', 'test@gmail.com', '$2y$10$tdpPQwzheywgitDPtFzhOO13kIurOPIW6R64hMX6RdgSONZqQ.nKO', '36519666', 'CTM', '2022-12-23 16:29:59', '2022-12-23 16:29:59');
+INSERT INTO `user` (`id`, `fullName`, `image`, `email`, `password`, `phone_number`, `user_type`, `created_at`, `updated_at`, `spending`) VALUES
+(785, 'Bahaa hani', '', 'blainefire123@gmail.com', '$2y$10$A7QRW5joc.FhJ3b/owrY/uSW7NWvXJ0wwXDdgas760G3DgMtZN0vO', '33331362', 'CTM', '2022-12-24 23:30:36', '2022-12-24 23:30:36', 0);
 
 --
 -- Indexes for dumped tables
@@ -166,6 +165,16 @@ ALTER TABLE `service`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`,`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=786;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
