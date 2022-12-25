@@ -258,19 +258,6 @@ header .intro-text {
 	background: rgba(255, 255, 255, 0.6);
 }
 
-
-
-
-.portfolio-item {
-	margin: 15px 0;
-}
-
-.portfolio-item .hover-bg {
-	overflow: hidden;
-	position: relative;
-	margin: 0 auto;
-}
-
 .hover-bg .hover-text {
 	position: absolute;
 	text-align: center;
