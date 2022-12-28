@@ -49,7 +49,7 @@ $row = $db->fetchSingle();
           <div class="form-group">
             <label class="control-label col-sm-2" for="name" style="color:#f3f3f3;">Fullname:</label>
             <div class="col-sm-10">
-              <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullname'] ?>"
+              <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullName'] ?>"
                 required>
             </div>
           </div>
@@ -69,39 +69,13 @@ $row = $db->fetchSingle();
               </fieldset>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-9 col-lg-3 ml-auto mr-auto mb-3">
-              <!-- Profile picture card-->
-              <div class="card mb-4 mb-xl-0">
-                <div class="card-header">Profile Picture</div>
-                <div class="card-body text-center">
-                  <!-- Profile picture image-->
-                  <img class="img-account-profile rounded-circle mb-2" src="<?php echo "userpic/$photo"; ?>" alt="">
-                  <!-- Profile picture help block-->
-                  <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                  <!-- Profile picture upload button-->
-                  <form action="upload.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="picfile" /></br></br>
-                    <input type="submit" class="sub" name="sub" value="Upload Picture" />
-
-                  </form>
-                </div>
-              </div>
-              <a href='viewreservations.php'>
-                <input type="submit" class="sub" name="sub" value="View all reservations" />
-              </a>
-              <a href='logout.php'>
-                <input type="submit" class="sub" name="sub" value="Log out" />
-              </a>
+          <br>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <a class="btn btn-primary" href="edit_account.php?id=<?php echo $row['id'] ?>">Edit</a>
+              <button type="submit" class="btn btn-danger pull-right" name="delete_form">Delete</button>
             </div>
-
-            <br>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <a class="btn btn-primary" href="edit_account.php?id=<?php echo $row['id'] ?>">Edit</a>
-                <button type="submit" class="btn btn-danger pull-right" name="delete_form">Delete</button>
-              </div>
-            </div>
+          </div>
         </form>
 
       </div>

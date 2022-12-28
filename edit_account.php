@@ -31,7 +31,7 @@ include('includes/functions.php');
       //instatiating our database objects
       $db = new config;
 
-      $db->query("SELECT * FROM admin WHERE id =:id");
+      $db->query("SELECT * FROM user WHERE id =:id");
 
       $db->bindValue(':id', $id, PDO::PARAM_INT);
 
@@ -43,7 +43,7 @@ include('includes/functions.php');
         <div class="form-group">
           <label class="control-label col-sm-2" for="name"></label>
           <div class="col-sm-10">
-            <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullname'] ?>" required>
+            <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullName'] ?>" required>
           </div>
         </div>
 
