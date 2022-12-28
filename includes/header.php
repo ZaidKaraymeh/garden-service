@@ -2,7 +2,15 @@
 //Open ob_start and session_start functions
 ob_start();
 session_start();
+if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
 
+
+} else {
+
+    header("Location: logout.php");
+}
+
+?>
 ?>
 
 

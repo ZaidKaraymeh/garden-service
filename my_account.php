@@ -73,7 +73,7 @@ $row = $db->fetchSingle();
           <br>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <a class="btn btn-primary" href="edit_admin.php?id=<?php echo $row['id'] ?>">Edit</a>
+              <a class="btn btn-primary" href="edit_account.php?id=<?php echo $row['id'] ?>">Edit</a>
               <button type="submit" class="btn btn-danger pull-right" name="delete_form">Delete</button>
             </div>
           </div>
@@ -83,7 +83,7 @@ $row = $db->fetchSingle();
       <div class="col-md-3">
         <div style="padding: 20px;">
           <div class="thumbnail">
-            <a href="edit_admin.php?id=<?php echo $row['id'] ?>">
+            <a href="edit_account.php?id=<?php echo $row['id'] ?>">
 
               <?php $image = $row['image']; ?>
 

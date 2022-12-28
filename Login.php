@@ -21,7 +21,7 @@ if (isset($_POST['sb'])) {
                   $d_name = $row['fullName'];
 
                   $s_image = "<img src='uploaded_image/$d_image' class='profile_image' />";
-
+                  $_SESSION['activeUser'] = $email;
                   $_SESSION['user_data'] = array(
 
 
@@ -34,7 +34,7 @@ if (isset($_POST['sb'])) {
 
 
                   );
-                  $_SESSION['activeUser'] = $email;
+
 
 
                   header('Location: cart.php');
