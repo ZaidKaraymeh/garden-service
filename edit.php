@@ -6,7 +6,17 @@
 include('includes/functions.php');
 
 ?>
+<?php
 
+if (isset($_SESSION['user_is_logged_in'])) {
+
+
+} else {
+
+    header("Location: logout.php");
+}
+
+?>
 <?php 
 /************** Fetching data from database using id ******************/
 

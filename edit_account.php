@@ -71,7 +71,7 @@ include('includes/functions.php');
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10 text-center">
             <button type="submit" class="btn btn-primary pull-right" name="submit_update">Update</button>
-            <a class="pull-left btn btn-danger" href="my_admin.php">Cancel</a>
+            <a class="pull-left btn btn-danger" href="my_account.php">Cancel</a>
           </div>
         </div>
 

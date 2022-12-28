@@ -22,7 +22,7 @@ $row = $db->fetchSingle();
 
 ?>
 <div class="well">
-  <?php if ($_SESSION['user_is_logged_in'] == true) {
+  <?php if (isset($_SESSION['user_is_logged_in'])) {
   echo ' <small class="pull-right"><a href="customers.php"> View Customers</a> </small>';
   echo ' <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>';
 }
@@ -115,7 +115,7 @@ if (isset($_POST['delete_form'])) {
               
               <strong>Confirm!</strong> Do you want to delete your account <br>
               <a href="#" class="btn btn-default" data-dismiss="alert" aria-label="close">No, Thanks</a><br>
-              <form method="post" action="my_admin.php">
+              <form method="post" action="my_account.php">
               <input type="hidden" value="' . $id . '" name="id"><br>
               <input type="submit" name="delete_admin" value="Yes, Delete" class="btn btn-danger">
               </form>

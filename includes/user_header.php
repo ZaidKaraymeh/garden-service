@@ -47,7 +47,7 @@ session_start();
                     if (isset($_SESSION['activeUser'])) {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="my_account.php">
                                 <?php
                                 echo $_SESSION['activeUser'];
                                 ?>

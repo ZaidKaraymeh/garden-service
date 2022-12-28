@@ -40,14 +40,14 @@ if (isset($_POST['sb'])) {
                   header('Location: cart.php');
 
 
-                  keepmsg('<div class="alert alert-success text-center">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                            <strong>Welcome </strong>' . $d_name . ' You are logged in as Admin 
-                                      </div>');
                   if ($row[6] == 'Adm') {
                         $_SESSION['user_is_logged_in'] = true;
                         header('location:customers.php');
 
+                        keepmsg('<div class="alert alert-success text-center">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Welcome </strong>' . $d_name . ' You are logged in as Admin 
+                  </div>');
                   }
             } else {
                   $ERRmsg = '<div class="alert alert-danger text-center">

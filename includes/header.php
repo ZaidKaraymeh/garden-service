@@ -5,18 +5,6 @@ session_start();
 
 ?>
 
-<?php
-
-if (isset($_SESSION['user_is_logged_in'])) {
-
-
-} else {
-
-    header("Location: logout.php");
-}
-
-?>
-
 
 <html>
 
@@ -26,7 +14,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BBC Admin Control Panel</title>
+    <title>BBC Store Account Panel</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -58,7 +46,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand navbar-light" href="customers.php" style="color: #f3f3f3">BBC
-                    <strong>Admin Control Panel</strong></a>
+                    <strong>Account Control Panel</strong></a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -71,7 +59,6 @@ if (isset($_SESSION['user_is_logged_in'])) {
 
                 $fullname = $_SESSION['user_data']['fullName'];
                 $image = $_SESSION['user_data']['image'];
-                echo $fullname . $image;
             }
 
 
@@ -87,7 +74,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"></b>
                             <?php echo $image; ?>
                         </a>
-                    <li><a href="my_admin.php"><i class="fa fa-cog"></i> Account</a></li>
+                    <li><a href="my_account.php"><i class="fa fa-cog"></i> Account</a></li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign-out</a></li>
                     </li>

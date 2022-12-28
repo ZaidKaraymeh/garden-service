@@ -3,6 +3,14 @@
 require('includes/header.php');
 
 
+
+if (isset($_SESSION['user_is_logged_in'])) {
+
+
+} else {
+
+    header("Location: logout.php");
+}
 //require database class files
 require('includes/config.php');
 require('includes/functions.php');
