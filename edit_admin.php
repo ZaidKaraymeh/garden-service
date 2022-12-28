@@ -20,9 +20,9 @@ include('includes/functions.php');
       <?php
 
       /************** Fetching data from database using id ******************/
-      if (isset($_GET['admin_id'])) {
+      if (isset($_GET['id'])) {
 
-        $admin_id = $_GET['admin_id'];
+        $id = $_GET['id'];
       }
 
       //require database class files
@@ -33,49 +33,49 @@ include('includes/functions.php');
 
       $db->query("SELECT * FROM admin WHERE id =:id");
 
-      $db->bindValue(':id', $admin_id, PDO::PARAM_INT);
+      $db->bindValue(':id', $id, PDO::PARAM_INT);
 
       $row = $db->fetchSingle();
       ?>
 
       <?php if ($row): ?>
 
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="name"></label>
-        <div class="col-sm-10">
-          <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullname'] ?>" required>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name"></label>
+          <div class="col-sm-10">
+            <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullname'] ?>" required>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="email"></label>
-        <div class="col-sm-10">
-          <input type="email" name="username" class="form-control" id="email" value="<?php echo $row['email'] ?>"
-            required>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email"></label>
+          <div class="col-sm-10">
+            <input type="email" name="username" class="form-control" id="email" value="<?php echo $row['email'] ?>"
+              required>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd"></label>
-        <div class="col-sm-10">
-          <input type="password" name="password" class="form-control" id="pwd" placeholder="Confirm Password" value=""
-            required>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd"></label>
+          <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="pwd" placeholder="Confirm Password" value=""
+              required>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="image"></label>
-        <div class="col-sm-10">
-          <input type="file" name="image" id="image" placeholder="Choose Image" required>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="image"></label>
+          <div class="col-sm-10">
+            <input type="file" name="image" id="image" placeholder="Choose Image" required>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 text-center">
-          <button type="submit" class="btn btn-primary pull-right" name="submit_update">Update</button>
-          <a class="pull-left btn btn-danger" href="my_admin.php">Cancel</a>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10 text-center">
+            <button type="submit" class="btn btn-primary pull-right" name="submit_update">Update</button>
+            <a class="pull-left btn btn-danger" href="my_admin.php">Cancel</a>
+          </div>
         </div>
-      </div>
 
-      <?php endif; ?>
+        <?php endif; ?>
     </form>
 
     <?php
@@ -121,7 +121,7 @@ include('includes/functions.php');
 
       if ($run) {
 
-        redirect('my_admin.php');
+        redirect('my_account.php');
 
         keepmsg('<div class="alert alert-success text-center">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -130,7 +130,7 @@ include('includes/functions.php');
 
       } else {
 
-        redirect('my_admin.php');
+        redirect('my_account.php');
 
         keepmsg('<div class="alert alert-danger text-center">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

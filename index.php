@@ -1,5 +1,8 @@
 <?php
+//Open ob_start and session_start functions
+ob_start();
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,56 +33,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 </head>
 
 <body>
-  <!-- Navigation
-    ==========================================-->
-  <div class="pos-f-t">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">BBC Store</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <!-- register and login should be in dropdown named profile -->
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
-            </li>
-            <?php
-            if (isset($_SESSION['activeUser'])) {
-            ?>
-            <li class="nav-item">
-              <a class="nav-link" href="logout.php">Logout</a>
-            </li>
-            <?php
-            } else {
-            ?>
-            <li class="nav-item">
-              <a class="nav-link" href="Login.php">Log in</a>
-            </li>
-            <?php } ?>
-            <?php
-            if (isset($_SESSION['activeUser'])) {
-            ?>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <?php
-              echo $_SESSION['activeUser'];
-                ?>
-              </a>
-            </li>
-            <?php
-            }
-            ?>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+  <?php require('includes/user_header.php'); ?>
   <!-- Header -->
   <header id="header">
     <div class="intro">
@@ -89,7 +43,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <div class="col-md-8 col-md-offset-2 intro-text">
               <h1>spend summer outside</h1>
               <p>We design and construct the outdoor space you've always wanted <br> but never wanted to build.</p>
-              <a href="#about" class="btn btn-custom btn-lg page-scroll">Learn More</a>
+              <a href="cart.php" class="btn btn-custom btn-lg">Learn More</a>
             </div>
           </div>
         </div>
@@ -126,7 +80,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <div class="service-media"><a href="Installation.php"> <img src="img/services/service-3.jpg" alt=" "> </a></div>
+          <div class="service-media"><a href="Installation.php"> <img src="img/services/service-3.jpg" alt=" "> </a>
+          </div>
           <div class="service-desc">
             <h3>Installation of irrigation systems</h3>
             <p>A sprinkler system keep your grass, plants, and trees healthy–if properly set up and maintained, it can

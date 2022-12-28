@@ -16,40 +16,37 @@ if (isset($_POST['sb'])) {
       }
       if ($row = $rs->fetch()) {
             if (password_verify($_POST['ps'], $row[4])) {
-                  if ($row[6] == 'Adm') {
+                  $d_image = $row['image'];
+
+                  $d_name = $row['fullName'];
+
+                  $s_image = "<img src='uploaded_image/$d_image' class='profile_image' />";
+
+                  $_SESSION['user_data'] = array(
 
 
-                        $d_image = $row['image'];
-
-                        $d_name = $row['fullName'];
-
-                        $s_image = "<img src='uploaded_image/$d_image' class='profile_image' />";
-
-                        $_SESSION['user_data'] = array(
-
-
-                              'fullName' => $row['fullName'],
-                              'id' => $row['id'],
-                              'email' => $row['email'],
-                              'image' => $s_image,
-                              'phone_number' => $row['phone_number'],
-                              'user_type' => $row['user_type']
+                        'fullName' => $row['fullName'],
+                        'id' => $row['id'],
+                        'email' => $row['email'],
+                        'image' => $s_image,
+                        'phone_number' => $row['phone_number'],
+                        'user_type' => $row['user_type']
 
 
-                        );
-
-                        $_SESSION['user_is_logged_in'] = true;
-
-                        header('Location: my_admin.php');
+                  );
+                  $_SESSION['activeUser'] = $email;
 
 
-                        keepmsg('<div class="alert alert-success text-center">
+                  header('Location: cart.php');
+
+
+                  keepmsg('<div class="alert alert-success text-center">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                             <strong>Welcome </strong>' . $d_name . ' You are logged in as Admin 
                                       </div>');
-                  } else {
-                        $_SESSION['activeUser'] = $email;
-                        header('location:index.php');
+                  if ($row[6] == 'Adm') {
+                        $_SESSION['user_is_logged_in'] = true;
+                        header('location:customers.php');
 
                   }
             } else {
@@ -90,42 +87,7 @@ if (isset($_POST['sb'])) {
 </head>
 
 <body>
-      <!-- Navigation
-      ==========================================-->
-      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
-            <div class="container-fluid">
-                  <a class="navbar-brand" href="index.php">BBC STORE</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div class="collapse navbar-collapse" id="navbarsExample05">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                              <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="about.php">About</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="cart.php">Book Now</a>
-                              </li>
-
-                              <!-- register and login should be in dropdown named profile -->
-                              <li class="nav-item">
-                                    <a class="nav-link" href="register.php">Register</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="Login.php">Log in</a>
-                              </li>
-
-                        </ul>
-                  </div>
-            </div>
-      </nav>
-
+      <?php require('includes/user_header.php'); ?>
       <!-- form section -->
       <div class="form-container">
             <form action=" " method="post">

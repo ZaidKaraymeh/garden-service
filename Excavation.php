@@ -1,5 +1,20 @@
 <?php
+//Open ob_start and session_start functions
+ob_start();
 session_start();
+
+?>
+
+<?php
+
+if (isset($_SESSION['user_is_logged_in'])) {
+
+
+} else {
+
+  header("Location: logout.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,81 +45,35 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 </head>
 
 <body>
-  <!-- Navigation
-    ==========================================-->
-  <div class="pos-f-t">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">BBC Store</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <!-- register and login should be in dropdown named profile -->
-            <li class="nav-item">
-              <a class="nav-link" href="register.php">Register</a>
-            </li>
-            <?php
-            if (isset($_SESSION['activeUser'])) {
-            ?>
-            <li class="nav-item">
-              <a class="nav-link" href="logout.php">Logout</a>
-            </li>
-            <?php
-            } else {
-            ?>
-            <li class="nav-item">
-              <a class="nav-link" href="Login.php">Log in</a>
-            </li>
-            <?php } ?>
-            <?php
-            if (isset($_SESSION['activeUser'])) {
-            ?>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <?php
-              echo $_SESSION['activeUser'];
-                ?>
-              </a>
-            </li>
-            <?php
-            }
-            ?>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+  <?php require('includes/user_header.php'); ?>
   <!-- service -->
-      <div class="container-fluid" style="margin-top: 150px;">
-            <div class="mx-3 mt-5 d-md-flex ">
-                  <div class="service-media col-5"> <img src="img/services/service-1.jpg" alt=" " class="rounded  d-block mx-5 w-75 h-75 "></div>
-                  <div class="service-desc col-7">
-                        <h2>Excavation</h2>
-                        <!-- rating -->
-                        <i class="fas fa-star star-light mr-1 main-star"> </i>
-                        <i class="fas fa-star star-light mr-1 main-star"> </i>
-                        <i class="fas fa-star star-light mr-1 main-star"> </i>
-                        <i class="fas fa-star star-light mr-1 main-star"> </i>
-                        <i class="fas fa-star star-light mr-1 main-star"> </i>
-                        <p><span id=average_rating>0.0</span> <span id="total_review">(0)</span> Review </p>
+  <div class="container-fluid" style="margin-top: 150px;">
+    <div class="mx-3 mt-5 d-md-flex ">
+      <div class="service-media col-5"> <img src="img/services/service-1.jpg" alt=" "
+          class="rounded  d-block mx-5 w-75 h-75 "></div>
+      <div class="service-desc col-7">
+        <h2>Excavation</h2>
+        <!-- rating -->
+        <i class="fas fa-star star-light mr-1 main-star"> </i>
+        <i class="fas fa-star star-light mr-1 main-star"> </i>
+        <i class="fas fa-star star-light mr-1 main-star"> </i>
+        <i class="fas fa-star star-light mr-1 main-star"> </i>
+        <i class="fas fa-star star-light mr-1 main-star"> </i>
+        <p><span id=average_rating>0.0</span> <span id="total_review">(0)</span> Review </p>
 
-                        <p>Service discription...<br/>
-                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolore nostrum reprehenderit tenetur animi nemo? Quis exercitationem minus veritatis tempore numquam quam sit libero, error suscipit iste deserunt cumque accusamus.
-                        </p>
-                        <p> The cost to remove a palm tree does depend on a few factors. Size is one of them, but also the palm
-                        species and it's location on your proerty.</p>
+        <p>Service discription...<br />
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolore nostrum reprehenderit tenetur animi
+          nemo? Quis exercitationem minus veritatis tempore numquam quam sit libero, error suscipit iste deserunt cumque
+          accusamus.
+        </p>
+        <p> The cost to remove a palm tree does depend on a few factors. Size is one of them, but also the palm
+          species and it's location on your proerty.</p>
 
-                        <!-- view available date -->
-                        <button class="btn btn-custom" name="book">Book now</button>
-                  </div>
-            </div>
+        <!-- view available date -->
+        <button class="btn btn-custom" name="book">Book now</button>
       </div>
+    </div>
+  </div>
   <!-- Footer Section -->
   <div id="footer">
     <div class="container text-center">

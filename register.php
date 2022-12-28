@@ -94,7 +94,7 @@ if (isset($_POST['sb'])) {
                   if (($result) > 0) {
                         $ERRmsg = "Email already exists!";
                   } else {
-                        $sql = "insert into user value( null ,'$fname $lname', null ,'$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp(),0 )";
+                        $sql = "insert into user value( null ,'$fname $lname', '' ,'$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp(),0 )";
                         $success = $db->exec($sql);
                         if ($success) {
 
@@ -142,40 +142,7 @@ if (isset($_POST['sb'])) {
 </head>
 
 <body>
-      <!-- Navigation
-      ==========================================-->
-      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
-            <div class="container-fluid">
-                  <a class="navbar-brand" href="index.php">BBC STORE</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div class="collapse navbar-collapse" id="navbarsExample05">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                              <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="about.php">About</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="cart.php">Book Now</a>
-                              </li>
-
-                              <!-- register and login should be in dropdown named profile -->
-                              <li class="nav-item">
-                                    <a class="nav-link" href="register.php">Register</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="Login.php">Log in</a>
-                              </li>
-                  </div>
-            </div>
-      </nav>
-
+      <?php require('includes/user_header.php'); ?>
       <!-- form section -->
       <div class="form-container">
             <form action=" " method="post">

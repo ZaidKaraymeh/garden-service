@@ -18,7 +18,6 @@ if (isset($_SESSION['user_is_logged_in'])) {
 ?>
 
 
-
 <html>
 
 <head>
@@ -68,16 +67,16 @@ if (isset($_SESSION['user_is_logged_in'])) {
                     <li><a href=""></a></li>
                 </ul>
 
-                <?php if (isset($_SESSION['user_is_logged_in'])) {
+                <?php if (isset($_SESSION['activeUser']) || isset($_SESSION['user_is_logged_in'])) {
 
-                    $fullname = $_SESSION['user_data']['fullName'];
-                    $image = $_SESSION['user_data']['image'];
+                $fullname = $_SESSION['user_data']['fullName'];
+                $image = $_SESSION['user_data']['image'];
+                echo $fullname . $image;
+            }
 
-                }
 
 
-
-                ?>
+            ?>
 
 
                 <ul class="nav navbar-nav navbar-right">
@@ -88,11 +87,9 @@ if (isset($_SESSION['user_is_logged_in'])) {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"></b>
                             <?php echo $image; ?>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="my_admin.php"><i class="fa fa-cog"></i> Account</a></li>
-                            <li class="divider"></li>
-                            <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign-out</a></li>
-                        </ul>
+                    <li><a href="my_admin.php"><i class="fa fa-cog"></i> Account</a></li>
+                    <li class="divider"></li>
+                    <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign-out</a></li>
                     </li>
 
                 </ul>

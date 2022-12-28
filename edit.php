@@ -35,7 +35,7 @@ include('includes/functions.php');
 <div class="well">
 
   <small class="pull-right"><a href="customers.php"> View Customers</a> </small>
-
+  <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>
   <?php 
     
     echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullName'] . ' | Editing Customer</small>';
