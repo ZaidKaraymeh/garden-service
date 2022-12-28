@@ -73,7 +73,9 @@ $row = $db->fetchSingle();
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <a class="btn btn-primary" href="edit_account.php?id=<?php echo $row['id'] ?>">Edit</a>
-              <button type="submit" class="btn btn-danger pull-right" name="delete_form">Delete</button>
+              <?php if (isset($_SESSION['user_is_logged_in'])) {
+              echo '<button type="submit" class="btn btn-danger pull-right" name="delete_form">Delete</button>';
+            } ?>
             </div>
           </div>
         </form>
@@ -106,23 +108,25 @@ $row = $db->fetchSingle();
 /************** Deleting data from database when delete button is clicked ******************/
 
 
-if (isset($_POST['delete_form'])) {
 
-  $id = $_SESSION['user_data']['id'];
 
-  keepmsg('<div class="alert alert-danger text-center">
-              
-              <strong>Confirm!</strong> Do you want to delete your account <br>
-              <a href="#" class="btn btn-default" data-dismiss="alert" aria-label="close">No, Thanks</a><br>
-              <form method="post" action="my_account.php">
-              <input type="hidden" value="' . $id . '" name="id"><br>
-              <input type="submit" name="delete_admin" value="Yes, Delete" class="btn btn-danger">
-              </form>
-            </div>');
 
-}
 //If the Yes Delete (confim delete) button is click from the closable div proceed to delete
 if (isset($_SESSION['user_is_logged_in'])) {
+  if (isset($_POST['delete_form'])) {
+
+    $id = $_SESSION['user_data']['id'];
+
+    keepmsg('<div class="alert alert-danger text-center">
+                
+                <strong>Confirm!</strong> Do you want to delete your account <br>
+                <a href="#" class="btn btn-default" data-dismiss="alert" aria-label="close">No, Thanks</a><br>
+                <form method="post" action="my_account.php">
+                <input type="hidden" value="' . $id . '" name="id"><br>
+                <input type="submit" name="delete_admin" value="Yes, Delete" class="btn btn-danger">
+                </form>
+              </div>');
+  }
   if (isset($_POST['delete_admin'])) {
 
     $id = $_POST['id'];

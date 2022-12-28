@@ -82,6 +82,7 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"></b>
                             <?php echo $image; ?>
                         </a>
+
                     <li><a href="my_account.php"><i class="fa fa-cog"></i> Account</a></li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign-out</a></li>
