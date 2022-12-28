@@ -63,7 +63,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- Footer Section -->
   <div id="footer">
     <div class="container text-center">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-12 col-md-offset-2">
         <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
         </p>
       </div>
