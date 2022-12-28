@@ -23,7 +23,7 @@ $row = $db->fetchSingle();
 ?>
 <div class="well">
   <?php if (isset($_SESSION['user_is_logged_in'])) {
-  echo ' <small class="pull-right"><a href="customers.php"> View Customers</a> </small>';
+  echo ' <small class="pull-right"><a href="customers.php"> View Customers</a> </small><br>';
   echo ' <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>';
 }
 ?>

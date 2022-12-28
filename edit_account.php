@@ -79,9 +79,6 @@ include('includes/functions.php');
     </form>
 
     <?php
-    /************** Update new Admin ******************/
-
-
     //Collect and clean values from the form // Collect image and move image to upload_image folder
     
     if (isset($_POST['submit_update'])) {
@@ -110,9 +107,9 @@ include('includes/functions.php');
 
 
 
-      $db->query("UPDATE user SET fullname=:fullname, email=:email, password=:password, image=:image");
+      $db->query("UPDATE user SET fullname=:fullName, email=:email, password=:password, image=:image");
 
-      $db->bindvalue(':fullname', $c_name, PDO::PARAM_STR);
+      $db->bindvalue(':fullName', $c_name, PDO::PARAM_STR);
       $db->bindvalue(':email', $c_email, PDO::PARAM_STR);
       $db->bindvalue(':password', $hashed_Pass, PDO::PARAM_STR);
       $db->bindvalue(':image', $c_img, PDO::PARAM_STR);
