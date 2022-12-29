@@ -24,20 +24,20 @@ $db->query('SELECT * FROM user where user_type = "CTM"');
 $results = $db->fetchMultiple();
 
 ?>
-
-<div class="container">
-
+<div class="container" style="background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 43%), 0 2px 4px 0 rgb(255 255 255 / 42%);background-color:#fff;">
   <?php showmsg(); ?>
-
   <div class="jumbotron">
+
+    <div style="display: flex;justify-content:space-between;align-items:center;">
+    <?php echo $_SESSION['user_data']['fullName'] ?> | Admin
+    <div style="display: flex;gap:15px;">
   <?php if (isset($_SESSION['user_is_logged_in'])) {
-  echo ' <small class="pull-right"><a href="customers.php"> View Customers</a> </small><br>';
-  echo ' <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>';
+  echo ' <small style="display: block;text-align: right;" id="o22"><a href="customers.php"> View Customers</a> </small>';
+  echo ' <small style="display: block;text-align: right;" id="o33"><a href="add_service.php"> Add Service</a> </small>';
 }
 ?>
-
-    <?php echo $_SESSION['user_data']['fullName'] ?> | Admin
-
+</div>
+</div>
     <h2 class="text-center">Customers</h2>
     <hr>
     <br>
@@ -49,6 +49,7 @@ $results = $db->fetchMultiple();
           <th class="text-center">Spending</th>
           <th class="text-center">Email</th>
           <th class="text-center">Report</th>
+          <th class="text-center"></th>
         </tr>
       </thead>
       <tbody>
@@ -78,3 +79,6 @@ $results = $db->fetchMultiple();
 </div>
 
 </div>
+</div>
+</body>
+</html>
