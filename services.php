@@ -63,12 +63,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             }
             ?> 
       </div>
-      <?php
-      if (isset($GET)) {
-            # code...
-      }
 
-      ?>
 
 </body>
 
