@@ -11,7 +11,6 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
 }
 
 ?>
-?>
 
 
 <html>
