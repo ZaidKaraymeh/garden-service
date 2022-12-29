@@ -10,6 +10,7 @@ $avgRate=0;
 $sumRate=0;
 $count=0;
 
+
       try {
             $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -19,7 +20,6 @@ $count=0;
             $sql2= "select * from review where service_id= $id ";
             $rs = $db->query($sql);
             $rr = $db->query($sql2);
-            $db = null;
 
             if ($row = $rs->fetch()) {
                   $img= $row['picture'];
@@ -39,6 +39,7 @@ $count=0;
                   $totalRates= $rowCount;
             }
 
+            $db = null;
       } catch (PDOException $e) {
             die("Error: " . $e->getMessage());
       }
@@ -97,7 +98,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             for($i=0; $i < round($avgRate) ; $i++) { 
                   echo  ' <i class="fa fa-star checked mr-1 main-star"> </i> ';
             }
-            echo "<p><span id=average_rating>$avgRate</span> ($totalRates) Review(s) </p>"; 
+            echo "<p><span id='average_rating'>$avgRate</span> <span id='total_review'>($totalRates)</span> Review(s) </p>"; 
       } else {
             echo "No rates yet. <br/><br/>";
       }
@@ -106,7 +107,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       <br/>$description <br/>";
       ?>
 
-      <button class="btn btn-custom" name="book">Book now</button>
+      <a href="cart.php"><button class="btn btn-custom">Book now</button></a>
       </div>
     </div>
   </div>

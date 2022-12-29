@@ -23,6 +23,9 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="about.php">About US</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="services.php">Services</a>
+                    </li>
                     <!-- register and login should be in dropdown named profile -->
                     <li class="nav-item">
                         <a class="nav-link" href="register.php">Register</a>
