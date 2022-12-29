@@ -6,6 +6,7 @@
 include('includes/functions.php');
 
 ?>
+<link rel="stylesheet" href="css/style.css">
 <?php
 
 if (isset($_SESSION['user_is_logged_in'])) {
@@ -44,8 +45,8 @@ if (isset($_SESSION['user_is_logged_in'])) {
 
 <div class="well">
 
-  <small class="pull-right"><a href="customers.php"> View Customers</a> </small>
-  <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>
+  <small class="pull-right btn btn-lg"><a href="customers.php"> View Customers</a> </small> <br>
+  <small class="pull-right btn btn-lg"><a href="add_service.php"> Add Service</a> </small>
   <?php 
     
     echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullName'] . ' | Editing Customer</small>';
@@ -72,7 +73,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
           <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullName'] ?>" required>
         </div>
       </div>
-  </div>
+ 
   <div class="form-group">
     <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
     <div class="col-sm-10">
@@ -95,7 +96,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
       <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
     </div>
   </div>
-
+  </div>
   <?php endif ;  ?>
 
   </form>
@@ -108,12 +109,10 @@ if (isset($_SESSION['user_is_logged_in'])) {
 if(isset($_POST['update_customer'])){
     
     $raw_name           =   cleandata($_POST['name']);
-    $raw_amount         =   cleandata($_POST['amount']);
     $raw_email          =   cleandata($_POST['email']);
   
     
     $c_name             =   sanitize($raw_name);
-    $c_amount           =   valint($raw_amount);
     $c_email            =   valemail($raw_email);
     
     

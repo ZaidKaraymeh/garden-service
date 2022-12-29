@@ -30,7 +30,7 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/style.css">
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">
 

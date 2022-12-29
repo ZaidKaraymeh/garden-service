@@ -24,7 +24,7 @@ $db->query('SELECT * FROM user where user_type = "CTM"');
 $results = $db->fetchMultiple();
 
 ?>
-
+<link rel="stylesheet" href="css/style.css">
 <div class="container">
 
   <?php showmsg(); ?>
