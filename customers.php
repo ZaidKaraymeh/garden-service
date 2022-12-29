@@ -30,8 +30,11 @@ $results = $db->fetchMultiple();
   <?php showmsg(); ?>
 
   <div class="jumbotron">
-
-    <small class="pull-right"><a href="register.php"> Add Customer </a> </small>
+  <?php if (isset($_SESSION['user_is_logged_in'])) {
+  echo ' <small class="pull-right"><a href="customers.php"> View Customers</a> </small><br>';
+  echo ' <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>';
+}
+?>
 
     <?php echo $_SESSION['user_data']['fullName'] ?> | Admin
 
@@ -45,7 +48,6 @@ $results = $db->fetchMultiple();
           <th class="text-center">Full Name</th>
           <th class="text-center">Spending</th>
           <th class="text-center">Email</th>
-          <th class="text-center">Password</th>
           <th class="text-center">Report</th>
         </tr>
       </thead>
@@ -63,9 +65,6 @@ $results = $db->fetchMultiple();
           </td>
           <td>
             <?php echo $result['email'] ?>
-          </td>
-          <td>
-            <?php echo $result['password'] ?>
           </td>
           <td><a href="reports.php?cus_id=<?php echo $result['id'] ?>" class='btn btn-primary'>View Report</a></td>
           <td><a href="edit.php?cus_id=<?php echo $result['id'] ?>" class='btn btn-danger'>Edit</a></td>

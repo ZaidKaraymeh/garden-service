@@ -49,7 +49,8 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="my_account.php">
                                 <?php
-                                echo $_SESSION['activeUser'];
+                                echo $_SESSION['user_data']['fullName'];
+
                                 ?>
                             </a>
                         </li>
