@@ -3,15 +3,23 @@
 require('includes/header.php');
 
 
+
+if (isset($_SESSION['user_is_logged_in'])) {
+
+
+} else {
+
+    header("Location: logout.php");
+}
 //require database class files
 require('includes/config.php');
-
+require('includes/functions.php');
 
 //instatiating our database objects
 $db = new config;
 
 
-$db->query('SELECT * FROM users');
+$db->query('SELECT * FROM user where user_type = "CTM"');
 
 $results = $db->fetchMultiple();
 
@@ -23,9 +31,9 @@ $results = $db->fetchMultiple();
 
   <div class="jumbotron">
 
-    <small class="pull-right"><a href="register_user.php"> Add Customer </a> </small>
+    <small class="pull-right"><a href="register.php"> Add Customer </a> </small>
 
-    <?php echo $_SESSION['user_data']['fullname'] ?> | Admin
+    <?php echo $_SESSION['user_data']['fullName'] ?> | Admin
 
     <h2 class="text-center">Customers</h2>
     <hr>
@@ -48,7 +56,7 @@ $results = $db->fetchMultiple();
             <?php echo $result['id'] ?>
           </td>
           <td>
-            <?php echo $result['full_name'] ?>
+            <?php echo $result['fullName'] ?>
           </td>
           <td>
             <?php echo $result['spending'] ?>

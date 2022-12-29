@@ -27,7 +27,7 @@ require('includes/config.php');
 $db = new config;
 
 
-$db->query('SELECT * FROM users WHERE id=:id');
+$db->query('SELECT * FROM user WHERE id=:id');
 
 
 $db->bindValue(':id', $id, PDO::PARAM_INT);
@@ -37,7 +37,7 @@ $row = $db->fetchSingle();
 
 
 
-//Looping through our fetched array in row vairable.
+//Looping through our fetched array in row vairable. This can go anywhere in the HTML tags
 if ($row) {
 
     $spending_amount = $row['spending'];

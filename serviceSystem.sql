@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2022 at 09:31 PM
+-- Generation Time: Dec 24, 2022 at 09:40 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,21 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `servicesystem`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `fullName` varchar(255) NOT NULL,
-  `pass` varchar(255) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `spending` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -129,29 +114,16 @@ CREATE TABLE `user` (
   `phone_number` varchar(15) DEFAULT NULL,
   `user_type` char(3) NOT NULL DEFAULT 'CTM',
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `spending` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `fullName`, `image`, `email`, `password`, `phone_number`, `user_type`, `created_at`, `updated_at`) VALUES
-(54, 'deric', 'rodas', 'blainefire00@gmail.com', '$2y$10$iWFMJP5rEfbxJfuALX1ZYuLUVGz2XSk71ZT7wYOowB5OVYpm36VH6', '33331362', 'Adm', '2022-12-19 22:42:54', '2022-12-19 23:02:56');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `spending` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `user` (`id`, `fullName`, `image`, `email`, `password`, `phone_number`, `user_type`, `created_at`, `updated_at`, `spending`) VALUES
+(785, 'Bahaa hani', '', 'blainefire123@gmail.com', '$2y$10$A7QRW5joc.FhJ3b/owrY/uSW7NWvXJ0wwXDdgas760G3DgMtZN0vO', '33331362', 'CTM', '2022-12-24 23:30:36', '2022-12-24 23:30:36', 0);
 
 --
 -- Indexes for dumped tables
@@ -195,12 +167,6 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `id` (`id`,`email`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -208,13 +174,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=786;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

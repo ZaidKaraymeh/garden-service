@@ -6,7 +6,17 @@
 include('includes/functions.php');
 
 ?>
+<?php
 
+if (isset($_SESSION['user_is_logged_in'])) {
+
+
+} else {
+
+    header("Location: logout.php");
+}
+
+?>
 <?php 
 /************** Fetching data from database using id ******************/
 
@@ -21,7 +31,7 @@ include('includes/functions.php');
     //instatiating our database objects
     $db = new config;
 
-    $db->query("SELECT * FROM users WHERE id =:id");
+    $db->query("SELECT * FROM user WHERE id =:id");
 
     $db->bindValue(':id', $user_id, PDO::PARAM_INT);
 
@@ -35,10 +45,10 @@ include('includes/functions.php');
 <div class="well">
 
   <small class="pull-right"><a href="customers.php"> View Customers</a> </small>
-
+  <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>
   <?php 
     
-    echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullname'] . ' | Editing Customer</small>';
+    echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullName'] . ' | Editing Customer</small>';
 
 ?>
 
@@ -59,45 +69,38 @@ include('includes/functions.php');
       <div class="form-group">
         <label class="control-label col-sm-2" for="name" style="color:#f3f3f3;">Fullname:</label>
         <div class="col-sm-10">
-          <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['full_name'] ?>"
-            required>
+          <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullName'] ?>" required>
         </div>
       </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="country" style="color:#f3f3f3;">Amount:</label>
-        <div class="col-sm-10">
-          <input type="country" name="amount" class="form-control" id="country" value="<?php echo $row['spending'] ?>"
-            required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
-        <div class="col-sm-10">
-          <input type="email" name="email" class="form-control" id="email" value="<?php echo $row['email'] ?>" required>
-        </div>
-      </div>
-      <div class="form-group ">
-        <label class="control-label col-sm-2" for="pwd" style="color:#f3f3f3;">Password:</label>
-        <div class="col-sm-10">
-          <fieldset disabled>
-            <input type="password" name="password" class="form-control disabled" id="pwd"
-              placeholder="Cannot Change Password" value="<?php echo $row['password'] ?>" required>
-          </fieldset>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <input type="submit" class="btn btn-primary" name="update_customer" value="Update">
-          <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
-        </div>
-      </div>
-
-      <?php endif ;  ?>
-
-    </form>
-
   </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
+    <div class="col-sm-10">
+      <input type="email" name="email" class="form-control" id="email" value="<?php echo $row['email'] ?>" required>
+    </div>
+  </div>
+  <div class="form-group ">
+    <label class="control-label col-sm-2" for="pwd" style="color:#f3f3f3;">Password:</label>
+    <div class="col-sm-10">
+      <fieldset disabled>
+        <input type="password" name="password" class="form-control disabled" id="pwd"
+          placeholder="Cannot Change Password" value="<?php echo $row['password'] ?>" required>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" class="btn btn-primary" name="update_customer" value="Update">
+      <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
+    </div>
+  </div>
+
+  <?php endif ;  ?>
+
+  </form>
+
+</div>
 </div>
 
 <?php 
@@ -114,13 +117,11 @@ if(isset($_POST['update_customer'])){
     $c_email            =   valemail($raw_email);
     
     
-    $db->query('UPDATE users SET full_name=:fullname, email=:email, spending=:amount WHERE id=:id');
+    $db->query('UPDATE user SET fullName=:fullName, email=:email, WHERE id=:id');
     
     $db->bindValue(':id',$user_id , PDO::PARAM_INT);
-    $db->bindValue(':fullname',$c_name , PDO::PARAM_STR);
-    $db->bindValue(':email',$c_email , PDO::PARAM_STR);
-    $db->bindValue(':amount',$c_amount , PDO::PARAM_INT);
-    
+    $db->bindValue(':fullName',$c_name , PDO::PARAM_STR);
+    $db->bindValue(':email',$c_email , PDO::PARAM_STR);    
     
     $run_update = $db->execute();
     
@@ -176,7 +177,7 @@ if(isset($_POST['delete_customer'])){
        
     $id = $_POST['id'];
            
-    $db->query('DELETE FROM users WHERE id=:id');
+    $db->query('DELETE FROM user WHERE id=:id');
        
     $db->bindValue(':id', $id, PDO::PARAM_INT);
        

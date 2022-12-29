@@ -2,6 +2,7 @@
 $fnameERR = $lnameERR = $emailERR = $passERR = $cpsERR = $pnERR = $ERRmsg = "";
 $fname = $lname = $email = $pass = $pn = "";
 $vfname = $vlname = $vemail = $vpass = $vpn = "";
+
 function test_input($data)
 {
       $data = trim($data);
@@ -78,6 +79,7 @@ if (isset($_POST['sb'])) {
             }
       }
 
+
       if (trim($fname) == "" || trim($lname) == "" || trim($pass) == "" || trim($email) == "" || trim($pn) == "") {
             $ERRmsg = "Incorrect input(s)!";
       } else if ($_POST['ps'] !== $_POST['cps']) {
@@ -92,11 +94,11 @@ if (isset($_POST['sb'])) {
                   if (($result) > 0) {
                         $ERRmsg = "Email already exists!";
                   } else {
-                        $sql = "insert into user value( UUID(),'$fname','$lname','$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp())";
+                        $sql = "insert into user value( null ,'$fname $lname', '' ,'$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp(),0 )";
                         $success = $db->exec($sql);
                         if ($success) {
 
-                              redirect('customers.php');
+                              header('Location: Login.php');
 
                               keepmsg('<div class="alert alert-success text-center">
                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -110,7 +112,6 @@ if (isset($_POST['sb'])) {
                                       <strong>Sorry!</strong> Customer could not be registered.
                                 </div>');
                         }
-                        header('location:Login.php');
                   }
                   $db = null;
             } catch (PDOException $e) {
@@ -137,50 +138,11 @@ if (isset($_POST['sb'])) {
       <!-- Stylesheet
       ================================================== -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
-      <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
 </head>
 
 <body>
-      <!-- Navigation
-      ==========================================-->
-      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Fifth navbar example">
-            <div class="container-fluid">
-                  <a class="navbar-brand" href="index.php">BBC STORE</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                  </button>
-
-                  <div class="collapse navbar-collapse" id="navbarsExample05">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                              <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="about.php">About</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="contactus.html">Contact Us</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="cart.php">Book Now</a>
-                              </li>
-
-                              <!-- register and login should be in dropdown named profile -->
-                              <li class="nav-item">
-                                    <a class="nav-link" href="register.php">Register</a>
-                              </li>
-                              <li class="nav-item">
-                                    <a class="nav-link" href="Login.php">Log in</a>
-                              </li>
-                  </div>
-            </div>
-      </nav>
-
+      <?php require('includes/user_header.php'); ?>
       <!-- form section -->
       <div class="form-container">
             <form action=" " method="post">
@@ -212,6 +174,8 @@ if (isset($_POST['sb'])) {
                   <span style="color:red">
                         <?php echo $pnERR; ?>
                   </span> <br />
+
+
                   <button type="submit" name="sb" class="form-btn">Register</button>
                   <p>Already have account? <a href="Login.php">Log in</a></p>
             </form>
@@ -220,7 +184,7 @@ if (isset($_POST['sb'])) {
       <!-- Footer Section -->
       <div id="footer">
             <div class="container text-center">
-                  <div class="col-md-8 col-md-offset-2">
+                  <div class="col-md-12 col-md-offset-2">
                         <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i
                                     class="fas fa-trademark"></i>
                         </p>
@@ -229,7 +193,6 @@ if (isset($_POST['sb'])) {
       </div>
       <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
-      <script type="text/javascript" src="js/nivo-lightbox.js"></script>
 </body>
 
 </html>

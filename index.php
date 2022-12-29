@@ -1,5 +1,8 @@
-<?php 
+<?php
+//Open ob_start and session_start functions
+ob_start();
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +18,12 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <meta name="author" content="">
 
   <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/242f5b2610.js" crossorigin="anonymous"></script>
 
   <!-- Stylesheet
@@ -27,55 +33,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 </head>
 
 <body>
-  <!-- Navigation
-    ==========================================-->
-    <div class="pos-f-t">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#">BBC Store</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <!-- register and login should be in dropdown named profile -->
-                <li class="nav-item">
-                  <a class="nav-link" href="register.php">Register</a>
-                </li>
-                <?php
-                    if(isset($_SESSION['activeUser'])){
-                ?>
-                <li class="nav-item">
-                  <a class="nav-link" href="logout.php">Logout</a>
-                </li>
-                <?php
-                    } else {
-                ?>
-                                <li class="nav-item">
-                  <a class="nav-link" href="Login.php">Log in</a>
-                </li>
-                <?php }?>
-                <?php
-                  if(isset($_SESSION['activeUser'])){
-                ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                    <?php
-                            echo $_SESSION['activeUser'];
-                        ?>
-                    </a>
-                </li>
-                <?php
-                  }
-                ?>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
+  <?php require('includes/user_header.php'); ?>
   <!-- Header -->
   <header id="header">
     <div class="intro">
@@ -85,7 +43,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <div class="col-md-8 col-md-offset-2 intro-text">
               <h1>spend summer outside</h1>
               <p>We design and construct the outdoor space you've always wanted <br> but never wanted to build.</p>
-              <a href="#about" class="btn btn-custom btn-lg page-scroll">Learn More</a>
+              <a href="cart.php" class="btn btn-custom btn-lg">Learn More</a>
             </div>
           </div>
         </div>
@@ -106,7 +64,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       </div>
       <div class="row">
         <div class="col-md-3 text-center">
-          <div class="service-media"> <img src="img/services/service-1.jpg" alt=" "> </div>
+          <div class="service-media"><a href="Excavation.php"> <img src="img/services/service-1.jpg" alt=" "> </a></div>
           <div class="service-desc">
             <h3>Excavation</h3>
             <p> The cost to remove a palm tree does depend on a few factors. Size is one of them, but also the palm
@@ -114,7 +72,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <div class="service-media"> <img src="img/services/service-2.jpg" alt=" "> </div>
+          <div class="service-media"><a href="Landscape.php"> <img src="img/services/service-2.jpg" alt=" "> </a></div>
           <div class="service-desc">
             <h3>Landscape Design</h3>
             <p>We provide various types of exotic flowers, fruit trees, palms and expert knowledge to help you decide
@@ -122,7 +80,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <div class="service-media"> <img src="img/services/service-3.jpg" alt=" "> </div>
+          <div class="service-media"><a href="Installation.php"> <img src="img/services/service-3.jpg" alt=" "> </a>
+          </div>
           <div class="service-desc">
             <h3>Installation of irrigation systems</h3>
             <p>A sprinkler system keep your grass, plants, and trees healthy–if properly set up and maintained, it can
@@ -131,7 +90,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <div class="service-media"> <img src="img/services/service-4.png" alt=" "> </div>
+          <div class="service-media"> <a href="Edging.php"> <img src="img/services/service-4.png" alt=" "> </a></div>
           <div class="service-desc">
             <h3>Edging, Trimming and Shifting</h3>
             <p>With out expertise gardeners we'll provide you with all the care your garden needs wheater you're
@@ -149,95 +108,102 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         <hr>
       </div>
     </div>
-    <div class="imgs-contoh" style="border-radius:5px;background-color: lightgrey;display: grid;grid-template-columns: repeat(auto-fill,minmax(250px,1fr));grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
-    <?php
-    $numberOfCards = 19; // this is the number of images you want to show
-    for ($i = 1; $i <= $numberOfCards; $i++) {
-      echo "<div>";
-      echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
-      echo "</div>";
-    }
-    ?>
+    <div class="imgs-contoh"
+      style="border-radius:5px;background-color: lightgrey;display: grid;grid-template-columns: repeat(auto-fill,minmax(250px,1fr));grid-gap: 20px;text-align: center;padding: 30px;margin: 20px;">
+      <?php
+      $numberOfCards = 19; // this is the number of images you want to show
+      for ($i = 1; $i <= $numberOfCards; $i++) {
+        echo "<div>";
+        echo "  <img style='height: 300px;width: 350px;' src='img/gallary/$i.jpg'>";
+        echo "</div>";
+      }
+      ?>
     </div>
   </div>
-    <!-- Contact Section -->
+  <!-- Contact Section -->
 
-    <div id="contact" class="text-center">
-      <h2>Contact Us</h2>
-      <hr>
-      <p>Where can you find us?</p>
-      <div class="container cards">
+  <div id="contact" class="text-center">
+    <h2>Contact Us</h2>
+    <hr>
+    <p>Where can you find us?</p>
+    <div class="container cards">
       <div class="col-md-12 col-md-offset-2" style="width: 100%;">
-          <h3>Leave us a message</h3>
-          <form action="POST" data-netlify="true" name="sentMessage" id="contactForm" novalidate>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="text" id="name" class="form-control" placeholder="Name" required="required">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-                  <p class="help-block text-danger"></p>
-                </div>
+        <h3>Leave us a message</h3>
+        <form action="POST" data-netlify="true" name="sentMessage" id="contactForm" novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+                <p class="help-block text-danger"></p>
               </div>
             </div>
-            <div class="form-group">
-              <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message"
-                required="required"></textarea>
-              <p class="help-block text-danger"></p>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+                <p class="help-block text-danger"></p>
+              </div>
             </div>
-            <div id="success"></div>
-            <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
-          </form>
-          <br>
-          <br>
+          </div>
+          <div class="form-group">
+            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message"
+              required="required"></textarea>
+            <p class="help-block text-danger"></p>
+          </div>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+        </form>
+        <br>
+        <br>
+      </div>
+      <div class="margo">
+        <div class="card" style="width: 18rem;">
+          <img src="img/services/service-1.jpg" class="card-img-top" alt="No Image">
+          <div class="card-body">
+            <h5 class="card-title">Address</h5>
+            <p>Al Nakheel Road Karanna,Road 5833</p>
+            <p> PO.18509</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
-        <div class="margo">
-          <div class="card" style="width: 18rem;">
-            <img src="img/services/service-1.jpg" class="card-img-top" alt="No Image">
-            <div class="card-body">
-              <h5 class="card-title">Address</h5>
-              <p>Al Nakheel Road Karanna,Road 5833</p>
-              <p> PO.18509</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        <div class="card" style="width: 18rem;">
+          <img src="img/services/service-2.jpg" class="card-img-top" alt="No image">
+          <div class="card-body">
+            <h5 class="card-title">Working Hours</h5>
+            <p class="card-text">
+            <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
+            <p>Friday: 07:00 AM - 8:00 PM</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
-          <div class="card" style="width: 18rem;">
-            <img src="img/services/service-2.jpg" class="card-img-top" alt="No image">
-            <div class="card-body">
-              <h5 class="card-title">Working Hours</h5>
-              <p class="card-text">
-              <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
-              <p>Friday: 07:00 AM - 8:00 PM</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="img/services/service-3.jpg" class="card-img-top" alt="No Image">
-            <div class="card-body">
-              <h5 class="card-title">Contact Info</h5>
-              <p class="card-text">
-              <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
-              <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="img/services/service-3.jpg" class="card-img-top" alt="No Image">
+          <div class="card-body">
+            <h5 class="card-title">Contact Info</h5>
+            <p class="card-text">
+            <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
+            <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- Footer Section -->
-    <div id="footer">
-      <div class="container text-center">
-        <div class="col-md-12 col-md-offset-2">
-          <p>CopyRights <i class="far fa-copyright"></i>2020 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
-          </p>
-        </div>
+    <div class="Google-Maps" id="Google-Maps">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14315.993616002352!2d50.5112608!3d26.2292414!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa248b77cfc914933!2z2YXYtNiq2YQg2LrYtdmGINin2YTYqNit2LHZitmG!5e0!3m2!1sen!2sbh!4v1580040953374!5m2!1sen!2sbh"
+        width="2080" height="800" frameborder="0" style="border:0;" allowfullscreen="true"></iframe>
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <div id="footer">
+    <div class="container text-center">
+      <div class="col-md-12 col-md-offset-2">
+        <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
+        </p>
       </div>
     </div>
-    <!-- jqury cdn -->
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  </div>
+  <!-- jqury cdn -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </body>
+
 </html>

@@ -28,7 +28,7 @@ require('includes/config.php');
 $db = new config;
 
 
-$db->query('SELECT * FROM users WHERE id=:id');
+$db->query('SELECT * FROM user WHERE id=:id');
 
 
 $db->bindValue(':id', $id, PDO::PARAM_INT);
@@ -52,8 +52,8 @@ if ($row) {
                         </thead>
                         <tbody>
                            <tr class="text-center">
-                            <td>' . $row['full_name'] . '</td>
-                            <td>$ ' . $row['spending'] . '</td>
+                            <td>' . $row['fullName'] . '</td>
+                            <td>BHD ' . $row['spending'] . '</td>
                             <td>' . $row['email'] . '</td>
                           </tr>
 

@@ -21,7 +21,7 @@ require('includes/config.php');
 $db = new config;
 
 
-# ff
+
 
 if (isset($_POST['c_id'])) {
 
@@ -31,7 +31,7 @@ if (isset($_POST['c_id'])) {
 
     $c_amount = valint($raw_amount);
 
-    $db->query("UPDATE users SET spending=:amount WHERE id=:id");
+    $db->query("UPDATE user SET spending=:amount WHERE id=:id");
 
     $db->bindValue(':id', $id, PDO::PARAM_INT);
     $db->bindValue(':amount', $c_amount, PDO::PARAM_INT);
