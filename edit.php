@@ -44,14 +44,13 @@ if (isset($_SESSION['user_is_logged_in'])) {
 
 <div class="container" style="background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;">
 <div class="well">
-
-  <small class="pull-right"><a href="customers.php"> View Customers</a> </small>
-  <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>
-  <?php 
-    
-    echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullName'] . ' | Editing Customer</small>';
-
-?>
+<div style="display: flex;justify-content:space-between;align-items:center;">
+    <?php echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullName'] . ' | Editing Customer</small>';?>
+    <div style="display: flex;gap:15px;">
+      <small class="pull-right" id="o22"><a href="customers.php"> View Customers</a> </small>
+      <small class="pull-right" id="o33"><a href="add_service.php"> Add Service</a> </small>
+    </div>
+</div>
 
   <h2 class="text-center">My Customers</h2>
   <hr>
