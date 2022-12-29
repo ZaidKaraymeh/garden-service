@@ -6,6 +6,7 @@
 include('includes/functions.php');
 
 ?>
+<link rel="stylesheet" href="css/style.css">
 <?php
 
 if (isset($_SESSION['user_is_logged_in'])) {
@@ -43,13 +44,15 @@ if (isset($_SESSION['user_is_logged_in'])) {
 
 <div class="container" style="background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;">
 <div class="well">
-<div style="display: flex;justify-content:space-between;align-items:center;">
-    <?php echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullName'] . ' | Editing Customer</small>';?>
-    <div style="display: flex;gap:15px;">
-      <small class="pull-right"><a href="customers.php"> View Customers</a> </small>
-      <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>
-    </div>
-</div>
+
+  <small class="pull-right"><a href="customers.php"> View Customers</a> </small>
+  <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>
+  <?php 
+    
+    echo '<small class="pull-left" style="color:#337ab7;">' . $_SESSION['user_data']['fullName'] . ' | Editing Customer</small>';
+
+?>
+
   <h2 class="text-center">My Customers</h2>
   <hr>
   <br>
@@ -69,7 +72,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
           <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullName'] ?>" required>
         </div>
       </div>
-  </div>
+ 
   <div class="form-group">
     <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
     <div class="col-sm-10">
@@ -92,7 +95,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
       <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
     </div>
   </div>
-
+  </div>
   <?php endif ;  ?>
 
   </form>
@@ -105,12 +108,10 @@ if (isset($_SESSION['user_is_logged_in'])) {
 if(isset($_POST['update_customer'])){
     
     $raw_name           =   cleandata($_POST['name']);
-    $raw_amount         =   cleandata($_POST['amount']);
     $raw_email          =   cleandata($_POST['email']);
   
     
     $c_name             =   sanitize($raw_name);
-    $c_amount           =   valint($raw_amount);
     $c_email            =   valemail($raw_email);
     
     

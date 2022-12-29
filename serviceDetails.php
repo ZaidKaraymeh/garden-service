@@ -1,5 +1,48 @@
 <?php
+
+//Open ob_start and session_start functions
+ob_start();
 session_start();
+
+include('includes/functions.php');
+$totalRates=0;
+$avgRate=0;
+$sumRate=0;
+$count=0;
+
+      try {
+            $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $id= $_GET['id'];
+            $sql = "select * from service where id= $id ";
+            $sql2= "select * from review where service_id= $id ";
+            $rs = $db->query($sql);
+            $rr = $db->query($sql2);
+            $db = null;
+
+            if ($row = $rs->fetch()) {
+                  $img= $row['picture'];
+                  $service_name= $row['name'];
+                  $description= $row['description'];
+                  $price= $row['price'];
+                  
+            }
+
+            foreach($rr as $row){
+                  $sumRate+= $row['rating'];
+                  $count++;
+            }
+
+            $rowCount= $rr->rowCount();
+            if ($rowCount > 0) {
+                  $totalRates= $rowCount;
+            }
+
+      } catch (PDOException $e) {
+            die("Error: " . $e->getMessage());
+      }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,29 +77,36 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- service -->
   <div class="container-fluid" style="margin-top: 150px;">
     <div class="mx-3 mt-5 d-md-flex ">
-      <div class="service-media col-5"> <img src="img/services/service-2.jpg" alt=" "
+      <div class="service-media col-5"> <img src="<?php echo $img; ?>" alt=" "
           class="rounded  d-block mx-5 w-75 h-75 "></div>
       <div class="service-desc col-7">
-        <h2>Landscape Design</h2>
+        <h2><?php echo $service_name; ?></h2>
         <!-- rating -->
-        <i class="fas fa-star star-light mr-1 main-star"> </i>
-        <i class="fas fa-star star-light mr-1 main-star"> </i>
-        <i class="fas fa-star star-light mr-1 main-star"> </i>
-        <i class="fas fa-star star-light mr-1 main-star"> </i>
-        <i class="fas fa-star star-light mr-1 main-star"> </i>
-        <p><span id=average_rating>0.0</span> <span id="total_review">(0)</span> Review </p>
+        <?php 
 
-        <p>Service discription...<br />
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolore nostrum reprehenderit tenetur animi
-          nemo? Quis exercitationem minus veritatis tempore numquam quam sit libero, error suscipit iste deserunt cumque
-          accusamus.
-        </p>
-        <p> We provide various types of exotic flowers, fruit trees, palms and expert knowledge to help you decide
-          what is best.
-        </p>
+      //calc avg
+      $t=true;
+      if($sumRate==0 && $count==0){
+            $t=false;
+      } else {
+            $avgRate= $sumRate/$count;
+      }
 
-        <!-- view available date -->
-        <button class="btn btn-custom" name="book">Book now</button>
+      //rating
+      if ($count > 0) {
+            for($i=0; $i < round($avgRate) ; $i++) { 
+                  echo  ' <i class="fa fa-star checked mr-1 main-star"> </i> ';
+            }
+            echo "<p><span id=average_rating>$avgRate</span> ($totalRates) Review(s) </p>"; 
+      } else {
+            echo "No rates yet. <br/><br/>";
+      }
+      // description
+      echo "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, vero iure! Sunt, odio error culpa, tempora, eligendi eius voluptas facere vero doloremque recusandae necessitatibus at sit blanditiis! Expedita, dolorum facere.
+      <br/>$description <br/>";
+      ?>
+
+      <button class="btn btn-custom" name="book">Book now</button>
       </div>
     </div>
   </div>

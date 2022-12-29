@@ -15,7 +15,7 @@ $id = $_GET['cus_id'];
 
 ?>
 
-
+<link rel="stylesheet" href="css/style.css">
 <script>
 
     $(document).ready(function () {
