@@ -31,8 +31,8 @@ $results = $db->fetchMultiple();
 
   <div class="jumbotron">
   <?php if (isset($_SESSION['user_is_logged_in'])) {
-  echo ' <small class="pull-right"><a href="customers.php"> View Customers</a> </small><br>';
-  echo ' <small class="pull-right"><a href="add_service.php"> Add Service</a> </small>';
+    echo '<small class="pull-right btn btn-lg"><a href="customers.php"> View Customers</a> </small> 
+    <small class="pull-right btn btn-lg"><a href="add_service.php"> Add Service</a> </small>';
 }
 ?>
 

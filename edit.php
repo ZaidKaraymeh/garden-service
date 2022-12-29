@@ -45,7 +45,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
 
 <div class="well">
 
-  <small class="pull-right btn btn-lg"><a href="customers.php"> View Customers</a> </small> <br>
+  <small class="pull-right btn btn-lg"><a href="customers.php"> View Customers</a> </small> 
   <small class="pull-right btn btn-lg"><a href="add_service.php"> Add Service</a> </small>
   <?php 
     
