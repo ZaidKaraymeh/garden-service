@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_is_logged_in'])) {
    header("location: login.php");
 }
 require('includes/functions.php');
-
+require('includes/header.php');
 require("includes/config.php");
 $db = new config;
 
@@ -77,6 +77,7 @@ if (isset($_POST['save'])) {
    <title>services</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/style.css">
 
 <body>
    <div class='container '>

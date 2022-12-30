@@ -157,7 +157,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                                 <?php } ?>
                             <input type='hidden' name='aid' value='<?php echo $aid; ?>' />
                             <input type='hidden' name='price' value='<?php echo $price; ?>' />
-                            <input type="submit" name="btn" class="btn btn-info btn-lg btn-block" value="BOOK NOW">
+                            <input type="submit" name="btn" class="btn btn-custom btn-lg btn-block" value="BOOK NOW">
                             </form>
                         </div>
 

@@ -1,0 +1,118 @@
+body {
+    background-image: url(img/Admin-wall.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(5px);
+}
+
+#llolololo li a {
+    color: gray;
+    transition: 0.3s;
+}
+
+#llolololo li:hover a {
+    color: white;
+}
+
+#o22 a {
+    color: lightblue;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#o22:hover a {
+    color: lightgreen;
+}
+
+#o33 a {
+    color: lightblue;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#o33:hover a {
+    color: lightgreen;
+}
+
+#o44 a {
+    color: lightblue;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#o44:hover a {
+    color: lightgreen;
+}
+
+#o55 a {
+    color: lightblue;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#o55:hover a {
+    color: lightgreen;
+}
+
+#o66 a {
+    color: lightblue;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#o66:hover a {
+    color: lightgreen;
+}
+
+#o77 a {
+    color: lightblue;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#o77:hover a {
+    color: lightgreen;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+td {
+    transition: 0.5s;
+}
+
+div.alert.alert-success.text-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.alert.alert-success.text-center a {
+    color: green;
+    text-decoration: none;
+}
+
+div.alert.alert-success.text-center strong {
+    flex: 1;
+    text-align: center;
+    margin-right: 5px;
+}
