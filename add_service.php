@@ -44,9 +44,8 @@ if (isset($_POST['save'])) {
       // }
    }
 
-   $result = $db->query("INSERT 
-      INTO service 
-      VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp())");
+   $result = $db->query("INSERT INTO service 
+ VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp())");
 
    $success = $db->execute($result);
    if ($success) {
