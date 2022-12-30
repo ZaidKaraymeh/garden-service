@@ -172,11 +172,11 @@ if(isset($_POST['delete_customer'])){
 
    if(isset($_POST['delete_user'])){
        
-    $id = $_POST['id'];
+    $user_id = $_POST['cus_id'];
            
     $db->query('DELETE FROM user WHERE id=:id');
        
-    $db->bindValue(':id', $id, PDO::PARAM_INT);
+    $db->bindValue(':id', $user_id, PDO::PARAM_INT);
        
     $run = $db->execute();
        
@@ -193,7 +193,7 @@ if(isset($_POST['delete_customer'])){
         
          keepmsg('<div class="alert alert-danger text-center">
                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                      <strong>Sorry </strong>User with ID ' . $id . ' Could not be deleted 
+                      <strong>Sorry </strong>User with ID ' . $user_id . ' Could not be deleted 
                 </div>');
     }
        
