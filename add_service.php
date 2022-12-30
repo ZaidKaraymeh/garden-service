@@ -6,6 +6,7 @@ if (!isset($_SESSION['user_is_logged_in'])) {
    //go to log in page.
    header("location: login.php");
 }
+require('includes/functions.php');
 
 require("includes/config.php");
 $db = new config;
@@ -24,7 +25,7 @@ if (isset($_POST['save'])) {
 
    $name = test_input($_POST['serviceName']);
    $price = test_input($_POST['servicePrice']);
-   $desc = $_POST['ServiceDesc'];
+   $desc = sanitize($_POST['ServiceDesc']);
    // $rating = test_input($_POST['rating']);
 
    $p1 = '/^[a-z-A-Z]+$/i';
@@ -43,14 +44,12 @@ if (isset($_POST['save'])) {
       //    $photo = basename($_FILES['file']['name']);
       // }
    }
-
-   $result = $db->query("INSERT INTO service 
- VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp())");
-
-   $success = $db->execute($result);
+   $q = $db->query("INSERT INTO service 
+   VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp()");
+   $success = $db->execute($q);
    if ($success) {
 
-      header('Location: services.php');
+      redirect('services.php');
 
       keepmsg('<div class="alert alert-success text-center">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
