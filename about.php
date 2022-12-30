@@ -62,7 +62,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <!-- Services Section -->
     <div id="services">
         <div class="container">
-            <div class="col-md-10 col-md-offset-1 section-title text-center">
+            <div class="col-md-12 col-md-offset-1 section-title text-center">
                 <h2>What do we do?</h2>
                 <hr>
                 <p>We construct walkways, remove weeds, select the right types of plants, and ensure that your lawns are
@@ -73,7 +73,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             </div>
             <div class="row">
                 <div class="col-md-3 text-center">
-                    <div class="service-media"> <img src="img/services/service-1.jpg" alt=" "> </div>
+                    <div class="service-media"><a href="serviceDetails.php?id=1"> <img src="img/services/service-1.jpg"
+                                alt=" "> </a></div>
                     <div class="service-desc">
                         <h3>Excavation</h3>
                         <p> The cost to remove a palm tree does depend on a few factors. Size is one of them, but also
@@ -82,7 +83,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
-                    <div class="service-media"> <img src="img/services/service-2.jpg" alt=" "> </div>
+                    <div class="service-media"><a href="serviceDetails.php?id=2"> <img src="img/services/service-2.jpg"
+                                alt=" "> </a></div>
                     <div class="service-desc">
                         <h3>Landscape Design</h3>
                         <p>We provide various types of exotic flowers, fruit trees, palms and expert knowledge to help
@@ -91,7 +93,9 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
-                    <div class="service-media"> <img src="img/services/service-3.jpg" alt=" "> </div>
+                    <div class="service-media"><a href="serviceDetails.php?id=3"> <img src="img/services/service-3.jpg"
+                                alt=" "> </a>
+                    </div>
                     <div class="service-desc">
                         <h3>Installation of irrigation systems</h3>
                         <p>A sprinkler system keep your grass, plants, and trees healthy–if properly set up and
@@ -102,7 +106,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
-                    <div class="service-media"> <img src="img/services/service-4.png" alt=" "> </div>
+                    <div class="service-media"> <a href="serviceDetails.php?id=4"> <img src="img/services/service-4.png"
+                                alt=" "> </a></div>
                     <div class="service-desc">
                         <h3>Edging, Trimming and Shifting</h3>
                         <p>With out expertise gardeners we'll provide you with all the care your garden needs wheater
