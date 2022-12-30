@@ -1,7 +1,7 @@
 <?php
 //Open ob_start and session_start functions
 ob_start();
-session_start();
+// session_start(); already there is session in the header
 
 ?>
 <!DOCTYPE html>

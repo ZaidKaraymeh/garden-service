@@ -20,7 +20,7 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>BBC Store Admin Panel</title>
+    <title>BBC Store Account Panel</title>
 
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
@@ -50,10 +50,11 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <style>
         body{
-            background-image: url(img/gallary/1.jpg);
+            background-image: url(img/Admin-wall.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
+            min-height: 100vh;
         }
         body::before{
             content: '';
@@ -62,7 +63,7 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
             top: 0;
             width: 100%;
             height: 100%;
-            background-color:rgba(0, 0, 0, 0.65);
+            background-color:rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(5px);
         }
         #llolololo li a{
@@ -90,11 +91,61 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
         #o33:hover a{
             color: lightgreen;
         }
+        #o44 a{
+            color: lightblue;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #o44:hover a{
+            color: lightgreen;
+        }
+        #o55 a{
+            color: lightblue;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #o55:hover a{
+            color: lightgreen;
+        }
+        #o66 a{
+            color: lightblue;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #o66:hover a{
+            color: lightgreen;
+        }
+        #o77 a{
+            color: lightblue;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #o77:hover a{
+            color: lightgreen;
+        }
         th{
             background-color: rgba(0, 0, 0, 0.15)!important;
         }
         td{
             transition: 0.5s;
+        }
+        div.alert.alert-success.text-center{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        div.alert.alert-success.text-center a{
+            color: green;
+            text-decoration: none;
+        }
+        div.alert.alert-success.text-center strong{
+            flex: 1;
+            text-align: right;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -103,6 +154,7 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
         if (isset($_SESSION['activeUser']) || isset($_SESSION['user_is_logged_in'])) {
             $fullname = $_SESSION['user_data']['fullName'];
             $image = $_SESSION['user_data']['image'];
+            $imageo = $_SESSION['user_data']['imgoh'];
         }
     ?>
     <div class="collapse" id="navbarToggleExternalContent" style="position: relative;">
@@ -117,11 +169,11 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <div class="container-fluid">
-                <a class="navbar-brand" href="customers.php" style="display: block;text-align: center;">BBC Admin Control Panel</a>
+                <a class="navbar-brand" href="customers.php" style="display: block;text-align: center;">BBC Account Control Panel</a>
                 <div style="display: flex;gap: 10px;justify-content: space-between;align-items: center;">
                     <h5 class="text-white h6" style="margin: 0; padding:5px">
                         <a class="navbar-brand mx-2" href="#">
-                            <img src="img/gallary/1.jpg" alt="Image" width="50" height="40" style="border-radius: 30%;border:1px solid white;">
+                            <img src="uploaded_image/<?php echo $imageo; ?>" alt="Image" width="50" height="40" style="border-radius: 30%;border:1px solid white;">
                         </a>
                         Welcome, <?php echo $fullname ?>
                     </h5>
@@ -132,5 +184,5 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
             </div>
         </div>
     </nav>
-    <div class="container" style="position: relative;">
+    <div class="container" style="position: relative; padding-top:50px;padding-bottom:100px;">
         <div class="container-fluid pt-5">

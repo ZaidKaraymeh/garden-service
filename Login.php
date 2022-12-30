@@ -19,7 +19,7 @@ if (isset($_POST['sb'])) {
                   $d_image = $row['image'];
 
                   $d_name = $row['fullName'];
-
+                  
                   $s_image = "<img src='uploaded_image/$d_image' class='profile_image' />";
                   $_SESSION['activeUser'] = $email;
                   $_SESSION['user_data'] = array(
@@ -29,6 +29,7 @@ if (isset($_POST['sb'])) {
                         'id' => $row['id'],
                         'email' => $row['email'],
                         'image' => $s_image,
+                        'imgoh' => $d_image,
                         'phone_number' => $row['phone_number'],
                         'user_type' => $row['user_type']
 

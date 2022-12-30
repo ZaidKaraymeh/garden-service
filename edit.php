@@ -61,26 +61,26 @@ if (isset($_SESSION['user_is_logged_in'])) {
 
 <div class="rows">
   <?php showmsg(); ?>
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-12 col-md-offset-3">
     <?php  if($row) : ?>
     <br>
     <form class="form-horizontal" role="form" method="post" action="edit.php?cus_id=<?php echo $user_id ?>">
       <div class="form-group">
-        <label class="control-label col-sm-2" for="name" style="color:#f3f3f3;">Fullname:</label>
-        <div class="col-sm-10">
+        <label class="control-label col-sm-4" for="name">Fullname:</label>
+        <div class="col-sm-12">
           <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullName'] ?>" required>
         </div>
       </div>
  
   <div class="form-group">
-    <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
-    <div class="col-sm-10">
+    <label class="control-label col-sm-4" for="email">Email:</label>
+    <div class="col-sm-12">
       <input type="email" name="email" class="form-control" id="email" value="<?php echo $row['email'] ?>" required>
     </div>
   </div>
   <div class="form-group ">
-    <label class="control-label col-sm-2" for="pwd" style="color:#f3f3f3;">Password:</label>
-    <div class="col-sm-10">
+    <label class="control-label col-sm-4" for="pwd">Password:</label><br>
+    <div class="col-sm-12" style="margin-bottom: 20px;">
       <fieldset disabled>
         <input type="password" name="password" class="form-control disabled" id="pwd"
           placeholder="Cannot Change Password" value="<?php echo $row['password'] ?>" required>
@@ -89,7 +89,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-2 col-sm-12" style="display: flex;justify-content: space-around;">
       <input type="submit" class="btn btn-primary" name="update_customer" value="Update">
       <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
     </div>

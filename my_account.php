@@ -21,17 +21,21 @@ $db->bindValue(':email', $email, PDO::PARAM_STR);
 $row = $db->fetchSingle();
 
 ?>
+<div class="container" style="padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;">
 <div class="well">
+<div style="display: flex;justify-content:space-between;align-items:center;">
+<?php $fullname = $_SESSION['user_data']['fullName'];
+
+echo '<small class="pull-left" style="color:#337ab7;">' . $fullname . '  | Veiwing / Editing</small>';
+?>
+<div style="display: flex;gap:15px;">
   <?php if (isset($_SESSION['user_is_logged_in'])) {
-  echo '<small class="pull-right btn btn-lg"><a href="customers.php"> View Customers</a> </small> 
-  <small class="pull-right btn btn-lg"><a href="add_service.php"> Add Service</a> </small>';
+  echo '<small style="display: block;text-align: right;" id="o66"><a href="customers.php"> View Customers</a> </small> 
+  <small style="display: block;text-align: right;" id="o77"><a href="add_service.php"> Add Service</a> </small>';
 }
 ?>
-  <?php $fullname = $_SESSION['user_data']['fullName'];
-
-  echo '<small class="pull-left" style="color:#337ab7;">' . $fullname . '  | Veiwing / Editing</small>';
-  ?>
-
+</div>
+</div>
   <h2 class="text-center">My Account</h2>
   <hr>
   <br>
@@ -41,28 +45,28 @@ $row = $db->fetchSingle();
 
     <?php showmsg(); ?>
 
-    <div class="col-md-9">
+    <div class="col-md-12">
 
       <?php if ($row) { ?>
         <br>
         <form class="form-horizontal" role="form" method="post" action="">
           <div class="form-group">
-            <label class="control-label col-sm-2" for="name" style="color:#f3f3f3;">Fullname:</label>
-            <div class="col-sm-10">
+            <label class="control-label col-sm-2" for="name" >Fullname:</label>
+            <div class="col-sm-12">
               <input type="name" name="name" class="form-control" id="name" value="<?php echo $row['fullName'] ?>"
                 required>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email" style="color:#f3f3f3;">Email:</label>
-            <div class="col-sm-10">
+            <label class="control-label col-sm-2" for="email" >Email:</label>
+            <div class="col-sm-12">
               <input type="email" name="email" class="form-control" id="email" value="<?php echo $row['email'] ?>"
                 required>
             </div>
           </div>
           <div class="form-group ">
-            <label class="control-label col-sm-2" for="pwd" style="color:#f3f3f3;">Password:</label>
-            <div class="col-sm-10">
+            <label class="control-label col-sm-2" for="pwd" >Password:</label>
+            <div class="col-sm-12">
               <fieldset disabled>
                 <input type="password" name="password" class="form-control disabled" id="pwd"
                   value="<?php echo $row['password'] ?>" required>
@@ -71,7 +75,7 @@ $row = $db->fetchSingle();
           </div>
           <br>
           <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
+            <div class="col-sm-offset-2 col-sm-12" style="display: flex;justify-content:space-evenly;">
               <a class="btn btn-primary" href="edit_account.php?id=<?php echo $row['id'] ?>">Edit</a>
               <?php if (isset($_SESSION['user_is_logged_in'])) {
               echo '<button type="submit" class="btn btn-danger pull-right" name="delete_form">Delete</button>';
@@ -81,14 +85,14 @@ $row = $db->fetchSingle();
         </form>
 
       </div>
-      <div class="col-md-3">
+      <div class="col-md-12" style="text-align: center;">
         <div style="padding: 20px;">
           <div class="thumbnail">
             <a href="edit_account.php?id=<?php echo $row['id'] ?>">
 
               <?php $image = $row['image']; ?>
 
-              <?php echo ' <img src="uploaded_image/' . $image . '"  style="width:150px;height:150px">'; ?>
+              <?php echo ' <img src="uploaded_image/' . $image . '"  style="width:300px;height:300px">'; ?>
             </a>
             <h4 class="text-center">
               <?php //echo fullname of admin  ?>
@@ -153,7 +157,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
 ?>
 
 </div>
-
+</div>
 </div>
 
 </div>
