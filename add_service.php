@@ -44,9 +44,9 @@ if (isset($_POST['save'])) {
       //    $photo = basename($_FILES['file']['name']);
       // }
    }
-   $q = $db->query("INSERT INTO service 
-   VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp()");
-   $success = $db->execute($q);
+
+   $success = $db->execute($db->query("INSERT INTO service 
+   VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp())"));
    if ($success) {
 
       redirect('services.php');
