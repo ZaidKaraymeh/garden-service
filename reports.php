@@ -56,7 +56,8 @@ $id = $_GET['cus_id'];
 
 
 
-<div id="page-wrapper" style="padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 43%), 0 2px 4px 0 rgb(255 255 255 / 42%);background-color:#fff;">
+<div id="page-wrapper"
+    style="padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 43%), 0 2px 4px 0 rgb(255 255 255 / 42%);background-color:#fff;">
 
     <div class="container-fluid">
 
@@ -64,8 +65,8 @@ $id = $_GET['cus_id'];
         <div class="row">
             <div class="col-md-12">
                 <h3 class="page-header" style="text-align: center;">
-                    <?php //Collect the admin's name and put it in there using the session super global?> Admin Name |
-                    You are Admin
+                    <?php echo $_SESSION['user_data']['fullName']; ?>
+                    | You are Admin
                 </h3>
                 <div style="display: flex;justify-content:space-evenly;align-items:center;margin:30px;">
                     <small id="o44"><a href="customers.php"> View Customers </a> </small><br>
@@ -115,7 +116,7 @@ $id = $_GET['cus_id'];
                                 <label class="control-label col-sm-4" for="salary" style="color:#777;">Amt</label>
                                 <div class="col-sm-12">
                                     <input type="text" name="salary" class="form-control" id="salary"
-                                        placeholder="Udpate Amount" required>
+                                        placeholder="Update Amount" required>
                                 </div>
                             </div>
                             <div class="form-group">

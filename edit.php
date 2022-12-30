@@ -174,7 +174,7 @@ if(isset($_POST['delete_customer'])){
        
     $user_id = $_POST['cus_id'];
            
-    $db->query('DELETE FROM user WHERE id=:id');
+    $db->query('UPDATE id FROM user WHERE id=:id');
        
     $db->bindValue(':id', $user_id, PDO::PARAM_INT);
        

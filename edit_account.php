@@ -67,7 +67,7 @@ include('includes/functions.php');
           <div class="form-group">
             <label class="control-label col-sm-4" for="image"></label>
             <div class="col-sm-12">
-              <input type="file" name="image" id="image" placeholder="Choose Image" required>
+              <input type="file" name="image" id="image" placeholder="Choose Image">
             </div>
           </div>
 
@@ -108,7 +108,9 @@ include('includes/functions.php');
         //move image to permanent location
         move_uploaded_file($c_img_tmp, "uploaded_image/$c_img");
 
-
+        if ($c_img == "") {
+          $c_img = "user_default.jpg";
+        }
 
         $db->query("UPDATE user SET fullname=:fullName, email=:email, password=:password, image=:image WHERE id=:id");
         $db->bindvalue(':id', $user_id, PDO::PARAM_STR);

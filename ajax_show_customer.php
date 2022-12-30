@@ -1,9 +1,4 @@
-<?php //include('includes/header.php'); cause problems ?>
-
-
 <?php
-
-
 //Include functions
 include('includes/functions.php');
 

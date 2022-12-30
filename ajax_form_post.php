@@ -1,6 +1,3 @@
-<?php include('includes/header.php'); ?>
-
-
 <?php
 
 //Include functions
