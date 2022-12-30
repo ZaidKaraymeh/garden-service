@@ -21,10 +21,10 @@ session_start();
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="about.php">About US</a>
+                        <a class="nav-link" aria-current="page" href="about.php">About US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="services.php">Services</a>
+                        <a class="nav-link" aria-current="page" href="services.php">Services</a>
                     </li>
                     <!-- register and login should be in dropdown named profile -->
                     <li class="nav-item">
@@ -50,7 +50,7 @@ session_start();
                     if (isset($_SESSION['activeUser'])) {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="my_account.php">
+                            <a class="nav-link active" href="my_account.php">
                                 <?php
                                 echo $_SESSION['user_data']['fullName'];
 
