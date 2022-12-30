@@ -88,7 +88,7 @@ if (isset($_POST['sb'])) {
             try {
                   $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
                   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                  $query = "select * from user where email='$email'";
+                  $query = "SELECT * FROM user WHERE email='$email'";
                   $rs = $db->query($query);
                   $result = $rs->rowCount();
                   if (($result) > 0) {

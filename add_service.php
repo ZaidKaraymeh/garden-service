@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_is_logged_in'])) {
 }
 
 require("includes/config.php");
+$db = new config;
 
 function test_input($data)
 {
@@ -21,36 +22,48 @@ $error = false;
 
 if (isset($_POST['save'])) {
 
-   $name = test_input($_POST['activitename']);
-   $price = test_input($_POST['activiteprice']);
-   $desc = $_POST['desc'];
-   $rating = test_input($_POST['rating']);
-   //$desc = $_POST['desc'];
+   $name = test_input($_POST['serviceName']);
+   $price = test_input($_POST['servicePrice']);
+   $desc = $_POST['ServiceDesc'];
+   // $rating = test_input($_POST['rating']);
 
    $p1 = '/^[a-z-A-Z]+$/i';
    $p2 = '/^[0-9]+$/';
 
-   if (!$name || !$price || !$photo || !$desc || !$_FILES['file']) {
+   if (!$name || !$price || !$desc || !$_FILES['file']) {
       $error = true;
       echo "please enter all required fields";
    }
 
    if (!$error) {
+      // || !$photo
+      // $target_path = "images/";
+      // $target_path = $target_path . basename($_FILES['file']['name']);
+      // if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
+      //    $photo = basename($_FILES['file']['name']);
+      // }
+   }
 
-      $target_path = "images/";
-      $target_path = $target_path . basename($_FILES['file']['name']);
-      if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
-         $photo = basename($_FILES['file']['name']);
-      }
-
-
-      $res = $db->query("INSERT 
+   $result = $db->query("INSERT 
       INTO service 
-      VALUES (null,'$name','$price','$photo','$desc','$rating')");
+      VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp())");
 
-      if ($res->rowCount() > 0) {
-         echo "<center style='color:green'>Activity added successfully</center>";
-      }
+   $success = $db->execute($result);
+   if ($success) {
+
+      header('Location: services.php');
+
+      keepmsg('<div class="alert alert-success text-center">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Success!</strong> Customer registered successfully.
+        </div>');
+
+   } else {
+
+      keepmsg('<div class="alert alert-danger text-center">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Sorry!</strong> Customer could not be registered.
+        </div>');
    }
 }
 
@@ -72,59 +85,26 @@ if (isset($_POST['save'])) {
       <div class="row ">
 
          <div class="col-12 col-md-12 l">
-            <div class="title ">ADD NEW ACTIVITE</div>
             <form method='POST' enctype='multipart/form-data'>
-               <h4>Activite name:</h4>
-               <input type=text class="form-control" name='activitename' placeholder="enter activite name.." />
+               <h4>Service name:</h4>
+               <input type=text class="form-control" name='serviceName' placeholder="enter service name.." />
 
-               <h4>Activite price per hour:</h4>
+               <h4>Service Price:</h4>
                <div class="input-group mb-3">
                   <div class="input-group-prepend">
                      <span class="input-group-text">BD</span>
                   </div>
-                  <input type="text" class="form-control" name="activiteprice"
-                     aria-label="Amount (to the nearest dollar)">
+                  <input type="text" class="form-control" name="servicePrice" aria-label="Amount">
                   <div class="input-group-append">
                      <span class="input-group-text">.000</span>
                   </div>
                </div>
-               <h4>Activity Quote:</h4>
-               <input class="form-control" name="quote" type="text" id=""><br>
-
-
-
-               <h4>Activity Limit:</h4>
-               <input class="form-control" name="limit" type="number" id=""><br>
-
-
-
-               <h4>Activite picture:</h4>
+               <h4>Service picture:</h4>
                <input class="form-control" type="file" name="file" id="formFile"><br>
-               <!-- <input type='submit' class="btn btn-info" name='upload' value='upload'/> -->
+               <input type='submit' class="btn btn-info" name='upload' value='upload' />
 
-
-
-               <h4>Activity Type</h4>
-               <select id="" name="type" class="form-select" aria-label="Default select example">
-                  <option value="water">Water</option>
-                  <option value="land">Land</option>
-               </select><br>
-
-               <h4>Activity Place</h4>
-               <select id="place" name="place" class="form-select" aria-label="Default select example">
-                  <option value="Bahrain Amwaj Beach">Bahrain Amwaj Beach</option>
-                  <option value="Bahrain Ritz Carlton Beach">Bahrain Ritz Carlton Beach</option>
-                  <option value="Bahrain Coral Bay Beach">Bahrain Coral Bay Beach</option>
-                  <option value="Novotel Bahrain Al Dana Resort Beach">Novotel Bahrain Al Dana Resort Beach</option>
-                  <option value="Bahrain Hawar Islands Beach">Bahrain Hawar Islands Beach</option>
-                  <option value="Bahrain Jarada Island Beach">Bahrain Jarada Island Beach</option>
-                  <option value="Sofitel Bahrain Zallaq Thalassa Beach Sea & Spa">Sofitel Bahrain Zallaq Thalassa Beach
-                     Sea & Spa</option>
-               </select><br>
-               <!--
-          <h4>Activite Description: </h4>
-          <input type=text class="form-control" name='activitename' placeholder="Enter activity description..."/>
--->
+               <h4>Service Description: </h4>
+               <input type=text class="form-control" name='ServiceDesc' placeholder="Enter Service description..." />
                <br>
                <input type="submit" class="btn btn-info btn-lg btn-block" name='save' value='save' />
 
