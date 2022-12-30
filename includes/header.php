@@ -161,6 +161,7 @@ if (isset($_SESSION['user_is_logged_in']) || isset($_SESSION['activeUser'])) {
         <div class="bg-dark p-4">
         <h5 class="text-white h4"> Menu</h5>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="llolololo">
+                <li class="nav-item"><a href="index.php" class="nav-link" aria-current="page"><i class="fa fa-home"></i> Home</a></li>
                 <li class="nav-item"><a href="my_account.php" class="nav-link" aria-current="page"><i class="fa fa-cog"></i> Account</a></li>
                 <li class="nav-item"><a href="logout.php" class="nav-link" aria-current="page"><i class="fa fa-sign-out"></i> Sign-out</a></li>
             </ul>
