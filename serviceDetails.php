@@ -5,44 +5,44 @@ ob_start();
 session_start();
 
 include('includes/functions.php');
-$totalRates=0;
-$avgRate=0;
-$sumRate=0;
-$count=0;
+$totalRates = 0;
+$avgRate = 0;
+$sumRate = 0;
+$count = 0;
 
 
-      try {
-            $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+  $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $id= $_GET['id'];
-            $sql = "select * from service where id= $id ";
-            $sql2= "select * from review where service_id= $id ";
-            $rs = $db->query($sql);
-            $rr = $db->query($sql2);
+  $id = $_GET['id'];
+  $sql = "select * from service where id= $id ";
+  $sql2 = "select * from review where service_id= $id ";
+  $rs = $db->query($sql);
+  $rr = $db->query($sql2);
 
-            if ($row = $rs->fetch()) {
-                  $img= $row['picture'];
-                  $service_name= $row['name'];
-                  $description= $row['description'];
-                  $price= $row['price'];
-                  
-            }
+  if ($row = $rs->fetch()) {
+    $img = $row['picture'];
+    $service_name = $row['name'];
+    $description = $row['description'];
+    $price = $row['price'];
 
-            foreach($rr as $row){
-                  $sumRate+= $row['rating'];
-                  $count++;
-            }
+  }
 
-            $rowCount= $rr->rowCount();
-            if ($rowCount > 0) {
-                  $totalRates= $rowCount;
-            }
+  foreach ($rr as $row) {
+    $sumRate += $row['rating'];
+    $count++;
+  }
 
-            $db = null;
-      } catch (PDOException $e) {
-            die("Error: " . $e->getMessage());
-      }
+  $rowCount = $rr->rowCount();
+  if ($rowCount > 0) {
+    $totalRates = $rowCount;
+  }
+
+  $db = null;
+} catch (PDOException $e) {
+  die("Error: " . $e->getMessage());
+}
 
 ?>
 <!DOCTYPE html>
@@ -78,36 +78,45 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- service -->
   <div class="container-fluid" style="margin-top: 150px;">
     <div class="mx-3 mt-5 d-md-flex ">
-      <div class="service-media col-5"> <img src="<?php echo $img; ?>" alt=" "
-          class="rounded  d-block mx-5 w-75 h-75 "></div>
+      <div class="service-media col-5"> <img src="<?php echo $img; ?>" alt=" " class="rounded  d-block mx-5 w-75 h-75 ">
+      </div>
       <div class="service-desc col-7">
-        <h2><?php echo $service_name; ?></h2>
+        <h2>
+          <?php echo $service_name; ?>
+        </h2>
         <!-- rating -->
-        <?php 
+        <?php
 
-      //calc avg
-      $t=true;
-      if($sumRate==0 && $count==0){
-            $t=false;
-      } else {
-            $avgRate= $sumRate/$count;
-      }
+        //calc avg
+        $t = true;
+        if ($sumRate == 0 && $count == 0) {
+          $t = false;
+        } else {
+          $avgRate = $sumRate / $count;
+        }
 
-      //rating
-      if ($count > 0) {
-            for($i=0; $i < round($avgRate) ; $i++) { 
-                  echo  ' <i class="fa fa-star checked mr-1 main-star"> </i> ';
-            }
-            echo "<p><span id='average_rating'>$avgRate</span> <span id='total_review'>($totalRates)</span> Review(s) </p>"; 
-      } else {
-            echo "No rates yet. <br/><br/>";
-      }
-      // description
-      echo "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, vero iure! Sunt, odio error culpa, tempora, eligendi eius voluptas facere vero doloremque recusandae necessitatibus at sit blanditiis! Expedita, dolorum facere.
+        //rating
+        if ($count > 0) {
+          for ($i = 0; $i < round($avgRate); $i++) {
+            echo ' <i class="fa fa-star checked mr-1 main-star"> </i> ';
+          }
+          echo "<p><span id='average_rating'>$avgRate</span> <span id='total_review'>($totalRates)</span> Review(s) </p>";
+        } else {
+          echo "No rates yet. <br/><br/>";
+        }
+        // description
+        echo "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, vero iure! Sunt, odio error culpa, tempora, eligendi eius voluptas facere vero doloremque recusandae necessitatibus at sit blanditiis! Expedita, dolorum facere.
       <br/>$description <br/>";
-      ?>
+        ?>
 
-      <a href="cart.php"><button class="btn btn-custom">Book now</button></a>
+        <a href="cart.php"><button class="btn btn-custom">Book now</button></a>
+        <form method="post" action='."addcomment()."'>
+          <input type="hidden" name="id" value="<?php $_SESSION['user_data']['id']; ?>">
+          <input type="hidden" name="service" value="<?php $_GET['id']; ?>">
+          <textarea name="message" id="" cols="30" rows="10"></textarea>
+        </form>
+        <button type="submit" name="comment" class="btn btn-custom">Add Comment</button>
+        <?php require('addcomment.php'); ?>
       </div>
     </div>
   </div>

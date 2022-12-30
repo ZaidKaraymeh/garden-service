@@ -94,7 +94,7 @@ if (isset($_POST['sb'])) {
                   if (($result) > 0) {
                         $ERRmsg = "Email already exists!";
                   } else {
-                        $sql = "insert into user value( null ,'$fname $lname', 'user_default.jpg' ,'$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp(),0 )";
+                        $sql = "INSERT INTO user value( null ,'$fname $lname', 'user_default.jpg' ,'$email','$pass',$pn,'CTM',current_timestamp(), current_timestamp(),0 )";
                         $success = $db->exec($sql);
                         if ($success) {
 
