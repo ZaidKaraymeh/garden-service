@@ -113,6 +113,6 @@ div.alert.alert-success.text-center a {
 
 div.alert.alert-success.text-center strong {
     flex: 1;
-    text-align: center;
+    text-align: right;
     margin-right: 5px;
 }

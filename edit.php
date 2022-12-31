@@ -20,11 +20,10 @@ if (isset($_SESSION['user_is_logged_in'])) {
 ?>
 <?php 
 /************** Fetching data from database using id ******************/
-
+    $user_id=0;
     if(isset($_GET['cus_id'])){
-
         $user_id   =   $_GET['cus_id'];
-     }
+    }
 
     //require database class files
     require('includes/config.php');
@@ -64,7 +63,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
   <div class="col-md-12 col-md-offset-3">
     <?php  if($row) : ?>
     <br>
-    <form class="form-horizontal" role="form" method="post" action="edit.php?cus_id=<?php echo $user_id ?>">
+    <form class="form-horizontal" role="form" method="post" action="edit.php?cus_id=<?php echo $user_id; ?>">
       <div class="form-group">
         <label class="control-label col-sm-4" for="name">Fullname:</label>
         <div class="col-sm-12">
@@ -91,13 +90,16 @@ if (isset($_SESSION['user_is_logged_in'])) {
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-12" style="display: flex;justify-content: space-around;">
       <input type="submit" class="btn btn-primary" name="update_customer" value="Update">
-      <button type="submit" class="btn btn-danger pull-right" name="delete_customer">Delete</button>
     </div>
   </div>
-  </div>
-  <?php endif ;  ?>
+</div>
+<?php endif ;  ?>
 
-  </form>
+</form>
+<form method="POST">
+  <input type="hidden" name="cus_id" value="<?php echo $user_id; ?>">
+  <button class="btn btn-danger pull-right text-center d-block" name="delete_customer" value="Delete"> DELETE</a>
+</form>
 
 </div>
 </div>
@@ -114,7 +116,7 @@ if(isset($_POST['update_customer'])){
     $c_email            =   valemail($raw_email);
     
     
-    $db->query('UPDATE user SET fullName=:fullName, email=:email, WHERE id=:id');
+    $db->query('UPDATE user SET fullName=:fullName, email=:email WHERE id=:id');
     
     $db->bindValue(':id',$user_id , PDO::PARAM_INT);
     $db->bindValue(':fullName',$c_name , PDO::PARAM_STR);
@@ -149,9 +151,7 @@ if(isset($_POST['update_customer'])){
 /************** Delete data from database using id ******************/ 
 
 if(isset($_POST['delete_customer'])){
-    
-   
-    
+      $user_id = $_POST['cus_id'];
     keepmsg('<div class="alert alert-danger text-center">
               
               <strong>Confirm!</strong> Do you want to delete your account <br>
@@ -172,9 +172,9 @@ if(isset($_POST['delete_customer'])){
 
    if(isset($_POST['delete_user'])){
        
-    $user_id = $_POST['cus_id'];
+    $user_id = $_POST['id'];
            
-    $db->query('UPDATE id FROM user WHERE id=:id');
+    $db->query('DELETE FROM user WHERE id=:id');
        
     $db->bindValue(':id', $user_id, PDO::PARAM_INT);
        
