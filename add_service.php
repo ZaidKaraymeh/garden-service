@@ -25,7 +25,7 @@ if (isset($_POST['save'])) {
    $desc = test_input($_POST['ServiceDesc']);
    $p1 = '/^[a-z-A-Z]+$/i';
    $p2 = '/^[0-9]+$/';
-   if (!$name || !$price || !$desc || !$_FILES['fileoh']) {
+   if (!$nameoh || !$price || !$desc || !$_FILES['fileoh']) {
       $error = true;
       echo "<div style='background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;'><h1 style='color:red'>All Fields Required</h1></div>";
       die();
