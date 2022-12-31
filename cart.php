@@ -37,8 +37,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         <div class="row">
             <div class="col-12 col-md-6 pic">
                 <!--activite pic-->
-                <div class="title "><?php echo $name; ?></div>
-                <img src="Images\<?php echo $photo; ?>" />
+                <div class="title "><?php echo $_SESSION['user_data']['fullName']; ?></div>
+                <?php echo $_SESSION['user_data']['image']; ?>
 
             </div>
             <div class="col-12 col-md-6 info">
@@ -87,21 +87,21 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                                 <!--col2-->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">TIME</label><br>
+                                        <label class="control-label">SERVICES</label><br>
                                         <select class="form-select" aria-label=".form-select-lg example"
                                             style="max-width:400px; padding-top:7px; padding-bottom:7px;" name="time">
-                                            <option selected>select time</option>
-                                            <option value="6:00am-7:00am">6:00am-7:00am</option>
-                                            <option value="7:00am-8:00am">7:00am-8:00am</option>
-                                            <option value="8:00am-9:00am">8:00am-9:00am</option>
-                                            <option value="9:00am-10:00am">9:00am-10:00am</option>
-                                            <option value="10:00am-11:00am">10:00am-11:00am</option>
-                                            <option value="11:00am-12:00pm">11:00am-12:00pm</option>
-                                            <option value="1:00pm-2:00pm">1:00pm-2:00pm</option>
-                                            <option value="2:00pm-3:00pm">2:00pm-3:00pm</option>
-                                            <option value="3:00pm-4:00pm">3:00pm-4:00pm</option>
-                                            <option value="4:00pm-5:00pm">4:00pm-5:00pm</option>
-                                            <option value="5:00pm-6:00pm">5:00pm-6:00pm</option>
+                                            <option selected>select services</option>
+                                            <?php
+                                            $db->query("SELECT * FROM service");
+                                            $result = $db->fetchMultiple();
+                                            foreach ($result as $results) {
+
+
+                                                ?>
+                                                <option value="  <?php echo $result['name']; ?>">
+                                                    <?php echo $result['price']; ?>
+                                                </option>
+                                                <?php } ?>
 
 
 
