@@ -66,21 +66,23 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <?php require('includes/user_header.php');?>
     <div style="min-height:60px;"></div>
     <div class="container">
-        <div class="container-fluid my-3 mx-2">
+        <div class="container-fluid my-3 mx-2" style="display: grid;grid-template-columns: repeat(auto-fill,minmax(540px,1fr));gap: 40px;">
         <?php
             foreach($rs as $row){ ?>
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
+                <div class="card mb-3" style="max-width: 540px;height:100%">
+                    <div class="row g-0" style="height: 100%;">
                         <div class="col-md-4">
-                            <img src="img/services/<?php echo $row[3];?>" class="img-fluid rounded-start" alt="Service Image" style="height: 100%;">
+                            <img src="img/services/<?php echo $row[3];?>" class="img-fluid rounded-end" alt="Service Image" style="height: 100%;">
                         </div>
                         <div class="col-md-8">
-                            <div class="card-body">
+                            <div class="card-body" style="height: 100%;display:flex;justify-content:center;align-items:flex-start;flex-direction:column;flex-wrap:wrap">
                                 <h5 class="card-title"><?php echo $row[1];?></h5>
-                                <p class="card-text"><?php echo $row[4];?></p>
+                                <p class="card-text" style="flex: 1;overflow-wrap: anywhere;"><?php echo $row[4];?></p>
                                 <p class="card-text"><small class="text-muted"><?php echo $row[2];?> BD</small></p>
-                                <a href="serviceDetails.php?id=<?php echo $row[0];?>" class="btn btn-primary">Read More</a>
-                                <a href="cart.php?=id=<?php echo $row[0];?>" class="btn btn-outline-secondary">Book Now</a>
+                                <div>
+                                    <a href="serviceDetails.php?id=<?php echo $row[0];?>" class="btn btn-primary">Read More</a>
+                                    <a href="cart.php?=id=<?php echo $row[0];?>" class="btn btn-outline-secondary">Book Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,6 @@
 
 //Open ob_start and session_start functions
 ob_start();
-session_start();
-
 include('includes/functions.php');
 $totalRates = 0;
 $avgRate = 0;
@@ -17,7 +15,7 @@ try {
 
   $id = $_GET['id'];
   $sql = "select * from service where id= $id ";
-  $sql2 = "select * from review where service_id= $id ";
+  $sql2 = "select * from review where service= $id ";
   $rs = $db->query($sql);
   $rr = $db->query($sql2);
 
@@ -78,7 +76,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- service -->
   <div class="container-fluid" style="margin-top: 150px;">
     <div class="mx-3 mt-5 d-md-flex ">
-      <div class="service-media col-5"> <img src="<?php echo $img; ?>" alt=" " class="rounded  d-block mx-5 w-75 h-75 ">
+      <div class="service-media col-5">
+        <img src="img/services/<?php echo $img; ?>" alt="Srv Image" class="rounded d-block mx-5 w-75 h-75" style="border: 3px solid #333;">
       </div>
       <div class="service-desc col-7">
         <h2>
@@ -102,35 +101,29 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           }
           echo "<p><span id='average_rating'>$avgRate</span> <span id='total_review'>($totalRates)</span> Review(s) </p>";
         } else {
-          echo "No rates yet. <br/><br/>";
+          echo "<p>No rates yet.</p> <br/><br/>";
         }
         // description
-        echo "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, vero iure! Sunt, odio error culpa, tempora, eligendi eius voluptas facere vero doloremque recusandae necessitatibus at sit blanditiis! Expedita, dolorum facere.
-      <br/>$description <br/>";
+        echo "<p>$description</p>";
         ?>
-
-        <a href="cart.php"><button class="btn btn-custom">Book now</button></a>
-        <form method="post" action='."addcomment()."'>
+          <a href="cart.php" class="d-block my-5" style="width: 100%;text-decoration:none;">
+            <div class="row">
+              <button class="btn btn-outline-secondary">Book now</button>
+            </div>
+          </a>
+          <h3 class="text-center ">Leave Comment</h3>
+        <form method="post" action="addcomment.php">
           <input type="hidden" name="id" value="<?php $_SESSION['user_data']['id']; ?>">
           <input type="hidden" name="service" value="<?php $_GET['id']; ?>">
-          <textarea name="message" id="" cols="30" rows="10"></textarea>
+          <div class="row">
+            <textarea name="message" class="rounded p-2" style="height: 150px;resize:none;"></textarea>
+          </div>
         </form>
-        <button type="submit" name="comment" class="btn btn-custom">Add Comment</button>
-        <?php require('addcomment.php'); ?>
+        <div class="row my-5">
+          <button type="submit" name="comment" class="btn btn-outline-success">Add Comment</button>
+        </div>
       </div>
     </div>
   </div>
-  <!-- Footer Section -->
-  <!-- Footer Section -->
-  <div id="footer">
-    <div class="container text-center">
-      <div class="col-md-12 col-md-offset-2">
-        <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i class="fas fa-trademark"></i>
-        </p>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-
 </body>
+</html>
