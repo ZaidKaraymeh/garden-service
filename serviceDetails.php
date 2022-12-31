@@ -76,8 +76,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- service -->
   <div class="container-fluid" style="margin-top: 150px;">
     <div class="mx-3 mt-5 d-md-flex ">
-      <div class="service-media col-5">
-        <img src="img/services/<?php echo $img; ?>" alt="Srv Image" class="rounded d-block mx-5 w-75 h-75" style="border: 3px solid #333;">
+      <div class="service-media col-5"> <img src="<?php echo $img; ?>" alt=" " class="rounded  d-block mx-5 w-75 h-75 ">
       </div>
       <div class="service-desc col-7">
         <h2>
