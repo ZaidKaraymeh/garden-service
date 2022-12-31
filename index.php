@@ -146,7 +146,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
           <div class="form-group">
             <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message"
-              required="required"></textarea>
+              required="required" style="resize: none;"></textarea>
             <p class="help-block text-danger"></p>
           </div>
           <div id="success"></div>
@@ -157,40 +157,40 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       </div>
       <div class="margo">
         <div class="card" style="width: 18rem;">
-          <img src="img/services/service-1.jpg" class="card-img-top" alt="No Image">
-          <div class="card-body">
+          <img src="img/services/service-1.jpg" class="card-img-top" alt="No Image" style="height:382px">
+          <div class="card-body" style="height:175px">
             <h5 class="card-title">Address</h5>
             <p>Al Nakheel Road Karanna,Road 5833</p>
             <p> PO.18509</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <div class="card" style="width: 18rem;">
-          <img src="img/services/service-2.jpg" class="card-img-top" alt="No image">
-          <div class="card-body">
+          <img src="img/services/service-2.jpg" class="card-img-top" alt="No image" style="height:382px">
+          <div class="card-body" style="height:175px">
             <h5 class="card-title">Working Hours</h5>
             <p class="card-text">
             <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
-            <p>Friday: 07:00 AM - 8:00 PM</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p>Friday: 07:00 AM - 8:00 PM</p></p>
           </div>
         </div>
         <div class="card" style="width: 18rem;">
-          <img src="img/services/service-3.jpg" class="card-img-top" alt="No Image">
-          <div class="card-body">
+          <img src="img/services/service-3.jpg" class="card-img-top" alt="No Image" style="height:382px">
+          <div class="card-body" style="height:175px">
             <h5 class="card-title">Contact Info</h5>
             <p class="card-text">
-            <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
-            <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
+              <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="Google-Maps" id="Google-Maps">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14315.993616002352!2d50.5112608!3d26.2292414!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa248b77cfc914933!2z2YXYtNiq2YQg2LrYtdmGINin2YTYqNit2LHZitmG!5e0!3m2!1sen!2sbh!4v1580040953374!5m2!1sen!2sbh"
-        width="2080" height="800" frameborder="0" style="border:0;" allowfullscreen="true"></iframe>
+    <div class="d-flex justify-content-center align-items-center my-5">
+      <div class="Google-Maps" id="Google-Maps">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14315.993616002352!2d50.5112608!3d26.2292414!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa248b77cfc914933!2z2YXYtNiq2YQg2LrYtdmGINin2YTYqNit2LHZitmG!5e0!3m2!1sen!2sbh!4v1580040953374!5m2!1sen!2sbh"
+          width="500" height="300" frameborder="0" style="border:1px solid green;" allowfullscreen="true"></iframe>
+      </div>
     </div>
   </div>
   <!-- Footer Section -->
