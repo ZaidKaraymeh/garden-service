@@ -1,14 +1,12 @@
 <?php
-//admin session
-session_start();
-//admin session
+require('includes/functions.php');
+require('includes/header.php');
+require("includes/config.php");
 if (!isset($_SESSION['user_is_logged_in'])) {
    //go to log in page.
    header("location: login.php");
 }
-require('includes/functions.php');
-require('includes/header.php');
-require("includes/config.php");
+
 $db = new config;
 
 function test_input($data)
@@ -22,98 +20,114 @@ function test_input($data)
 $error = false;
 
 if (isset($_POST['save'])) {
-
-   $name = test_input($_POST['serviceName']);
+   $nameoh = test_input($_POST['serviceName']);
    $price = test_input($_POST['servicePrice']);
-   $desc = sanitize($_POST['ServiceDesc']);
-   // $rating = test_input($_POST['rating']);
-
+   $desc = test_input($_POST['ServiceDesc']);
    $p1 = '/^[a-z-A-Z]+$/i';
    $p2 = '/^[0-9]+$/';
-
-   if (!$name || !$price || !$desc || !$_FILES['file']) {
+   if (!$name || !$price || !$desc || !$_FILES['fileoh']) {
       $error = true;
-      echo "please enter all required fields";
+      echo "<div style='background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;'><h1 style='color:red'>All Fields Required</h1></div>";
+      die();
    }
-
-   if (!$error) {
-      // || !$photo
-      // $target_path = "images/";
-      // $target_path = $target_path . basename($_FILES['file']['name']);
-      // if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
-      //    $photo = basename($_FILES['file']['name']);
-      // }
-   }
-
-   $success = $db->execute($db->query("INSERT INTO service 
-   VALUES (null,'$name','$price','uploaded_image/user_default.jpg','$desc', current_timestamp(),current_timestamp())"));
-   if ($success) {
-
-      redirect('services.php');
-
-      keepmsg('<div class="alert alert-success text-center">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <strong>Success!</strong> Customer registered successfully.
-        </div>');
-
-   } else {
-
-      keepmsg('<div class="alert alert-danger text-center">
-              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-              <strong>Sorry!</strong> Customer could not be registered.
-        </div>');
-   }
+   if(isset($_FILES['fileoh'])){
+      if($_FILES['fileoh']['error'] > 0){
+         echo "<div style='background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;'><h1 style='color:red'>An error occurred, the file was not uploaded!<br>(Maybe:You Did Not Choose Image)</h1></div>";
+         die();
+      } else {
+            // getting file from user / HTML
+            $file = $_FILES['fileoh'];
+            $name = $file['name'];
+            $main_file = $file['tmp_name'];
+            // predefined file type
+            $mimet = array( 
+               'png' 	=> 'image/png',
+               'jpe' 	=> 'image/jpeg',
+               'jpeg' 	=> 'image/jpeg',
+               'jpg' 	=> 'image/jpeg',
+            );
+            // getting the file type
+            $f_info = finfo_open(FILEINFO_MIME_TYPE);
+            $type   = finfo_file($f_info, $main_file);
+            // image type or file type check
+            if(!in_array($type,$mimet)){
+               echo "<div style='background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;'><h1 style='color:red'>Not Image</h1></div>";
+               die();
+            }
+            // image size(MB/KB) validation
+            $image_size = $file['size']; // size in byte
+            $MB_2 = 2000000; // 2 MB
+            if($image_size > $MB_2){
+               echo "<div style='background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;'><h1 style='color:red'>Image is too large. Please upload Less 2MB image.</h1></div>";
+               die();
+            }
+            // getting extention
+            $ext = explode(".", $name);
+            $ext = end($ext);
+            // makes uinique name
+            $new_name = "service-".time().uniqid(rand()).".".$ext;
+            // upload path setup
+            $upload_location = "img/services/";
+            $new_upload_file = $upload_location.$new_name;
+            // upload
+            if(move_uploaded_file($main_file,$new_upload_file)){
+               $success = $db->execute($db->query("INSERT INTO service 
+               VALUES (null,'$nameoh','$price','$new_name','$desc',0, NOW(),NOW())"));
+               if ($success) {
+                  redirect('services.php');
+                  keepmsg('<div class="alert alert-success text-center">
+                              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                              <strong>Success!</strong> Customer registered successfully.
+                           </div>'
+                        );
+               } else {
+                  keepmsg('<div class="alert alert-danger text-center">
+                              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                              <strong>Sorry!</strong> Customer could not be registered.
+                           </div>'
+                        );
+               }
+            }
+         }
+      }
 }
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>services</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-   <link rel="stylesheet" href="css/style.css">
-
-<body>
-   <div class='container '>
+   <div class='container' style="background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;">
       <div class="row ">
-
          <div class="col-12 col-md-12 l">
             <form method='POST' enctype='multipart/form-data'>
-               <h4>Service name:</h4>
-               <input type=text class="form-control" name='serviceName' placeholder="enter service name.." />
-
-               <h4>Service Price:</h4>
-               <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                     <span class="input-group-text">BD</span>
-                  </div>
-                  <input type="text" class="form-control" name="servicePrice" aria-label="Amount">
-                  <div class="input-group-append">
-                     <span class="input-group-text">.000</span>
+               <div class="row my-3">
+                  <h4>Service name:</h4>
+                  <input type=text class="form-control" name='serviceName' placeholder="enter service name.." />
+               </div>
+               <div class="row my-3">
+                  <h4>Service Price:</h4>
+                  <div class="input-group mb-3">
+                     <input type="text" class="form-control" name="servicePrice" aria-label="Amount">
+                     <div class="input-group-prepend">
+                        <span class="input-group-text">BD</span>
+                     </div>
                   </div>
                </div>
-               <h4>Service picture:</h4>
-               <input class="form-control" type="file" name="file" id="formFile"><br>
-               <input type='submit' class="btn btn-info" name='upload' value='upload' />
-
-               <h4>Service Description: </h4>
-               <input type=text class="form-control" name='ServiceDesc' placeholder="Enter Service description..." />
-               <br>
-               <input type="submit" class="btn btn-info btn-lg btn-block" name='save' value='save' />
-
+               <div class="row my-3">
+                  <h4>Service picture:</h4>
+                  <input class="form-control" type="file" name="fileoh" id="formFile">
+               </div>
+               <div class="row my-3">
+                  <h4>Service Description: </h4>
+                  <div class="form-floating">
+                     <textarea class="form-control" placeholder="Leave a comment here" name="ServiceDesc" id="floatingTextarea2" style="height: 150px;resize:none;"></textarea>
+                     <label for="floatingTextarea2">Description of Service</label>
+                  </div>
+               </div>
+               <div class="row my-4">
+                  <input type="submit" class="btn btn-outline-secondary btn-lg btn-block" name='save' value='ADD' />
+               </div>
             </form>
-
          </div><!--col1-->
-
-
       </div><!--row1-->
-
    </div><!--container-->
 </body>
 
