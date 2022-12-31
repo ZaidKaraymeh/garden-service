@@ -148,8 +148,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <!-- jqury cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </body>
 
 </html>

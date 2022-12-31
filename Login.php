@@ -19,7 +19,7 @@ if (isset($_POST['sb'])) {
                   $d_image = $row['image'];
 
                   $d_name = $row['fullName'];
-                  
+
                   $s_image = "<img src='uploaded_image/$d_image' class='profile_image' />";
                   $_SESSION['activeUser'] = $email;
                   $_SESSION['user_data'] = array(
@@ -114,7 +114,8 @@ if (isset($_POST['sb'])) {
                   </div>
             </div>
       </div>
-      <script type="text/javascript" src="js/bootstrap.js"></script>
+      <!-- jqury cdn -->
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </body>
 
 </html>
