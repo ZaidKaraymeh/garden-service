@@ -20,18 +20,29 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="about.php">About US</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="services.php">Services</a>
-                    </li>
+                    </li> -->
                     <!-- register and login should be in dropdown named profile -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="register.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.php">Book Now</a>
+                    </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a class="dropdown-item text-white" href="cart.php">Book Now</a></li>
+                            <li><a class="dropdown-item text-white" aria-current="page" href="services.php">Services</a></li>
+                            <li><a class="dropdown-item text-white" href="register.php">Register</a></li>
+                            <li><a class="dropdown-item text-white" aria-current="page" href="about.php">About US</a></li>
+                        </ul>
                     </li>
                     <?php
                     if (isset($_SESSION['activeUser'])) {

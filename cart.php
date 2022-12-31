@@ -1,13 +1,9 @@
 <?php
 //Open ob_start and session_start functions
 ob_start();
-session_start();
-?>
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,11 +14,13 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/242f5b2610.js" crossorigin="anonymous"></script>
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
     <!-- Stylesheet
     ================================================== -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -31,9 +29,10 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 </head>
 
 <body>
+    <div style="min-height: 60px;"></div>
     <?php require('includes/user_header.php'); ?>
     <!--Container Main start-->
-    <div class="container ">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 pic">
                 <!--activite pic-->
@@ -61,18 +60,10 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                                             <li>
                                                 <p>Life jacket will be provided for.</p>
                                             </li>
-
                                         </ul>
                                     </details>
                                 </div>
                             </div>
-
-
-
-
-
-
-
                             <!--row1-->
                             <div class="row">
                                 <!--col1-->
@@ -95,16 +86,11 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                                             $db->query("SELECT * FROM service");
                                             $result = $db->fetchMultiple();
                                             foreach ($result as $results) {
-
-
                                                 ?>
                                                 <option value="  <?php echo $result['name']; ?>">
                                                     <?php echo $result['price']; ?>
                                                 </option>
                                                 <?php } ?>
-
-
-
                                         </select>
                                     </div>
                                 </div>
@@ -112,7 +98,6 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                             <!--row2-->
                             <div class="row">
                                 <?php if (!$v) { //water activity ?>
-
                                     <!--col1-->
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -160,13 +145,9 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                             <input type="submit" name="btn" class="btn btn-custom btn-lg btn-block" value="BOOK NOW">
                             </form>
                         </div>
-
                     </div>
                 </div>
-
-
             </div><!--row1-->
-
             <?php
             # php code 
             
@@ -257,20 +238,5 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 </html>
 <!--Container Main end-->
 
-<!-- Footer Section -->
-<div id="footer">
-    <div class="container text-center">
-        <div class="col-md-12 col-md-offset-2">
-            <p>CopyRights <i class="far fa-copyright"></i>2022 Bahrain Branch Contracting <i
-                    class="fas fa-trademark"></i>
-            </p>
-        </div>
-    </div>
-</div>
-<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
-
 </html>
-
-<?php ?>

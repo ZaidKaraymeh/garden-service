@@ -111,16 +111,16 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
               <button class="btn btn-outline-secondary">Book now</button>
             </div>
           </a>
-          <h3 class="text-center ">Leave Comment</h3>
+          <!-- <h3 class="text-center ">Leave Comment</h3>
         <form method="post" action="addcomment.php">
-          <input type="hidden" name="id" value="<?php $_SESSION['user_data']['id']; ?>">
-          <input type="hidden" name="service" value="<?php $_GET['id']; ?>">
+          <input type="hidden" name="id" value="<?php // $_SESSION['user_data']['id']; ?>">
+          <input type="hidden" name="service" value="<?php // $_GET['id']; ?>">
           <div class="row">
             <textarea name="message" class="rounded p-2" style="height: 150px;resize:none;"></textarea>
           </div>
-        </form>
+        </form> -->
         <div class="row my-5">
-          <button type="submit" name="comment" class="btn btn-outline-success">Add Comment</button>
+          <button type="submit" name="comment" class="btn btn-outline-success">Add Review and Comment</button>
         </div>
       </div>
     </div>
