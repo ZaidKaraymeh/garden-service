@@ -175,7 +175,6 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 //insert date,time,no.persons,uid,aid
             $aid = $_REQUEST['aid'];
             try {
-                require('connection.php');
                 $rs = $db->query("SELECT * FROM activity  WHERE id = $aid ");
                 $r = $db->query("SELECT * FROM comments  WHERE aid = $aid");
                 while ($row = $rs->fetch()) {

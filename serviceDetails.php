@@ -17,7 +17,7 @@ try {
 
   $id = $_GET['id'];
   $sql = "select * from service where id= $id ";
-  $sql2 = "select * from review where service_id= $id ";
+  $sql2 = "select * from review where id= $id ";
   $rs = $db->query($sql);
   $rr = $db->query($sql2);
 
