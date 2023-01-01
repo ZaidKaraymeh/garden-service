@@ -26,7 +26,7 @@ ob_start();
 <body>
     <div style="min-height: 60px;"></div>
     <?php require('includes/user_header.php'); ?>
-    <div class="container">
+    <div class="container py-5">
         <div class="container-fluid my-3 mx-2">
             <div class="row">
                 <div class="col-4">
@@ -58,6 +58,72 @@ ob_start();
                             </li>
                         </ul>
                     </details>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-8">
+                    <h3 class="text-center mb-2">Reserve</h3>
+                    <form action="" method="POST" >
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <label for="floatingSelect">Works with selects</label>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" style="border-top-left-radius:8px;border-bottom-left-radius:8px;border-top-right-radius:0;border-bottom-right-radius:0;">Date</span>
+                            <div class="form-floating">
+                                <input type="date" class="form-control" id="floatingInputGroup1" placeholder="Date" style="border-top-left-radius:0px;border-bottom-left-radius:0px;">
+                                <label for="floatingInputGroup1">Date</label>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" style="border-top-left-radius:8px;border-bottom-left-radius:8px;border-top-right-radius:0;border-bottom-right-radius:0;">Price</span>
+                            <div class="form-floating">
+                                <input type="text" disabled class="form-control" id="floatingInputGroup1" placeholder="Price" value="300" style="border-top-left-radius:0px;border-bottom-left-radius:0px;">
+                                <label for="floatingInputGroup1">Price</label>
+                            </div>
+                            <span class="input-group-text" style="border-top-left-radius:0px;border-bottom-left-radius:0px;border-top-right-radius:8px;border-bottom-right-radius:8px;">BD</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <div>
+                                    <img src="images/download-removebg-preview.png" class="img-fluid" alt="Pay-method">
+                                </div>
+                                <div class="my-2">
+                                    <input type="radio" class="btn-check" name="pay" id="olo1" autocomplete="off" value="c-card">
+                                    <label class="btn btn-outline-success" for="olo1">Credit Card</label>   
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div>
+                                    <img src="images/BenefitPay-Youtube-Cover.jpg" class="img-fluid" alt="Pay-method">
+                                </div>
+                                <div class="my-2">
+                                    <input type="radio" class="btn-check" name="pay" id="olo3" autocomplete="off" value="b-card" checked>
+                                    <label class="btn btn-outline-success" for="olo3">Benefit</label>   
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div>
+                                    <img src="images/images-removebg-preview.png" class="img-fluid" alt="Pay-method">
+                                </div>
+                                <div class="my-2">
+                                    <input type="radio" class="btn-check" name="pay" id="olo2" autocomplete="off" value="p-card">
+                                    <label class="btn btn-outline-success" for="olo2">PayPal</label>   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-1">
+                            <button class="btn btn-outline-secondary">Book now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
