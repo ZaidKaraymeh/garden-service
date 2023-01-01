@@ -11,7 +11,7 @@ try{
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
     $stmt = $db->prepare("SELECT * FROM service WHERE id=:id");
-    $stmt->bindParam("id",$service_id);
+    $stmt->bindParam(":id",$service_id);
     $stmt->execute();
     if(!$row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]){
         header("Location: services.php?id=$service_id");
@@ -42,6 +42,8 @@ try{
     ================================================== -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        <!-- jqury cdn -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
     <div style="min-height: 60px;"></div>
@@ -91,26 +93,24 @@ try{
                     <h3 class="text-center mb-2">Reserve</h3>
                     <form action="./PHP/booking_process.php" method="POST">
                         <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_data']['id']; ?>">
-                        <input type="hidden" name="service_id" value="<?php echo $row['id']; ?>">
+                        <input type="hidden" name="service_id" value="<?php echo $row['id']; ?>" id="srv_id">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" style="border-top-left-radius:8px;border-bottom-left-radius:8px;border-top-right-radius:0;border-bottom-right-radius:0;">Date</span>
+                            <div class="form-floating">
+                                <input type="date" class="form-control" id="floatingInputGroup1" placeholder="Date" style="border-top-left-radius:0px;border-bottom-left-radius:0px;" name="dateo" onchange="check_date()">
+                                <label for="floatingInputGroup1">Date</label>
+                            </div>
+                        </div>
                         <div class="form-floating mb-3">
                             <select class="form-select" id="floatingSelect" aria-label="Select Period" name="period">
-                                <option value="day">Day</option>
-                                <option value="evening">Evening</option>
                             </select>
                             <label for="floatingSelect">Period</label>
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" style="border-top-left-radius:8px;border-bottom-left-radius:8px;border-top-right-radius:0;border-bottom-right-radius:0;">Date</span>
-                            <div class="form-floating">
-                                <input type="date" class="form-control" id="floatingInputGroup1" placeholder="Date" style="border-top-left-radius:0px;border-bottom-left-radius:0px;" name="dateo">
-                                <label for="floatingInputGroup1">Date</label>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
                             <span class="input-group-text" style="border-top-left-radius:8px;border-bottom-left-radius:8px;border-top-right-radius:0;border-bottom-right-radius:0;">Price</span>
                             <div class="form-floating">
-                                <input type="text" disabled class="form-control" id="floatingInputGroup1" placeholder="Price" value="<?php echo $row['price']; ?>" style="border-top-left-radius:0px;border-bottom-left-radius:0px;" name="price">
-                                <label for="floatingInputGroup1">Price</label>
+                                <input type="text" disabled class="form-control" id="floatingInputGroup2" placeholder="Price" value="<?php echo $row['price']; ?>" style="border-top-left-radius:0px;border-bottom-left-radius:0px;" name="price">
+                                <label for="floatingInputGroup2">Price</label>
                             </div>
                             <span class="input-group-text" style="border-top-left-radius:0px;border-bottom-left-radius:0px;border-top-right-radius:8px;border-bottom-right-radius:8px;">BD</span>
                         </div>
@@ -144,12 +144,13 @@ try{
                             </div>
                         </div>
                         <div class="row mx-1 my-3">
-                            <button type="submit" class="btn btn-outline-secondary" name="btanoh">Book now</button>
+                            <button type="submit" class="btn btn-outline-secondary" name="btanoh" id="reserve_btn">Book now</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script src="./js/check_date.js"></script>
 </body>
 </html>

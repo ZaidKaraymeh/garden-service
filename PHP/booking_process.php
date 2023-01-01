@@ -21,11 +21,11 @@ if(isset($_POST['btanoh'])){
             $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
             $stmt = $db->prepare("INSERT INTO booking (user,service,date_time,period,payment) VALUES (:us_id,:srv_id,:dt,:per,:pay)");
-            $stmt->bindParam("us_id",$user_id);
-            $stmt->bindParam("srv_id",$service_id);
-            $stmt->bindParam("dt",$dateo);
-            $stmt->bindParam("per",$period);
-            $stmt->bindParam("pay",$pay);
+            $stmt->bindParam(":us_id",$user_id);
+            $stmt->bindParam(":srv_id",$service_id);
+            $stmt->bindParam(":dt",$dateo);
+            $stmt->bindParam(":per",$period);
+            $stmt->bindParam(":pay",$pay);
             $stmt->execute();
             $lastId = $db->lastInsertId();
             if($rowaffected = $stmt->rowCount() >0 ){
