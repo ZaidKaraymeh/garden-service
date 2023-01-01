@@ -150,6 +150,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     </div>
     <!-- jqury cdn -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="contact_me.js"></script>
 </body>
 
 </html>

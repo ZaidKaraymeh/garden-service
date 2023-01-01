@@ -64,7 +64,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       </div>
       <div class="row">
         <div class="col-md-3 text-center">
-          <div class="service-media"><a href="serviceDetails.php?id=1"> <img src="img/services/service-1.jpg" alt=" "> </a></div>
+          <div class="service-media"><a href="serviceDetails.php?id=1"> <img src="img/services/service-1.jpg" alt=" ">
+            </a></div>
           <div class="service-desc">
             <h3>Excavation</h3>
             <p> The cost to remove a palm tree does depend on a few factors. Size is one of them, but also the palm
@@ -72,7 +73,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <div class="service-media"><a href="serviceDetails.php?id=2"> <img src="img/services/service-2.jpg" alt=" "> </a></div>
+          <div class="service-media"><a href="serviceDetails.php?id=2"> <img src="img/services/service-2.jpg" alt=" ">
+            </a></div>
           <div class="service-desc">
             <h3>Landscape Design</h3>
             <p>We provide various types of exotic flowers, fruit trees, palms and expert knowledge to help you decide
@@ -80,7 +82,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <div class="service-media"><a href="serviceDetails.php?id=3"> <img src="img/services/service-3.jpg" alt=" "> </a>
+          <div class="service-media"><a href="serviceDetails.php?id=3"> <img src="img/services/service-3.jpg" alt=" ">
+            </a>
           </div>
           <div class="service-desc">
             <h3>Installation of irrigation systems</h3>
@@ -90,7 +93,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </div>
         <div class="col-md-3 text-center">
-          <div class="service-media"> <a href="serviceDetails.php?id=4"> <img src="img/services/service-4.png" alt=" "> </a></div>
+          <div class="service-media"> <a href="serviceDetails.php?id=4"> <img src="img/services/service-4.png" alt=" ">
+            </a></div>
           <div class="service-desc">
             <h3>Edging, Trimming and Shifting</h3>
             <p>With out expertise gardeners we'll provide you with all the care your garden needs wheater you're
@@ -170,7 +174,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <h5 class="card-title">Working Hours</h5>
             <p class="card-text">
             <p>Saturday-Thursday: 07:00 AM - 7:00 PM</p>
-            <p>Friday: 07:00 AM - 8:00 PM</p></p>
+            <p>Friday: 07:00 AM - 8:00 PM</p>
+            </p>
           </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -178,8 +183,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           <div class="card-body" style="height:175px">
             <h5 class="card-title">Contact Info</h5>
             <p class="card-text">
-              <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
-              <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
+            <p> <i class="fas fa-phone"></i><a href="tel:+973 3927 0909"> Phone:+973 3927 0909</a></p>
+            <p><i class="far fa-envelope"></i><a href="mailto:BBC.bh@outlook.com"> Email: BBC.bh@outlook.com</a></p>
             </p>
           </div>
         </div>
@@ -204,6 +209,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   </div>
   <!-- jqury cdn -->
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="contact_me.js"></script>
 </body>
 
 </html>
