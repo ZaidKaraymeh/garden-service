@@ -81,7 +81,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                                 <p class="card-text"><small class="text-muted"><?php echo $row[2];?> BD</small></p>
                                 <div>
                                     <a href="serviceDetails.php?id=<?php echo $row[0];?>" class="btn btn-primary">Read More</a>
-                                    <a href="cart.php?=id=<?php echo $row[0];?>" class="btn btn-outline-secondary">Book Now</a>
+                                    <a href="booknow.php?id=<?php echo $row[0];?>" class="btn btn-outline-secondary">Book Now</a>
                                 </div>
                             </div>
                         </div>

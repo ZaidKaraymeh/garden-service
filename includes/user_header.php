@@ -38,7 +38,7 @@ session_start();
                             More
                         </a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a class="dropdown-item text-white" href="cart.php">Book Now</a></li>
+                            <li><a class="dropdown-item text-white" href="booknow.php">Book Now</a></li>
                             <li><a class="dropdown-item text-white" aria-current="page" href="services.php">Services</a></li>
                             <li><a class="dropdown-item text-white" href="register.php">Register</a></li>
                             <li><a class="dropdown-item text-white" aria-current="page" href="about.php">About US</a></li>

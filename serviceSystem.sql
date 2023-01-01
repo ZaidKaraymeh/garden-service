@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2022 at 11:27 AM
+-- Generation Time: Jan 01, 2023 at 11:19 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -28,13 +28,26 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `booking` (
-  `id` varchar(36) NOT NULL,
-  `user` varchar(36) NOT NULL,
-  `service` varchar(36) NOT NULL,
-  `date_time` datetime NOT NULL,
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `service` int(11) NOT NULL,
+  `date_time` date NOT NULL,
+  `period` varchar(255) NOT NULL,
+  `payment` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `user`, `service`, `date_time`, `period`, `payment`, `created_at`, `updated_at`) VALUES
+(1, 786, 1, '0000-00-00', 'evening', 'creditcard', '2023-01-01 10:55:11', '2023-01-01 11:38:28'),
+(2, 786, 1, '2023-01-03', 'day', 'paypal', '2023-01-01 10:57:32', '2023-01-01 10:57:32'),
+(3, 786, 1, '2023-01-02', 'evening', 'benefit', '2023-01-01 11:22:36', '2023-01-01 11:22:36'),
+(4, 786, 2, '2023-01-23', 'day', 'paypal', '2023-01-01 13:12:43', '2023-01-01 13:12:43'),
+(5, 786, 2, '2023-02-01', 'evening', 'creditcard', '2023-01-01 13:14:57', '2023-01-01 13:14:57');
 
 -- --------------------------------------------------------
 
@@ -43,9 +56,9 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `comment` (
-  `id` varchar(36) NOT NULL,
-  `user` varchar(36) NOT NULL,
-  `service` varchar(36) NOT NULL,
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `service` int(11) NOT NULL,
   `comment` text NOT NULL,
   `comment_type` char(8) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
@@ -70,13 +83,26 @@ CREATE TABLE `contactus` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rating_table`
+--
+
+CREATE TABLE `rating_table` (
+  `id` int(11) NOT NULL,
+  `rate` tinyint(4) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `service_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `review`
 --
 
 CREATE TABLE `review` (
   `id` varchar(36) NOT NULL,
-  `user` varchar(36) NOT NULL,
-  `service` varchar(36) NOT NULL,
+  `user` int(11) NOT NULL,
+  `service` int(11) NOT NULL,
   `rating` decimal(2,0) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -94,7 +120,7 @@ CREATE TABLE `service` (
   `price` float NOT NULL,
   `picture` varchar(255) NOT NULL COMMENT 'path to image',
   `description` text NOT NULL,
-  `rating` decimal(2,0) NOT NULL,
+  `rating` float NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -104,7 +130,8 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`id`, `name`, `price`, `picture`, `description`, `rating`, `created_at`, `updated_at`) VALUES
-(1, 'Ex', 300, 'service-1672479209144234523763b001e988f83.jpg', 'ijdeheuefuhfeuefugfufeueudfdnjjnsdbhdbhddbh', '0', '2022-12-31 12:33:29', '2022-12-31 13:25:25');
+(1, 'Ex', 300, 'service-1672479209144234523763b001e988f83.jpg', 'ijdeheuefuhfeuefugfufeueudfdnjjnsdbhdbhddbh', 0, '2022-12-31 12:33:29', '2022-12-31 13:25:25'),
+(2, 'Testing', 500, 'service-1672482573101473983563b00f0d47cab.jpg', 'Hello', 0, '2022-12-31 13:29:33', '2022-12-31 13:29:33');
 
 -- --------------------------------------------------------
 
@@ -132,7 +159,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `fullName`, `image`, `email`, `password`, `phone_number`, `user_type`, `created_at`, `updated_at`, `spending`) VALUES
 (785, 'Ali Abadi', '1.png', 'aasd@ss.com', '$2y$10$s7W41j7/chNnHHGgDe9lkO2rWEsgu3/3wWpD3s74LppFGl5q11xWW', '33331362', 'CTM', '2022-12-24 23:30:36', '2022-12-30 10:35:01', 0),
 (786, 'Admin', '1.png', 'admin@admin.com', '$2y$10$s7W41j7/chNnHHGgDe9lkO2rWEsgu3/3wWpD3s74LppFGl5q11xWW', '33123456', 'Adm', '2022-12-29 11:41:49', '2022-12-30 10:35:05', 0),
-(787, 'assa sasa', 'user_default.jpg', 'ali@ali.com', '$2y$10$4vnQfEVt8ekdAt.N/WJyxO4kAJ0g/BBbPNZy.I5LTmg2REccfdJSK', '33345678', 'CTM', '2022-12-30 10:57:02', '2022-12-30 10:57:02', 0);
+(787, 'ali', 'user_default.jpg', 'ali@ali.com', '$2y$10$4vnQfEVt8ekdAt.N/WJyxO4kAJ0g/BBbPNZy.I5LTmg2REccfdJSK', '33345678', 'CTM', '2022-12-30 10:57:02', '2022-12-31 16:08:49', 0);
 
 --
 -- Indexes for dumped tables
@@ -142,13 +169,17 @@ INSERT INTO `user` (`id`, `fullName`, `image`, `email`, `password`, `phone_numbe
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `service` (`service`),
+  ADD KEY `user` (`user`);
 
 --
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user` (`user`),
+  ADD KEY `service` (`service`);
 
 --
 -- Indexes for table `contactus`
@@ -157,10 +188,20 @@ ALTER TABLE `contactus`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rating_table`
+--
+ALTER TABLE `rating_table`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `service_id` (`service_id`);
+
+--
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `service` (`service`),
+  ADD KEY `user` (`user`);
 
 --
 -- Indexes for table `service`
@@ -180,16 +221,66 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rating_table`
+--
+ALTER TABLE `rating_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=788;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=789;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`service`) REFERENCES `service` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`service`) REFERENCES `service` (`id`);
+
+--
+-- Constraints for table `rating_table`
+--
+ALTER TABLE `rating_table`
+  ADD CONSTRAINT `rating_table_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rating_table_ibfk_2` FOREIGN KEY (`service_id`) REFERENCES `service` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`service`) REFERENCES `service` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
