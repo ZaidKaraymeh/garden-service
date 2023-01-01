@@ -120,7 +120,7 @@ if(isset($_SESSION['from_booking'])&&!empty($_SESSION['from_booking'])){
                         <a class="nav-link" href="register.php">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Book Now</a>
+                        <a class="nav-link" href="booknow.php">Book Now</a>
                     </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -364,7 +364,7 @@ unset($_SESSION['from_booking']);
                         <a class="nav-link" href="register.php">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Book Now</a>
+                        <a class="nav-link" href="booknow.php">Book Now</a>
                     </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -43,7 +43,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <div class="col-md-8 col-md-offset-2 intro-text">
               <h1>spend summer outside</h1>
               <p>We design and construct the outdoor space you've always wanted <br> but never wanted to build.</p>
-              <a href="cart.php" class="btn btn-custom btn-lg">Learn More</a>
+              <a href="booknow.php" class="btn btn-custom btn-lg">Learn More</a>
             </div>
           </div>
         </div>

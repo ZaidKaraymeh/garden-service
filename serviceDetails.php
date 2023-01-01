@@ -77,7 +77,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <div class="container-fluid" style="margin-top: 150px;">
     <div class="mx-3 mt-5 d-md-flex ">
       <div class="service-media col-5">
-        <img src="img/services/<?php echo $img; ?>" alt="Srv Image" class="rounded d-block mx-5 w-75 h-75" style="border: 3px solid #333;">
+        <img src="img/services/<?php echo $img; ?>" alt="Srv Image" class="rounded d-block mx-5 w-75 h-75"
+          style="border: 3px solid #333;">
       </div>
       <div class="service-desc col-7">
         <h2>
@@ -106,12 +107,12 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         // description
         echo "<p>$description</p>";
         ?>
-          <a href="cart.php" class="d-block my-5" style="width: 100%;text-decoration:none;">
-            <div class="row">
-              <button class="btn btn-outline-secondary">Book now</button>
-            </div>
-          </a>
-          <!-- <h3 class="text-center ">Leave Comment</h3>
+        <a href="booknow.php" class="d-block my-5" style="width: 100%;text-decoration:none;">
+          <div class="row">
+            <button class="btn btn-outline-secondary">Book now</button>
+          </div>
+        </a>
+        <!-- <h3 class="text-center ">Leave Comment</h3>
         <form method="post" action="addcomment.php">
           <input type="hidden" name="id" value="<?php // $_SESSION['user_data']['id']; ?>">
           <input type="hidden" name="service" value="<?php // $_GET['id']; ?>">
@@ -126,4 +127,5 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     </div>
   </div>
 </body>
+
 </html>

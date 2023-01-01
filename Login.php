@@ -38,7 +38,7 @@ if (isset($_POST['sb'])) {
 
 
 
-                  header('Location: cart.php');
+                  header('Location: booknow.php');
 
 
                   if ($row[6] == 'Adm') {

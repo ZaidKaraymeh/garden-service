@@ -31,17 +31,20 @@ session_start();
                         <a class="nav-link" href="register.php">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Book Now</a>
+                        <a class="nav-link" href="booknow.php">Book Now</a>
                     </li> -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             More
                         </a>
                         <ul class="dropdown-menu bg-dark">
                             <li><a class="dropdown-item text-white" href="booknow.php">Book Now</a></li>
-                            <li><a class="dropdown-item text-white" aria-current="page" href="services.php">Services</a></li>
+                            <li><a class="dropdown-item text-white" aria-current="page" href="services.php">Services</a>
+                            </li>
                             <li><a class="dropdown-item text-white" href="register.php">Register</a></li>
-                            <li><a class="dropdown-item text-white" aria-current="page" href="about.php">About US</a></li>
+                            <li><a class="dropdown-item text-white" aria-current="page" href="about.php">About US</a>
+                            </li>
                         </ul>
                     </li>
                     <?php
