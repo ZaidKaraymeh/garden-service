@@ -136,7 +136,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <div class="container cards">
       <div class="col-md-12 col-md-offset-2" style="width: 100%;">
         <h3>Leave us a message</h3>
-        <form action="POST" data-netlify="true" name="sentMessage" id="contactForm" novalidate>
+        <form action="POST" name="sentMessage" id="contactForm">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
