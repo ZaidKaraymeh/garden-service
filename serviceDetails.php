@@ -81,17 +81,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       $comment = $_POST['message'];
       $service_id = $_GET['id'];
 
-      // $stmt =  $db->prepare("INSERT INTO comment (id, user, service, comment, created_at, updated_at) VALUES (null, :user,:service,:comment,current_timestamp(),current_timestamp()");
-      // $stmt->bindParam(':user', $user_id);
-      // $stmt->bindParam(':service', $service_id);
-      // $stmt->bindParam(':comment', $comment);
-      // $stmt->execute();
-      // $query = "INSERT INTO comment (id, user, service, comment, created_at, updated_at) VALUES (null,'$user_id','$service_id','$comment',current_timestamp(),current_timestamp();";
-
-      $query = "INSERT INTO `comment` (`id`, `user`, `service`, `comment`, `created_at`, `updated_at`) VALUES (NULL, '$user_id', '$service_id', '$comment', current_timestamp(), current_timestamp());";
-      // $stmt = $db->prepare($query);
-      // $stmt->execute();
-      
+      $query = "INSERT INTO `comment` (`id`, `user`, `service`, `comment`, `created_at`, `updated_at`) VALUES (NULL, '$user_id', '$service_id', '$comment', current_timestamp(), current_timestamp());";      
       $r = $db->exec($query);
 
       $user_id = $_SESSION['user_data']['id'];
@@ -149,16 +139,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             <button class="btn btn-outline-secondary">Book now</button>
           </div>
         </a>
-        <!-- <h3 class="text-center ">Leave Comment</h3>
-        <form method="post" action="addcomment.php">
-          <input type="hidden" name="id" value="<?php // $_SESSION['user_data']['id']; 
-                                                ?>">
-          <input type="hidden" name="service" value="<?php // $_GET['id']; 
-                                                      ?>">
-          <div class="row">
-            <textarea name="message" class="rounded p-2" style="height: 150px;resize:none;"></textarea>
-          </div>
-        </form> -->
+ 
         <div class="row my-5">
           
           
@@ -179,8 +160,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                   $response1 = $db->query($rating_count_sql);
                   $booking_row_count = $response->rowCount();
                   $rating_row_count = $response1->rowCount();
-                  // echo "booking: " . $booking_row_count;
-                  // echo "rating: " . $rating_row_count;
+
                   
                   if ($booking_row_count > $rating_row_count) {
                     
@@ -233,10 +213,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       )
       var id = star.id;
       console.log(data[0])
-      // update post
-      // console.log("post:", post)
-      // post.rating = id;
-      //post.rating = id;
+
       document.getElementById('rating_value').value = id;
       for (var i = 1; i <= id; i++) {
         document.getElementById(i).style.color = "orange";
