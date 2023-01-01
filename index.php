@@ -101,6 +101,9 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
               planting new trees, lawn mowers etc.</p>
           </div>
         </div>
+        <div class="text-center">
+          <a href="services.php" class="btn btn-custom">View All Services</a>
+        </div>
       </div>
     </div>
   </div>
@@ -159,7 +162,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         <br>
         <br>
       </div>
-      <div class="margo">
+      <div class="margo container">
         <div class="card" style="width: 18rem;">
           <img src="img/services/service-1.jpg" class="card-img-top" alt="No Image" style="height:382px">
           <div class="card-body" style="height:175px">
