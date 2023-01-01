@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2023 at 11:19 AM
+-- Generation Time: Jan 01, 2023 at 03:48 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35,19 +35,22 @@ CREATE TABLE `booking` (
   `period` varchar(255) NOT NULL,
   `payment` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `available` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`id`, `user`, `service`, `date_time`, `period`, `payment`, `created_at`, `updated_at`) VALUES
-(1, 786, 1, '0000-00-00', 'evening', 'creditcard', '2023-01-01 10:55:11', '2023-01-01 11:38:28'),
-(2, 786, 1, '2023-01-03', 'day', 'paypal', '2023-01-01 10:57:32', '2023-01-01 10:57:32'),
-(3, 786, 1, '2023-01-02', 'evening', 'benefit', '2023-01-01 11:22:36', '2023-01-01 11:22:36'),
-(4, 786, 2, '2023-01-23', 'day', 'paypal', '2023-01-01 13:12:43', '2023-01-01 13:12:43'),
-(5, 786, 2, '2023-02-01', 'evening', 'creditcard', '2023-01-01 13:14:57', '2023-01-01 13:14:57');
+INSERT INTO `booking` (`id`, `user`, `service`, `date_time`, `period`, `payment`, `created_at`, `available`) VALUES
+(2, 786, 1, '2023-01-03', 'day', 'paypal', '2023-01-01 10:57:32', 1),
+(3, 786, 1, '2023-01-02', 'evening', 'benefit', '2023-01-01 11:22:36', 2),
+(4, 786, 2, '2023-01-23', 'day', 'paypal', '2023-01-01 13:12:43', 1),
+(5, 786, 2, '2023-02-01', 'evening', 'creditcard', '2023-01-01 13:14:57', 2),
+(6, 786, 1, '2023-01-06', 'evening', 'benefit', '2023-01-01 16:35:58', 2),
+(7, 786, 1, '2023-01-07', 'evening', 'benefit', '2023-01-01 16:36:29', 2),
+(8, 786, 1, '2023-01-04', 'evening', 'creditcard', '2023-01-01 17:25:40', 2),
+(9, 786, 1, '2023-01-04', 'day', 'paypal', '2023-01-01 17:25:57', 1);
 
 -- --------------------------------------------------------
 
@@ -224,7 +227,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comment`

@@ -12,6 +12,11 @@ if(isset($_POST['btanoh'])){
         $dateo = $_POST['dateo'];
         $period = $_POST['period'];
         $pay = $_POST['pay'];
+        if($period == "day"){
+            $available = 1;
+        } else {
+            $available = 2;
+        }
         try{
             $dbname ='mysql:host=localhost;dbname=servicesystem;charset=utf8';
             $user = 'root';
@@ -20,12 +25,13 @@ if(isset($_POST['btanoh'])){
             $db = new PDO($dbname, $user, $pass);
             $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
-            $stmt = $db->prepare("INSERT INTO booking (user,service,date_time,period,payment) VALUES (:us_id,:srv_id,:dt,:per,:pay)");
+            $stmt = $db->prepare("INSERT INTO booking (user,service,date_time,period,payment,available) VALUES (:us_id,:srv_id,:dt,:per,:pay,:ava)");
             $stmt->bindParam(":us_id",$user_id);
             $stmt->bindParam(":srv_id",$service_id);
             $stmt->bindParam(":dt",$dateo);
             $stmt->bindParam(":per",$period);
             $stmt->bindParam(":pay",$pay);
+            $stmt->bindParam(":ava",$available);
             $stmt->execute();
             $lastId = $db->lastInsertId();
             if($rowaffected = $stmt->rowCount() >0 ){
