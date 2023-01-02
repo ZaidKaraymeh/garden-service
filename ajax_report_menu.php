@@ -1,7 +1,7 @@
 <?php
 //Include functions
 include('includes/functions.php');
-
+session_start();
 ?>
 
 
@@ -36,11 +36,14 @@ $db->bindvalue(":id", $id, PDO::PARAM_INT);
 $rows = $db->fetchMultiple();
 $db->execute();
 $rowCount = 1;
-foreach ($rows as $roww) {
-    echo $rowCount++;
 
-}
-// $rowCount = $row2['spending'];
+$user_id = $_SESSION['user_data']['id'];
+$booking_count_sql = "select * from booking  where user= $user_id ";
+$db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$response = $db->query($booking_count_sql);
+$rowCount = $response->rowCount();
+
 
 
 
