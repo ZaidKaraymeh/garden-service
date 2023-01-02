@@ -14,8 +14,6 @@ try{
     die("Error: " . $e->getMessage());
 }
 ?>
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,26 +58,67 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             background-color: rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(5px);
         } */
+        #alihassan {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(540px,1fr));gap: 40px;
+        }
+        #aliabadi img{
+            height: 230px !important;
+        }
+        #tohello {
+            height: 100%;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+            flex-direction:column;
+            flex-wrap:wrap;
+        }
+        @media (max-width:767px){
+            #alihassan {
+                grid-template-columns: repeat(auto-fill,minmax(250px,1fr));gap: 40px;
+            }
+            #aliabadi img{
+                height: 200px !important;
+                width: 100%;
+                border-bottom-left-radius: 0 !important;
+                border-top-right-radius: var(--bs-border-radius)!important;
+            }
+            #hello {
+                display: flex;
+                width: 100%;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
     <?php require('includes/user_header.php');?>
     <div style="min-height:60px;"></div>
+        <?php if(isset($_SESSION['lognoh'])&&!empty($_SESSION['lognoh'])){?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Notice!</strong><br><?php echo $_SESSION['lognoh']; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php  
+                unset($_SESSION['lognoh']);
+            }
+            ?>
     <div class="container">
-        <div class="container-fluid my-3 mx-2" style="display: grid;grid-template-columns: repeat(auto-fill,minmax(540px,1fr));gap: 40px;">
+        <div class="container-fluid my-3" id="alihassan">
         <?php
             foreach($rs as $row){ ?>
-                <div class="card mb-3" style="max-width: 540px;height:100%">
+                <div class="card mb-3" id="aliabadi">
                     <div class="row g-0" style="height: 100%;">
                         <div class="col-md-4">
                             <img src="img/services/<?php echo $row[3];?>" class="img-fluid rounded-end" alt="Service Image" style="height: 100%;">
                         </div>
                         <div class="col-md-8">
-                            <div class="card-body" style="height: 100%;display:flex;justify-content:center;align-items:flex-start;flex-direction:column;flex-wrap:wrap">
+                            <div class="card-body" id="tohello">
                                 <h5 class="card-title"><?php echo $row[1];?></h5>
                                 <p class="card-text" style="flex: 1;overflow-wrap: anywhere;"><?php echo $row[4];?></p>
                                 <p class="card-text"><small class="text-muted"><?php echo $row[2];?> BD</small></p>
-                                <div>
+                                <div id="hello">
                                     <a href="serviceDetails.php?id=<?php echo $row[0];?>" class="btn btn-primary">Read More</a>
                                     <a href="booknow.php?id=<?php echo $row[0];?>" class="btn btn-outline-secondary">Book Now</a>
                                 </div>

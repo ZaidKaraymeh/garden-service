@@ -134,7 +134,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         // description
         echo "<p>$description</p>";
         ?>
-        <a href="booknow.php" class="d-block my-5" style="width: 100%;text-decoration:none;">
+        <a href="booknow.php?id=<?php echo $id;?>" class="d-block my-5" style="width: 100%;text-decoration:none;">
           <div class="row">
             <button class="btn btn-outline-secondary">Book now</button>
           </div>

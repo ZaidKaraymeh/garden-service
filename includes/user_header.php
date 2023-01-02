@@ -17,7 +17,6 @@ try{
     echo "Error Occured!";
     die($ex->getMessage());
 }
-
 ?>
 <script>
 function myFunction() {

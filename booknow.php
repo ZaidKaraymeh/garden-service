@@ -48,6 +48,13 @@ try{
 <body>
     <div style="min-height: 60px;"></div>
     <?php require('includes/user_header.php'); ?>
+    <?php 
+        if(!isset($_SESSION['user_data'])||empty($_SESSION['user_data'])){
+            $_SESSION['lognoh'] = "Login First To Book !";
+            header("Location: services.php");
+            die();
+        }
+    ?>
     <div class="container py-5">
         <div class="container-fluid my-3 mx-2">
             <div class="row">
