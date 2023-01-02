@@ -131,18 +131,18 @@ if (isset($_SESSION['from_booking']) && !empty($_SESSION['from_booking'])) {
 								<a class="nav-link active" aria-current="page" href="index.php">Home</a>
 							</li>
 							<!-- <li class="nav-item">
-							<a class="nav-link" aria-current="page" href="about.php">About US</a>
-						</li> -->
+															<a class="nav-link" aria-current="page" href="about.php">About US</a>
+														</li> -->
 							<!-- <li class="nav-item">
-							<a class="nav-link" aria-current="page" href="services.php">Services</a>
-						</li> -->
+															<a class="nav-link" aria-current="page" href="services.php">Services</a>
+														</li> -->
 							<!-- register and login should be in dropdown named profile -->
 							<!-- <li class="nav-item">
-							<a class="nav-link" href="register.php">Register</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="booknow.php">Book Now</a>
-						</li> -->
+															<a class="nav-link" href="register.php">Register</a>
+														</li>
+														<li class="nav-item">
+															<a class="nav-link" href="booknow.php">Book Now</a>
+														</li> -->
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 									aria-expanded="false">
@@ -263,7 +263,9 @@ if (isset($_SESSION['from_booking']) && !empty($_SESSION['from_booking'])) {
 				</tr>
 				<tr class="total">
 					<td></td>
-					<td>Total: <?php echo $prico + $vat_prico; ?> BD</td>
+					<td>Total: <?php $total = $prico + $vat_prico;
+					echo $total;
+					?> BD</td>
 				</tr>
 			</table>
 		</div>
@@ -284,7 +286,6 @@ if (isset($_SESSION['from_booking']) && !empty($_SESSION['from_booking'])) {
 	$db->bindvalue(':id', $_SESSION['user_data']['id'], PDO::PARAM_INT);
 	$row = $db->fetchSingle();
 	$spend = $row['spending'];
-	echo $spend;
 	$spend += $total;
 	$db->query('UPDATE user SET spending =:price WHERE id=:id;  ');
 	$db->bindvalue(':price', $spend, PDO::PARAM_INT);
@@ -421,18 +422,18 @@ if (isset($_SESSION['from_booking']) && !empty($_SESSION['from_booking'])) {
 								<a class="nav-link active" aria-current="page" href="index.php">Home</a>
 							</li>
 							<!-- <li class="nav-item">
-							<a class="nav-link" aria-current="page" href="about.php">About US</a>
-						</li> -->
+															<a class="nav-link" aria-current="page" href="about.php">About US</a>
+														</li> -->
 							<!-- <li class="nav-item">
-							<a class="nav-link" aria-current="page" href="services.php">Services</a>
-						</li> -->
+															<a class="nav-link" aria-current="page" href="services.php">Services</a>
+														</li> -->
 							<!-- register and login should be in dropdown named profile -->
 							<!-- <li class="nav-item">
-							<a class="nav-link" href="register.php">Register</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="booknow.php">Book Now</a>
-						</li> -->
+															<a class="nav-link" href="register.php">Register</a>
+														</li>
+														<li class="nav-item">
+															<a class="nav-link" href="booknow.php">Book Now</a>
+														</li> -->
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 									aria-expanded="false">
