@@ -43,7 +43,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <style>
         body {
-            background-image: url(../img/Admin-wall.jpg);
+            background-image: url(img/waloh.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
