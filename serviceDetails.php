@@ -110,11 +110,11 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <!-- service -->
   <div class="container-fluid" style="margin-top: 150px;">
     <div class="mx-3 mt-5 d-md-flex ">
-      <div class="service-media col-5">
+      <div class="service-media col-5" id="tryoh">
         <img src="img/services/<?php echo $img; ?>" alt="Srv Image" class="rounded d-block mx-5 w-75 h-75"
           style="border: 3px solid #333; ">
       </div>
-      <div class="service-desc col-7">
+      <div class="service-desc col-7" id="tamoh">
         <h2>
           <?php echo $service_name; ?>
         </h2>
@@ -256,7 +256,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     }
   </script>
 
-  <div class="container">
+  <div class="container" style="padding-bottom: 100px;">
         <div class="container-fluid my-3 mx-2" style="display: grid;grid-template-columns: repeat(auto-fill,minmax(350px,1fr));gap: 40px;">
           <?php
             foreach($rd as $row){ ?>
@@ -275,7 +275,39 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         ?>
         </div>
     </div>
+    <script>
+      let tryih = document.getElementById("tryoh");
+      let tamoh = document.getElementById("tamoh");
+function myFunctiono(x) {
+  if (x.matches) { // If media query matches
+    tryih.classList.remove("col-5");
+    tryih.classList.add("col-12");
+    tryih.classList.add("d-flex");
+    tryih.classList.add("justify-content-center");
+    tryih.classList.add("my-5");
+    tryih.style.minWidth = "250px";
+    tryih.style.minHeight = "200px";
+    tamoh.classList.remove("col-7");
+    tamoh.classList.add("col-12");
+    tamoh.style.textAlign = "center";
+  } else {
+    tryih.classList.add("col-5");
+    tryih.classList.remove("col-12");
+    tryih.classList.remove("d-flex");
+    tryih.classList.remove("justify-content-center");
+    tryih.classList.remove("my-5");
+    tryih.style.minWidth = "220px";
+    tryih.style.minHeight = "290px";
+    tamoh.classList.add("col-7");
+    tamoh.classList.remove("col-12");
+    tamoh.style.textAlign = "left";
+  }
+}
 
+let x = window.matchMedia("(max-width: 767px)")
+myFunctiono(x) // Call listener function at run time
+x.addListener(myFunctiono) // Attach listener function on state changes
+</script>
 </body>
 
 </html>

@@ -84,7 +84,19 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             flex-direction: column;
             flex-wrap: wrap;
         }
-
+        .btn-custom2 {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #BF0129;
+    padding: 14px 20px;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
         @media (max-width:767px) {
             #alihassan {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -143,7 +155,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                                 <div id="hello">
                                     <a href="serviceDetails.php?id=<?php echo $row[0]; ?>" class="btn btn-custom">Read
                                         More</a>
-                                    <a href="booknow.php?id=<?php echo $row[0]; ?>" class="btn-custom2 btn">Book
+                                    <a href="booknow.php?id=<?php echo $row[0]; ?>" class="btn btn-custom2">Book
                                         Now</a>
                                 </div>
                             </div>

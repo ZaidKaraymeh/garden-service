@@ -54,7 +54,7 @@ try {
     <div class="container py-5">
         <div class="container-fluid my-3 mx-2">
             <div class="row">
-                <div class="col-5">
+                <div class="col-5" id="toty">
                     <img src="./img/services/<?php echo $row['picture']; ?>" class="img-thumbnail" alt="Service picture"
                         style="width: 408px;height:541px">
                     <div class="row my-3 mx-2">
@@ -76,25 +76,12 @@ try {
                         </div>
                     </div>
                 </div>
-                <div class="col-7">
+                <div class="col-7" id="tota">
                     <h2>
                         <?php echo $row['name']; ?>
                     </h2>
                     <p><?php echo $row['description']; ?></p>
-                    <div class="col-4">
-                        <?php if (isset($_SESSION['bok_nw_er']) && !empty($_SESSION['bok_nw_er'])) { ?>
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>Notice!</strong><br>
-                                <?php echo $_SESSION['bok_nw_er']; ?>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            <?php
-                            unset($_SESSION['bok_nw_er']);
-                            }
-                            ?>
-                    </div>
-
-                    <div class="col-8">
+                    <div class="col-12" id="twity">
                         <h3 class="text-center mb-2">Reserve</h3>
                         <form action="./PHP/booking_process.php" method="POST">
                             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_data']['id']; ?>">
@@ -178,6 +165,48 @@ try {
         </div>
     </div>
     <script src="js/check_date.js"></script>
+    <script>
+      let toty = document.getElementById("toty");
+      let tota = document.getElementById("tota");
+      let twity = document.getElementById("twity");
+function myFunctiono(x) {
+  if (x.matches) { // If media query matches
+    // twity.classList.remove("col-8");
+    // twity.classList.add("col-12");
+    toty.classList.remove("col-5");
+    toty.classList.add("col-12");
+    toty.classList.add("d-flex");
+    toty.classList.add("justify-content-center");
+    toty.classList.add("align-items-center");
+    toty.classList.add("my-5");
+    toty.style.flexDirection = "column";
+    toty.style.minWidth = "250px";
+    toty.style.minHeight = "200px";
+    tota.classList.remove("col-7");
+    tota.classList.add("col-12");
+    tota.style.textAlign = "center";
+  } else {
+    // twity.classList.add("col-8");
+    // twity.classList.remove("col-12");
+    toty.classList.add("col-5");
+    toty.classList.remove("col-12");
+    toty.classList.remove("d-flex");
+    toty.classList.remove("justify-content-center");
+    toty.classList.remove("align-items-center");
+    toty.style.flexDirection = "row";
+    toty.classList.remove("my-5");
+    toty.style.minWidth = "220px";
+    toty.style.minHeight = "290px";
+    tota.classList.add("col-7");
+    tota.classList.remove("col-12");
+    tota.style.textAlign = "left";
+  }
+}
+
+let x = window.matchMedia("(max-width: 991px)")
+myFunctiono(x) // Call listener function at run time
+x.addListener(myFunctiono) // Attach listener function on state changes
+</script>
 </body>
 
 </html>
