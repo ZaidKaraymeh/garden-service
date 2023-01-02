@@ -20,8 +20,8 @@ $id = $_GET['cus_id'];
 
     $(document).ready(function () {
 
-        setInterval(function () { display_report_menu(); }, 2000);
-        setInterval(function () { display_customer_info(); }, 4000);
+        setInterval(function () { display_report_menu(); }, 500);
+        setInterval(function () { display_customer_info(); }, 500);
 
         function display_report_menu() {
 
