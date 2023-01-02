@@ -2,8 +2,33 @@
 //Open ob_start and session_start functions
 ob_start();
 session_start();
+try{
+    $dbname ='mysql:host=localhost;dbname=servicesystem;charset=utf8';
+    $user = 'root';
+    $pass = '';
+
+    $connecto = new PDO($dbname, $user, $pass);
+    $connecto->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $stmt_search = $connecto->prepare("SELECT id,name FROM service");
+    $stmt_search->execute();
+    $row_search = $stmt_search->fetchAll(PDO::FETCH_ASSOC);
+    $connecto =null;
+} catch (PDOException $ex){
+    echo "Error Occured!";
+    die($ex->getMessage());
+}
 
 ?>
+<script>
+$(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#search_cont li a").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+</script>
 <!-- Navigation
     ==========================================-->
 <div class="pos-f-t">
@@ -20,19 +45,6 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="about.php">About US</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="services.php">Services</a>
-                    </li> -->
-                    <!-- register and login should be in dropdown named profile -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="booknow.php">Book Now</a>
-                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -46,6 +58,9 @@ session_start();
                             <li><a class="dropdown-item text-white" aria-current="page" href="about.php">About US</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">Search <i class="fa fa-search"></i></a>
                     </li>
                     <?php
                     if (isset($_SESSION['activeUser'])) {
@@ -78,4 +93,20 @@ session_start();
             </div>
         </div>
     </nav>
+</div>
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Search for Service  <i class="fa fa-search"></i></h5>
+        <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <input class="form-control mb-4" type="search" placeholder="Search" aria-label="Search" id="myInput">
+        <ul class="navbar-nav justify-content-end flex-grow-1 p-2 pe-3" id="search_cont">
+            <?php foreach($row_search as $srch){ ?>
+            <li class="nav-item">
+                <a class="nav-link mb-3" aria-current="page" style="border: 1px solid;padding: 10px 20px; background-color:#333;border-radius:8px;" href="serviceDetails.php?id=<?php echo $srch['id'] ?>"><?php echo $srch['name']; ?></a>
+            </li>
+            <?php } ?>
+        </ul>
+    </div>
 </div>

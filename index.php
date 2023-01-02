@@ -30,6 +30,8 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     ================================================== -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- jqury cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
@@ -210,8 +212,6 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       </div>
     </div>
   </div>
-  <!-- jqury cdn -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <script src="contact_me.js"></script>
 </body>
 
