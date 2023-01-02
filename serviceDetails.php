@@ -13,14 +13,15 @@ try {
 
   $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
   $id = $_GET['id'];
   $sql = "select * from service where id= $id ";
   $sql2 = "select * from review where service= $id ";
-
-
+  $sql3 = "select * from comment where service= $id ";
 
   $rs = $db->query($sql);
   $rr = $db->query($sql2);
+  $rd = $db->query($sql3);
 
   if ($row = $rs->fetch()) {
     $img = $row['picture'];
@@ -132,7 +133,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           for ($i = 0; $i < round($avgRate); $i++) {
             echo ' <i class="fa fa-star checked mr-1 main-star"> </i> ';
           }
-          echo "<p><span id='average_rating'>$avgRate</span> <span id='total_review'>($totalRates)</span> Review(s) </p>";
+          echo "<p><span id='average_rating'>".round($avgRate, 2)."</span> <span id='total_review'>($totalRates)</span> Review(s) </p>";
         } else {
           echo "<p>No rates yet.</p> <br/><br/>";
         }
@@ -151,7 +152,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           <p>
             <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#collapseExample" role="button"
               aria-expanded="false" aria-controls="collapseExample">
-              Add Comment
+              Add Review
             </a>
           </p>
 
@@ -253,6 +254,27 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       })
     }
   </script>
+
+  <div class="container">
+        <div class="container-fluid my-3 mx-2" style="display: grid;grid-template-columns: repeat(auto-fill,minmax(350px,1fr));gap: 40px;">
+          <?php
+            foreach($rd as $row){ ?>
+                <div class="card mb-3" style="max-width: 350px;height:100%">
+                    <div class="row g-0" style="height: 100%;">
+                        <div class="col-md-8">
+                            <div class="card-body" style="height: 100%;display:flex;justify-content:center;align-items:flex-start;flex-direction:column;flex-wrap:wrap">
+                            <h5 class="card-title"><?php echo "Customer #".$row[1];?></h5>
+                            <p class="card-text" style="flex: 1;overflow-wrap: anywhere;"><?php echo $row[3];?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          <?php 
+            }
+        ?>
+        </div>
+    </div>
+
 </body>
 
 </html>
