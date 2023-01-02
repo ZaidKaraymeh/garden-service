@@ -32,6 +32,13 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- jqury cdn -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <style>
+      @media (max-width: 650px){
+        #iframe_gMap {
+          width: 300px;
+        }
+      }
+    </style>
 </head>
 
 <body>
@@ -199,7 +206,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
       <div class="Google-Maps" id="Google-Maps">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14315.993616002352!2d50.5112608!3d26.2292414!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa248b77cfc914933!2z2YXYtNiq2YQg2LrYtdmGINin2YTYqNit2LHZitmG!5e0!3m2!1sen!2sbh!4v1580040953374!5m2!1sen!2sbh"
-          width="500" height="300" frameborder="0" style="border:1px solid green;" allowfullscreen="true"></iframe>
+          width="500" height="300" frameborder="0" style="border:1px solid green;" allowfullscreen="true" id="iframe_gMap"></iframe>
       </div>
     </div>
   </div>
