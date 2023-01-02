@@ -89,7 +89,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-12" style="display: flex;justify-content: space-around;">
-      <input type="submit" class="btn btn-custom" name="update_customer" value="Update">
+      <input type="submit" class="btn btn-custom" name="update_customer" value="Update" style="width: 100%;">
     </div>
   </div>
 </div>
@@ -98,7 +98,7 @@ if (isset($_SESSION['user_is_logged_in'])) {
 </form>
 <form method="POST">
   <input type="hidden" name="cus_id" value="<?php echo $user_id; ?>">
-  <button class="btn btn-custom2 pull-right text-center d-block" name="delete_customer" value="Delete"> DELETE</a>
+  <button class="btn btn-custom2 pull-right text-center d-block" name="delete_customer" value="Delete" style="width: 100%;"> DELETE</a>
 </form>
 
 </div>

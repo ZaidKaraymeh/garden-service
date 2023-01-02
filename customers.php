@@ -71,7 +71,8 @@ $results = $db->fetchMultiple();
     <h2 class="text-center">Customers</h2>
     <hr>
     <br>
-    <table class="table table-bordered table-hover text-center">
+    <div style="overflow-x:auto;">
+    <table class="table table-bordered table-hover text-center" style="min-width: 1000px;">
       <thead>
         <tr>
           <th class="text-center">User ID</th>
@@ -105,6 +106,7 @@ $results = $db->fetchMultiple();
         <?php endforeach ; ?>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 

@@ -111,7 +111,7 @@ if (isset($_POST['save'])) {
             <div class="row my-3">
                <h4>Service Price:</h4>
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" name="servicePrice" aria-label="Amount">
+                  <input type="number" class="form-control" name="servicePrice" aria-label="Amount" value="1" min="1" max="10000">
                   <div class="input-group-prepend">
                      <span class="input-group-text">BD</span>
                   </div>

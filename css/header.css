@@ -1,5 +1,6 @@
 body {
     background-image: url(../img/Admin-wall.jpg);
+    background-color: #3F4E4F;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -16,7 +17,19 @@ body::before {
     background-color: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(5px);
 }
-
+.btn-custom2 {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #BF0129;
+    padding: 14px 20px;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
 #llolololo li a {
     color: gray;
     transition: 0.3s;
