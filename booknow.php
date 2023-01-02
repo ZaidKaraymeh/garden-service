@@ -132,12 +132,25 @@ try {
                                     style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
                                     <div>
                                         <img src="img/download-removebg-preview.png" class="img-fluid" alt="Pay-method"
-                                            style="width: 225px;height:225px">
+                                            style="width: 225px;height:225px;">
                                     </div>
                                     <div class="my-2">
                                         <input type="radio" class="btn-check" name="pay" id="olo1" autocomplete="off"
                                             value="creditcard">
                                         <label class="btn btn-outline-success" for="olo1">Credit Card</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 text-center"
+                                    style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                                    <div>
+                                        <img src="img/images-removebg-preview.png" class="img-fluid" alt="Pay-method"
+                                            style="width: 225px;height:225px;">
+                                    </div>
+                                    <div class="my-2">
+                                        <input type="radio" class="btn-check" name="pay" id="olo2" autocomplete="off"
+                                            value="debit">
+                                        <label class="btn btn-outline-success" for="olo2">Debit Card</label>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center"
@@ -150,18 +163,6 @@ try {
                                         <input type="radio" class="btn-check" name="pay" id="olo3" autocomplete="off"
                                             value="benefit" checked>
                                         <label class="btn btn-outline-success" for="olo3">Benefit</label>
-                                    </div>
-                                </div>
-                                <div class="col-4 text-center"
-                                    style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                                    <div>
-                                        <img src="img/images-removebg-preview.png" class="img-fluid" alt="Pay-method"
-                                            style="width: 225px;height:225px">
-                                    </div>
-                                    <div class="my-2">
-                                        <input type="radio" class="btn-check" name="pay" id="olo2" autocomplete="off"
-                                            value="debit">
-                                        <label class="btn btn-outline-success" for="olo2">Debit Card</label>
                                     </div>
                                 </div>
                             </div>
