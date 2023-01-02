@@ -44,6 +44,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <style>
         body {
             background-image: url(img/waloh.jpg);
+            background-color: #3F4E4F;
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
@@ -65,7 +66,9 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
             gap: 40px;
         }
-
+        #aliabadi {
+            box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);
+        }
         #aliabadi img {
             height: 230px !important;
         }
