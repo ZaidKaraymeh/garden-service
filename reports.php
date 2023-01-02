@@ -99,7 +99,7 @@ $id = $_GET['cus_id'];
                     </div>
                 </div>
             </div>
-
+<!-- 
             <div class="col-lg-11" style="margin: 10px;padding:10px;">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -122,7 +122,7 @@ $id = $_GET['cus_id'];
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <input type="hidden" name="c_id" class="form-control" id="user_id"
-                                        value="<?php echo $id; ?>" required>
+                                        value="<?php //echo $id; ?>" required>
                                 </div>
                             </div>
 
@@ -139,7 +139,7 @@ $id = $_GET['cus_id'];
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <script>
