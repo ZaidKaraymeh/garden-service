@@ -63,13 +63,13 @@ try {
                                 <summary>Information</summary>
                                 <ul>
                                     <li>
-                                        <p>price per person.</p>
+                                        <p>price per day.</p>
                                     </li>
                                     <li>
-                                        <p>minimum 1 hour.</p>
+                                        <p>minimum 2 hour.</p>
                                     </li>
                                     <li>
-                                        <p>Life jacket will be provided for.</p>
+                                        <p>our gardening expert will visit the site and do the necessary .</p>
                                     </li>
                                 </ul>
                             </details>
