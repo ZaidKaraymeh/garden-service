@@ -100,7 +100,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     $rating_row_count = $response1->rowCount();
 
     if ($booking_row_count > $rating_row_count) {
-      $query = "INSERT INTO `review` (`id`, `user`, `service`, `rating`, `created_at`, `updated_at`) VALUES (NULL, '$user_id', '$service_id', '$rating', current_timestamp(), current_timestamp());";
+      $query = "INSERT INTO `review` (`user`, `service`, `rating`, `created_at`, `updated_at`) VALUES ('$user_id', '$service_id', '$rating', current_timestamp(), current_timestamp());";
       $r = $db->exec($query);
     }
 
@@ -112,7 +112,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <div class="mx-3 mt-5 d-md-flex ">
       <div class="service-media col-5" id="tryoh">
         <img src="img/services/<?php echo $img; ?>" alt="Srv Image" class="rounded d-block mx-5 w-75 h-75"
-          style="border: 3px solid #333; ">
+          style="border: 3px solid #333;min-width:250px;min-height:200px ">
       </div>
       <div class="service-desc col-7" id="tamoh">
         <h2>
@@ -132,14 +132,14 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         //rating
         if ($count > 0) {
           for ($i = 0; $i < round($avgRate); $i++) {
-            echo ' <i class="fa fa-star checked mr-1 main-star"> </i> ';
+            echo ' <i class="fa fa-star checked mr-1 main-star" style="color:#FFD27D;"> </i> ';
           }
           echo "<p><span id='average_rating'>".round($avgRate, 2)."</span> <span id='total_review'>($totalRates)</span> Review(s) </p>";
         } else {
           echo "<p>No rates yet.</p> <br/><br/>";
         }
         // description
-        echo "<p>$description</p>";
+        echo "<p style='overflow-wrap:anywhere;'>$description</p>";
         ?>
         <a href="booknow.php?id=<?php echo $id; ?>" class="d-block my-5" style="width: 100%;text-decoration:none;">
           <div class="row">
@@ -147,15 +147,13 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
           </div>
         </a>
 
-        <div class="row my-5">
-
-
-          <p>
+        <div class="row my-5 d-flex justify-content-center align-items-center">
+          <div class="row">
             <a class="btn btn-custom" data-bs-toggle="collapse" href="#collapseExample" role="button"
               aria-expanded="false" aria-controls="collapseExample">
               Add Review
             </a>
-          </p>
+          </div>
 
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
@@ -257,10 +255,10 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
   </script>
 
   <div class="container" style="padding-bottom: 100px;">
-        <div class="container-fluid my-3 mx-2" style="display: grid;grid-template-columns: repeat(auto-fill,minmax(350px,1fr));gap: 40px;">
+        <div class="container-fluid my-3 mx-2" style="display: grid;grid-template-columns: repeat(auto-fill,minmax(320px,1fr));gap: 40px;">
           <?php
             foreach($rd as $row){ ?>
-                <div class="card mb-3" style="max-width: 350px;height:100%">
+                <div class="card mb-3" style="min-width: 320px;height:100%">
                     <div class="row g-0" style="height: 100%;">
                         <div class="col-md-8">
                             <div class="card-body" style="height: 100%;display:flex;justify-content:center;align-items:flex-start;flex-direction:column;flex-wrap:wrap">
