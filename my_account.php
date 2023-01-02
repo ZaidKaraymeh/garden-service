@@ -21,6 +21,36 @@ $db->bindValue(':email', $email, PDO::PARAM_STR);
 $row = $db->fetchSingle();
 
 ?>
+<style>
+  .btn-custom {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #8BD71C;
+    padding: 14px 20px;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: all 0.3s;
+  }
+
+  .btn-custom2 {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #BF0129;
+    padding: 14px 20px;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: all 0.3s;
+  }
+</style>
+
 <div class="container"
   style="padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;">
   <div class="well">
@@ -77,9 +107,9 @@ $row = $db->fetchSingle();
             <br>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-12" style="display: flex;justify-content:space-evenly;">
-                <a class="btn btn-primary" href="edit_account.php?cus_id=<?php echo $row['id'] ?>">Edit</a>
+                <a class="btn btn-custom btn-lg" href="edit_account.php?cus_id=<?php echo $row['id'] ?>">Edit</a>
                 <?php if (isset($_SESSION['user_is_logged_in'])) {
-                echo '<button type="submit" class="btn btn-danger pull-right" name="delete_form">Delete</button>';
+                echo '<button type="submit" class="btn btn-custom2 btn-lg pull-right" name="delete_form">Delete</button>';
               } ?>
               </div>
             </div>

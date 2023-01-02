@@ -143,7 +143,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
         ?>
         <a href="booknow.php?id=<?php echo $id; ?>" class="d-block my-5" style="width: 100%;text-decoration:none;">
           <div class="row">
-            <button class="btn btn-outline-secondary">Book now</button>
+            <button class="btn btn-custom">Book now</button>
           </div>
         </a>
 
@@ -151,7 +151,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
 
 
           <p>
-            <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#collapseExample" role="button"
+            <a class="btn btn-custom" data-bs-toggle="collapse" href="#collapseExample" role="button"
               aria-expanded="false" aria-controls="collapseExample">
               Add Review
             </a>

@@ -95,6 +95,10 @@ if (isset($_POST['save'])) {
 
 
 ?>
+
+<head>
+   <link rel="stylesheet" href="css/style.css">
+</head>
 <div class='container'
    style="background-color: aliceblue;padding: 30px;border-radius: 10px;box-shadow: 0 12px 20px 0 rgb(255 255 255 / 33%), 0 2px 4px 0 rgb(255 255 255 / 32%);background-color:#fff;">
    <div class="row ">
@@ -126,7 +130,7 @@ if (isset($_POST['save'])) {
                </div>
             </div>
             <div class="row my-4">
-               <input type="submit" class="btn btn-outline-secondary btn-lg btn-block" name='save' value='ADD' />
+               <input type="submit" class="btn btn-custom btn-lg btn-block" name='save' value='ADD' />
             </div>
          </form>
       </div><!--col1-->

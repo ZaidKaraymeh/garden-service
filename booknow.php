@@ -162,13 +162,12 @@ try {
                                     <div class="my-2">
                                         <input type="radio" class="btn-check" name="pay" id="olo3" autocomplete="off"
                                             value="benefit" checked>
-                                        <label class="btn btn-outline-success" for="olo3">Benefit</label>
+                                        <label class="btn btn-outline-success" for="olo3">Benefit Pay</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mx-1 my-3">
-                                <button type="submit" class="btn btn-outline-secondary" name="btanoh"
-                                    id="reserve_btn">Book
+                                <button type="submit" class="btn btn-custom" name="btanoh" id="reserve_btn">Book
                                     now</button>
                             </div>
 

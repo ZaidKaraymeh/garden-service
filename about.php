@@ -11,9 +11,12 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-7mQhpDl5nRA5nY9lr8F1st2NbIly/8WqhjTp+0oFxEA/QUuvlbF6M1KXezGBh3Nb" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 
     <!-- Stylesheet
     ================================================== -->
@@ -44,10 +47,10 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
                             We invite you to experience for yourself a partnership that so many of our customrs have
                             came to trust.
                         </p>
-                        <a href="#services" class="btn btn-custom btn-lg page-scroll">View All Services</a>
+                        <a href="#services" class="btn btn-custom btn-lg">View All Services</a>
 
                         <i class="fab fa-instagram fa-5x"></i> <a href="https://www.instagram.com/bbn.bh/?hl=en"
-                            class="btn btn-custom btn-lg page-scroll">Instagram Page</a>
+                            class="btn btn-custom2 btn-lg">Instagram Page</a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-3">
