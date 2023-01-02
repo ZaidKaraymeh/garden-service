@@ -18,34 +18,34 @@ $avregoh = 0.0;
 
 //require database class files
 require('includes/config.php');
-try{
-    $dbname ='mysql:host=localhost;dbname=servicesystem;charset=utf8';
+try {
+    $dbname = 'mysql:host=localhost;dbname=servicesystem;charset=utf8';
     $user = 'root';
     $pass = '';
 
     $connecto = new PDO($dbname, $user, $pass);
-    $connecto->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $connecto->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt_user_book = $connecto->prepare("SELECT * FROM booking WHERE user=:us_ido");
     $stmt_total_book = $connecto->prepare("SELECT * FROM booking");
     $stmt_srv_price = $connecto->prepare("SELECT id,price FROM service WHERE id=:srvo_id");
-    $stmt_user_book->bindParam(":us_ido",$id);
-    $stmt_srv_price->bindParam(":srvo_id",$id);
+    $stmt_user_book->bindParam(":us_ido", $id);
+    $stmt_srv_price->bindParam(":srvo_id", $id);
     $stmt_total_book->execute();
     $row_total_book = $stmt_total_book->fetchAll(PDO::FETCH_ASSOC);
-    foreach($row_total_book as $toto){
-        $stmt_srv_price->bindParam(":srvo_id",$toto['service']);
+    foreach ($row_total_book as $toto) {
+        $stmt_srv_price->bindParam(":srvo_id", $toto['service']);
         $stmt_srv_price->execute();
         $coco = $stmt_srv_price->fetchAll(PDO::FETCH_ASSOC)[0];
-        $totaloh+=$coco['price'];
+        $totaloh += $coco['price'];
     }
-    if(count($row_total_book)==0){
+    if (count($row_total_book) == 0) {
         $avregoh = 0.0;
     } else {
-        $avregoh = ($totaloh)/(count($row_total_book));
+        $avregoh = ($totaloh) / (count($row_total_book));
         $avregoh = ceil($avregoh / 0.01) * 0.01;
     }
-    $connecto =null;
-} catch (PDOException $ex){
+    $connecto = null;
+} catch (PDOException $ex) {
     echo "Error Occured!";
     die($ex->getMessage());
 }
@@ -96,8 +96,14 @@ if ($row) {
                                         <i class="fa fa-shopping-cart fa-3x" style="color:orange"></i>
                                     </div>
                                     <div class="col-xs-9 text-right" style="color:orange;margin:10px 0;">
-                                        <div class="huge">' ;if(count($row_total_book)==0){echo 0;}else{echo count($row_total_book);} echo '</div>
-                                        <div>Total Orders</div>
+                                        <div class="huge">';
+    if (count($row_total_book) == 0) {
+        echo 0;
+    } else {
+        echo count($row_total_book);
+    }
+    echo '</div>
+                                        <div>Store Total Orders</div>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +127,7 @@ if ($row) {
                                     </div>
                                     <div class="col-xs-9 text-right" style="color:red;">
                                         <div class="huge">' . $totaloh . ' BD</div>
-                                        <div>Total Amount Spent</div>
+                                        <div>Store Total Sales</div>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +150,7 @@ if ($row) {
                                     </div>
                                     <div id="salary" class="col-xs-9 text-right" style="color:green;">
                                         <div class="huge">' . $avregoh . ' BD</div>
-                                                Average Amount Spent
+                                                Customer Average Spending
                                     </div>
                                 </div>
                             </div>

@@ -89,9 +89,10 @@ $id = $_GET['cus_id'];
             <div class="col-lg-11" style="margin: 10px;padding:10px;">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center"><i class="fa fa-money fa-fw"></i> Customer Information</h3>
+                        <h3 class="panel-title text-center"><i class="fa fa-money fa-fw"></i> Customer Information |
+                            Transaction History</h3>
                     </div>
-                    <div id="customerinfo" class="panel-body" style="background-color:lightgrey;">
+                    <div id="customerinfo" class="panel-body" style="background-color:white;">
                         <!-- Customer information from Ajax Here -->
 
                         <div class="text-right">
@@ -100,47 +101,6 @@ $id = $_GET['cus_id'];
                     </div>
                 </div>
             </div>
-<!-- 
-            <div class="col-lg-11" style="margin: 10px;padding:10px;">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center"><i class="fa fa-money fa-fw"></i> Update Spending Amount
-                        </h3>
-                    </div>
-                    <div id="alert_success" class="panel-body">
-
-                        <br>
-
-                        <form method="post" class="form-horizontal" role="form" action="ajax_form_post.php"
-                            id="updatedata">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="salary" style="color:#777;">Amt</label>
-                                <div class="col-sm-12">
-                                    <input type="text" name="salary" class="form-control" id="salary"
-                                        placeholder="Update Amount" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <input type="hidden" name="c_id" class="form-control" id="user_id"
-                                        value="<?php //echo $id; ?>" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-12" style="text-align:center;margin:30px;">
-                                    <input type="submit" class="btn btn-primary" name="update_customer" value="submit"
-                                        id="submitdata">
-                                </div>
-                            </div>
-                        </form>
-
-                        <div class="text-right">
-                            <a href="#"><i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
 
             <script>
