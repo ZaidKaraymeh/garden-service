@@ -43,14 +43,14 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <style>
         body {
-            /* background-image: url(../img/Admin-wall.jpg); */
-            /* background-repeat: no-repeat; */
-            /* background-size: cover; */
+            background-image: url(../img/Admin-wall.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
             position: relative;
             min-height: 100vh;
         }
 
-        /* body::before {
+        body::before {
             content: '';
             position: absolute;
             left: 0;
@@ -59,7 +59,7 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
             height: 100%;
             background-color: rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(5px);
-        } */
+        }
         #alihassan {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
