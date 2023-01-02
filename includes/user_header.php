@@ -20,14 +20,22 @@ try{
 
 ?>
 <script>
-$(document).ready(function(){
-    $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#search_cont li a").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-});
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("search_cont");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
 </script>
 <!-- Navigation
     ==========================================-->
@@ -100,7 +108,7 @@ $(document).ready(function(){
         <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <input class="form-control mb-4" type="search" placeholder="Search" aria-label="Search" id="myInput">
+        <input class="form-control mb-4" type="search" placeholder="Search" aria-label="Search" id="myInput" onkeyup="myFunction()">
         <ul class="navbar-nav justify-content-end flex-grow-1 p-2 pe-3" id="search_cont">
             <?php foreach($row_search as $srch){ ?>
             <li class="nav-item">
