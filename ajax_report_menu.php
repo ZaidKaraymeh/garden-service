@@ -30,6 +30,17 @@ $db->bindValue(':id', $id, PDO::PARAM_INT);
 
 
 $row = $db->fetchSingle();
+$db->execute();
+$db->query("SELECT * FROM booking WHERE id=:id");
+$db->bindvalue(":id", $id, PDO::PARAM_INT);
+$rows = $db->fetchMultiple();
+$db->execute();
+$rowCount = 1;
+foreach ($rows as $roww) {
+    echo $rowCount++;
+
+}
+// $rowCount = $row2['spending'];
 
 
 
@@ -38,9 +49,10 @@ if ($row) {
 
     $spending_amount = $row['spending'];
 
-    $total_orders = 100;
+    $total_orders = $rowCount;
 
     $total_amt_spent = $spending_amount * $total_orders;
+
 
     $average_amt_spent = ($total_amt_spent) / ($total_orders);
 
@@ -53,7 +65,7 @@ if ($row) {
                                         <i class="fa fa-shopping-cart fa-3x" style="color:orange"></i>
                                     </div>
                                     <div class="col-xs-9 text-right" style="color:orange;margin:10px 0;">
-                                        <div class="huge">100</div>
+                                        <div class="huge">' . $rowCount . '</div>
                                         <div>Total Orders</div>
                                     </div>
                                 </div>
