@@ -97,7 +97,7 @@ try{
                         <div class="input-group mb-3">
                             <span class="input-group-text" style="border-top-left-radius:8px;border-bottom-left-radius:8px;border-top-right-radius:0;border-bottom-right-radius:0;">Date</span>
                             <div class="form-floating">
-                                <input type="date" class="form-control" id="floatingInputGroup1" placeholder="Date" style="border-top-left-radius:0px;border-bottom-left-radius:0px;" name="dateo" onchange="check_date()">
+                                <input type="date" class="form-control" id="floatingInputGroup1" placeholder="Date" style="border-top-left-radius:0px;border-bottom-left-radius:0px;" name="dateo" onchange="check_dateo()">
                                 <label for="floatingInputGroup1">Date</label>
                             </div>
                         </div>
@@ -151,6 +151,6 @@ try{
             </div>
         </div>
     </div>
-    <script src="./js/check_date.js"></script>
+    <script src="js/check_date.js"></script>
 </body>
 </html>

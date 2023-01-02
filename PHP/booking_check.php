@@ -54,8 +54,12 @@ if(isset($_POST['checkDate'])){
                     }
                 }
             } else {
-                echo "No Data Retrived !";
-                die();
+                if ($dateo < date("Y-m-d")){
+                    echo "Not Valid";
+                    exit();
+                }
+                echo "All";
+                exit();
             }
         } elseif(count($jso) == 2) {
             echo "Both times of service have been reserved for this day.";

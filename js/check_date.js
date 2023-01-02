@@ -4,7 +4,7 @@ $( document ).ready(function() {
     $("#reserve_btn").attr('disabled', true);
     addOption("No","Choose Date");
 });
-function check_date(){
+function check_dateo(){
     let dateo = $('#floatingInputGroup1').val();
     let srv_id = $('#srv_id').val();
     if(dateo !=""){
@@ -46,9 +46,6 @@ function check_date(){
                         addOption("No","Select an appropriate time.");
                     }
                 }
-            },
-            error: function (jqXHR, exception){
-                
             }
         });
     }
