@@ -19,9 +19,10 @@ $id = $_GET['cus_id'];
 <script>
 
     $(document).ready(function () {
-
-        setInterval(function () { display_report_menu(); }, 500);
-        setInterval(function () { display_customer_info(); }, 500);
+        display_report_menu();
+        display_customer_info();
+        setInterval(function () { display_report_menu(); }, 60000);
+        setInterval(function () { display_customer_info(); }, 60000);
 
         function display_report_menu() {
 
