@@ -6,6 +6,7 @@ function test_input($data)
       $data = htmlspecialchars($data);
       return $data;
 }
+
 $ERRmsg = "";
 if (isset($_POST['sb'])) {
     session_start();
@@ -16,7 +17,7 @@ if (isset($_POST['sb'])) {
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $email = test_input($_POST['email']);
         if (!preg_match("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/", $email)) {
-            die("Invalid email format, please enter a valid email");
+            $ERRmsg = "Invalid email format, please enter a valid email";
         }
         $sql = "select * from user where email='$email'";
         $rs = $db->query($sql);
