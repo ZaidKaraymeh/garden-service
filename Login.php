@@ -1,4 +1,11 @@
 <?php
+function test_input($data)
+{
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+}
 $ERRmsg = "";
 if (isset($_POST['sb'])) {
     session_start();
@@ -7,7 +14,10 @@ if (isset($_POST['sb'])) {
     try {
         $db = new PDO('mysql:host=localhost;dbname=serviceSystem;charset=utf8', 'root', '');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $email = $_POST['email'];
+        $email = test_input($_POST['email']);
+        if (!preg_match("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/", $email)) {
+            die("Invalid email format, please enter a valid email");
+        }
         $sql = "select * from user where email='$email'";
         $rs = $db->query($sql);
         $db = null;
