@@ -22,6 +22,21 @@ Established in 2016, we provide unique garden solutions, Land services, Landscap
     ================================================== -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <style>
+        .btn-custom2 {
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #BF0129;
+    padding: 14px 20px;
+    letter-spacing: 1px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+    </style>
 </head>
 
 <body>
